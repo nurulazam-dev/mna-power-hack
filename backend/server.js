@@ -3,8 +3,8 @@ import { config } from "dotenv";
 import express, { json } from "express";
 import { set, connect } from "mongoose";
 
-// const userRoutes = require("./routes/users");
-// const authRoutes = require("./routes/auth");
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 
 config();
 
@@ -19,7 +19,7 @@ const corsOption = {
 set("strictQuery", false);
 const connectDB = async () => {
   try {
-    await connect(process.env.MONGODB_URL, {
+    connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -34,8 +34,8 @@ app.use(json());
 app.use(cors(corsOption));
 
 // routes
-// app.use("/api/v1/auth", authRoutes);
-// app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Power Hack's Api is working");
