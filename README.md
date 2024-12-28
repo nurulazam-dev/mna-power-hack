@@ -1,3 +1,3 @@
 ## Power Hack
 
-#### Latest version-
+(Latest version)
