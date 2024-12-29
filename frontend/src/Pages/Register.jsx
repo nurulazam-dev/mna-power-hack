@@ -86,7 +86,7 @@ const Register = () => {
                 value="Register"
               />
             </form>
-            <p className="text-center text-[13px]">
+            <p className="text-center text-[13px] mt-1 text-slate-600">
               If you have account?{" "}
               <Link className="text-blue-500" to="/login">
                 Login
