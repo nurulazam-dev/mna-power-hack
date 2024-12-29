@@ -1,11 +1,26 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import { router } from "./Routes/Routes.jsx";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import App from "./App.jsx";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
+import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <ToastContainer
+          theme="dark"
+          position="top-right"
+          autoClose={3000}
+          closeOnClick
+          pauseOnHover={false}
+        />
+        <App />
+      </AuthContextProvider>
+    </BrowserRouter>
   </StrictMode>
 );

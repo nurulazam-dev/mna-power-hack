@@ -1,6 +1,6 @@
 import Footer from "../shared/Footer";
 import Navbar from "../shared/Navbar";
-import Routers from "../Routes/Routes";
+import Routers from "../Routes/Routers";
 
 const Layout = () => {
   return (
