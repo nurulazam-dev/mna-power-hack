@@ -1,9 +1,9 @@
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import { config } from "dotenv";
 import express, { json } from "express";
 import { set, connect } from "mongoose";
 
-import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 
 config();
@@ -19,8 +19,8 @@ const corsOption = {
 set("strictQuery", false);
 const connectDB = async () => {
   try {
-    // connect(process.env.MONGODB_URL, {
-    connect(process.env.LOCAL_DATABASE, {
+    connect(process.env.MONGODB_URL, {
+      // connect(process.env.LOCAL_DATABASE, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -31,12 +31,13 @@ const connectDB = async () => {
 };
 
 // middlewares
+app.use(cookieParser());
 app.use(json());
 app.use(cors(corsOption));
 
 // routes
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/users", userRoutes);
+// app.use("/api/v1/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Power Hack's Api is working");
