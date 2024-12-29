@@ -47,3 +47,46 @@ export const register = async (req, res) => {
     res.status(500).json({ status: false, message: "User created fail" });
   }
 };
+
+export const login = async (req, res) => {
+  const { email } = req.body;
+  try {
+    let user = null;
+
+    const accountant = await User.findOne({ email });
+
+    if (accountant) {
+      user = accountant;
+    }
+
+    //check if user exist or not
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // compare password
+    const isPasswordMatch = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!isPasswordMatch) {
+      return res
+        .status(400)
+        .json({ status: false, message: "Invalid credentials" });
+    }
+
+    // get token
+    const token = generateToken(user);
+
+    const { password, role, ...rest } = user._doc;
+    return res.status(200).json({
+      status: true,
+      message: "Successfully login",
+      token,
+      data: { ...rest },
+      role,
+    });
+  } catch (error) {
+    return res.status(500).json({ status: false, message: "Failed to login" });
+  }
+};
