@@ -1,10 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [data, setData] = useState({ email: "", password: "" });
+const RegisterCopy = () => {
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -13,10 +18,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/api/v1/auth";
+      const url = "http://localhost5000/api/v1/users";
       const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-      window.location = "/";
+      console.log(data);
+
+      navigate("/login");
+      console.log(res.message);
     } catch (error) {
       if (
         error.response &&
@@ -31,13 +38,31 @@ const Login = () => {
   return (
     <div className="h-screen mt-12 py-12">
       <div className="flex justify-center items-center">
-        {/* login form side */}
+        {/* register form side */}
         <div className="w-96 bg-white p-4 rounded-md">
           <div className="">
             <h2 className=" text-violet-600 text-4xl font-bold mb-4">
-              Please Login
+              Create Account
             </h2>
             <form onSubmit={handleSubmit}>
+              {/* ========name field======== */}
+              <label className="border border-black px-3 py-2 rounded flex items-center mb-4">
+                <img
+                  src="https://freesvg.org/img/abstract-user-flat-4.png"
+                  alt=""
+                  className="w-7 h-7 opacity-30"
+                />
+                <input
+                  type="text"
+                  className="bg-white outline-none px-2 text-[17px]"
+                  placeholder="Full Name"
+                  name="name"
+                  onChange={handleChange}
+                  value={data.name}
+                  required
+                />
+              </label>
+              {/* ========email field======== */}
               <label className="border border-black px-3 py-2 rounded flex items-center mb-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,13 +113,13 @@ const Login = () => {
               <input
                 className="border shadow-lg bg-violet-600 hover:bg-black py-[10px] rounded font-mono font-semibold w-full mt-4 mb-1 text-white hover:text-orange-500"
                 type="submit"
-                value="Login"
+                value="Register"
               />
             </form>
             <p className="text-center text-[13px]">
-              New Here?{" "}
-              <Link className="text-blue-500" to="/register">
-                Create account
+              If you have account?{" "}
+              <Link className="text-blue-500" to="/login">
+                Login
               </Link>
             </p>
           </div>
@@ -104,4 +129,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default RegisterCopy;
