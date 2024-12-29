@@ -1,12 +1,53 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../config";
+import Loading from "../shared/Loading";
 
 const Register = () => {
-  const handleSubmit = () => {
-    console.log("handleSubmit");
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "accountant",
+  });
+
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const { message } = await res.json();
+
+      if (!res.ok) {
+        throw new Error(message);
+      }
+
+      setLoading(false);
+      toast.success(message);
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.message);
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="h-screen mt-12 py-12 bg-slate-50">
+    <section className="h-screen mt-12 py-12 bg-slate-50">
       <div className="flex justify-center items-center">
         {/* register form */}
         <div className="w-96 bg-white p-8 rounded-md border shadow-lg font-serif">
@@ -27,8 +68,8 @@ const Register = () => {
                   className="bg-white outline-none px-2 text-[17px] text-slate-700"
                   placeholder="Full Name"
                   name="name"
-                  //   onChange={handleChange}
-                  //   value={data.name}
+                  onChange={handleInputChange}
+                  value={formData.name}
                   required
                 />
               </label>
@@ -48,8 +89,8 @@ const Register = () => {
                   className="bg-white outline-none px-2 text-[17px] text-slate-700"
                   placeholder="Email"
                   name="email"
-                  //   onChange={handleChange}
-                  //   value={data.email}
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                 />
               </label>
@@ -73,18 +114,20 @@ const Register = () => {
                   className="bg-white outline-none px-2 text-[17px] text-slate-700"
                   placeholder="Password"
                   name="password"
-                  //   onChange={handleChange}
-                  //   value={data.password}
+                  value={formData.password}
+                  onChange={handleInputChange}
                   required
                 />
               </label>
               {/* {error && <div>{error}</div>} */}
 
-              <input
-                className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded  font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500"
+              <button
+                disabled={loading && true}
                 type="submit"
-                value="Register"
-              />
+                className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded  font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500"
+              >
+                {loading ? <Loading /> : "Register"}
+              </button>
             </form>
             <p className="text-center text-[13px] mt-1 text-slate-600">
               If you have account?{" "}
@@ -95,7 +138,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
