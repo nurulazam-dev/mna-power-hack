@@ -1,28 +1,21 @@
-import { createBrowserRouter } from "react-router-dom";
-import Main from "../Layout/Main";
+import { Route, Routes } from "react-router-dom";
 import BillingPage from "../Pages/BillingPage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-    children: [
-      { path: "/", element: <Home /> },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
-      {
-        path: "/billing-list",
-        element: <BillingPage />,
-      },
-    ],
-  },
-]);
+const Routers = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/billing-list" element={<BillingPage />} />
+      {/* <Route path="/about" element={<AboutUs />} /> */}
+      {/* <Route path="*" element={<NotFound />} /> */}
+    </Routes>
+  );
+};
+
+export default Routers;
