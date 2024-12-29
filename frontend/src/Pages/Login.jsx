@@ -1,30 +1,57 @@
-import axios from "axios";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { authContext } from "../context/AuthContext";
+import { BASE_URL } from "../../config";
+import Loading from "../shared/Loading";
 
 const Login = () => {
-  const [data, setData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleChange = ({ currentTarget: input }) => {
-    setData({ ...data, [input.name]: input.value });
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { dispatch } = useContext(authContext);
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
     try {
-      const url = "http://localhost:5000/api/v1/auth";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-      window.location = "/";
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
+      const res = await fetch(`${BASE_URL}/auth/login`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message);
       }
+
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: {
+          user: result.data,
+          token: result.token,
+          role: result.role,
+        },
+      });
+
+      setLoading(false);
+      toast.success(result.message);
+      navigate("/home");
+    } catch (error) {
+      toast.error(error.message);
+      setLoading(false);
     }
   };
 
@@ -53,8 +80,8 @@ const Login = () => {
                   className="bg-white outline-none px-2 text-[17px] text-slate-700"
                   placeholder="Email"
                   name="email"
-                  onChange={handleChange}
-                  value={data.email}
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                 />
               </label>
@@ -78,18 +105,18 @@ const Login = () => {
                   className="bg-white outline-none px-2 text-[17px] text-slate-700"
                   placeholder="Password"
                   name="password"
-                  onChange={handleChange}
-                  value={data.password}
+                  value={formData.password}
+                  onChange={handleInputChange}
                   required
                 />
               </label>
-              {error && <div>{error}</div>}
 
-              <input
-                className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500"
+              <button
                 type="submit"
-                value="Login"
-              />
+                className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500"
+              >
+                {loading ? <Loading /> : "Login"}
+              </button>
             </form>
             <p className="text-center text-[13px] mt-1 text-slate-600">
               New Here?{" "}

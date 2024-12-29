@@ -19,11 +19,12 @@ const corsOption = {
 set("strictQuery", false);
 const connectDB = async () => {
   try {
-    connect(process.env.MONGODB_URL, {
+    /* connect(process.env.MONGODB_URL, {
       // connect(process.env.LOCAL_DATABASE, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    });
+    }); */
+    connect(process.env.MONGODB_URL);
     console.log("MongoDB is connected");
   } catch (err) {
     console.log("MongoDB connection fail");
