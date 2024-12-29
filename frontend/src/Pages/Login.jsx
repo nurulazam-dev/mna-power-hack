@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div className="h-screen mt-12 py-12 bg-slate-50">
       <div className="flex justify-center items-center">
-        {/* login form side */}
+        {/* login form */}
         <div className="w-96 bg-white p-8 rounded-md border shadow-lg font-serif">
           <div className="">
             <h2 className=" text-violet-600 text-4xl font-bold mb-4">
