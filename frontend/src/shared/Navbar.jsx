@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import brandLogo from "../assets/images/logo.png";
+import { authContext } from "../context/AuthContext";
 
 const Navbar = () => {
   let [open, setOpen] = useState(false);
@@ -8,35 +9,50 @@ const Navbar = () => {
   const liClass = `md:inline-block md:ml-10 ml-5 md:my-0 my-2`;
   const navLinkClass = `text-white cursor-pointer font-Barlow font-normal text-base inline-block my-3 border-b-2 border-transparent hover:border-pink-700 duration-300`;
 
-  /* const handleLogOut = () => {
-    localStorage.removeItem("token");
-        window.location.reload();
-  }; */
+  const { user, token, dispatch } = useContext(authContext);
+
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
+
+  const allNavLinks = [
+    {
+      path: "/",
+      display: "Home",
+    },
+
+    {
+      path: "/about",
+      display: "About",
+    },
+    {
+      path: "/contact",
+      display: "Contact",
+    },
+    {
+      path: "/dashboard",
+      display: "Dashboard",
+    },
+  ];
 
   const navLinks = (
     <>
-      <li className={liClass}>
-        <h3 className="text-white font-Barlow font-normal text-base inline-block my-3">
-          Paid Total:
-          <strong className="font-bold text-yellow-500 pl-2">00</strong>
-        </h3>
-      </li>
-      <li className={liClass}>
-        <NavLink to="/" className={navLinkClass}>
-          Home
-        </NavLink>
-      </li>
-      <li className={liClass}>
-        <NavLink to="/login" className={navLinkClass}>
-          Login
-        </NavLink>
-      </li>
+      {allNavLinks.map((link, index) => (
+        <li key={index} className={liClass}>
+          <NavLink to={link.path} className={navLinkClass}>
+            {link.display}
+          </NavLink>
+        </li>
+      ))}
 
-      {/*  {user ? (
+      {token && user ? (
         <li className={liClass}>
           <button
             onClick={handleLogOut}
-            className={`btn btn-ghost ${navLinkClass}`}
+            className={`border px-2 py-1 rounded border-pink-700 ${navLinkClass}`}
           >
             LogOut
           </button>
@@ -47,7 +63,7 @@ const Navbar = () => {
             Login
           </NavLink>
         </li>
-      )} */}
+      )}
     </>
   );
 
