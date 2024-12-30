@@ -18,6 +18,7 @@ const DeleteBillModal = () => {
           <h3 className="text-xl mb-2 font-bold text-red-600">Delete Bill</h3>
           <h3 className="font-bold text-violet-500 text-[16px]">
             Are you sure you want to delete{" "}
+            {/* <strong className="text-black">{billingHolder} `--- no bill`</strong> */}
             <strong className="text-black">{name} `--- no bill`</strong>
           </h3>
           <div className="modal-action">

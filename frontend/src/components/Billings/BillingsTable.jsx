@@ -9,6 +9,7 @@ const BillingsTable = (props) => {
   return (
     <tr className="border text-left">
       <td className="border">{data.id}</td>
+      {/* <td className="border">{data.billingHolder}</td> */}
       <td className="border">{data.name}</td>
       <td className="border">{data.phone}</td>
       {/* <td className="border">{data.amount}</td> */}

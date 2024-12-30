@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const AddBillModal = () => {
   const [data, setData] = useState({
-    name: "",
+    billingHolder: "",
     phone: "",
     amount: "",
   });
@@ -39,7 +39,7 @@ const AddBillModal = () => {
               type="text"
               placeholder="Billing Holder Name"
               onChange={handleChange}
-              value={data.name}
+              value={data.billingHolder}
               className="input outline-none border text-black border-black w-full max-w-xs mt-4 bg-white"
               required
             />

@@ -14,7 +14,7 @@ const UpdateBillModal = () => {
           {/* <form onSubmit={handleBillAdd}> */}
           <form>
             <input
-              name="name"
+              name="billingHolder"
               type="text"
               placeholder="Billing Holder Name"
               // onChange={handleChange}
