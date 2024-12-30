@@ -16,21 +16,13 @@ const UpdateBillModal = () => {
             <input
               name="name"
               type="text"
-              placeholder="Full Name"
+              placeholder="Billing Holder Name"
               // onChange={handleChange}
               // value={data.name}
               className="input outline-none border border-black w-full max-w-xs mt-4 bg-white"
               required
             />
-            <input
-              name="email"
-              type="email"
-              placeholder="Email Address"
-              // onChange={handleChange}
-              // value={data.email}
-              className="input outline-none border border-black w-full max-w-xs mt-4 bg-white"
-              required
-            />
+
             <input
               name="phone"
               type="number"
@@ -52,7 +44,7 @@ const UpdateBillModal = () => {
             <input
               type="submit"
               value="Update Bill"
-              className="btn w-full border-none text-[15px] text-white hover:text-black max-w-xs mt-3 bg-green-600 hover:bg-orange-600"
+              className="btn w-full border-none text-[15px] text-white hover:text-black max-w-xs mt-3 bg-violet-600 hover:bg-orange-600"
             />
           </form>
         </div>

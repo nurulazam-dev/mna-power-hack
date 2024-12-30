@@ -10,10 +10,11 @@ const BillingsTable = (props) => {
     <tr className="border text-left">
       <td className="border">{data.id}</td>
       <td className="border">{data.name}</td>
-      <td className="border">{data.email}</td>
       <td className="border">{data.phone}</td>
-      <td className="border">{data?.username}</td>
-      {/* <td>{data.amount}</td> */}
+      {/* <td className="border">{data.amount}</td> */}
+      <td className="border">$ 120</td>
+      {/* <td className="border">{data?.date}</td> */}
+      <td className="border">30-12-2024</td>
       <td className="flex justify-center">
         <div className="mx-2">
           <UpdateBillModal />

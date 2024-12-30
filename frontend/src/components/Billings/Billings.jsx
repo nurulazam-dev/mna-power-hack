@@ -48,10 +48,10 @@ const Billings = () => {
         <thead>
           <tr className="text-black font-bold text-[16px]">
             <th className="border">Billing ID</th>
-            <th className="border">Full Name</th>
-            <th className="border">Email</th>
+            <th className="border">Billing Holder Name</th>
             <th className="border">Phone</th>
             <th className="border">Paid Amount</th>
+            <th className="border">Paid Date</th>
             <th className="border">Action</th>
           </tr>
         </thead>

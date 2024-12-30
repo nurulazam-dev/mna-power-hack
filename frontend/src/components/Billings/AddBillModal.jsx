@@ -4,7 +4,6 @@ import { useState } from "react";
 const AddBillModal = () => {
   const [data, setData] = useState({
     name: "",
-    email: "",
     phone: "",
     amount: "",
   });
@@ -38,21 +37,13 @@ const AddBillModal = () => {
             <input
               name="name"
               type="text"
-              placeholder="Full Name"
+              placeholder="Billing Holder Name"
               onChange={handleChange}
               value={data.name}
               className="input outline-none border text-black border-black w-full max-w-xs mt-4 bg-white"
               required
             />
-            <input
-              name="email"
-              type="email"
-              placeholder="Email Address"
-              onChange={handleChange}
-              value={data.email}
-              className="input outline-none border border-black w-full max-w-xs mt-4 bg-white text-black"
-              required
-            />
+
             <input
               name="phone"
               type="number"
@@ -74,7 +65,7 @@ const AddBillModal = () => {
             <input
               type="submit"
               value="Bill Add"
-              className="btn w-full border-none text-[15px] text-white hover:text-black max-w-xs mt-3 bg-green-600 hover:bg-orange-600"
+              className="btn w-full border-none text-[15px] text-white hover:text-black max-w-xs mt-3 bg-violet-600 hover:bg-orange-600"
             />
           </form>
         </div>
