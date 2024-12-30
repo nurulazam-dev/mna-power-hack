@@ -10,7 +10,9 @@ const Navbar = () => {
 
   const navLinkClass = `text-orange-600 cursor-pointer font-bold inline-block my-3 border-b-2 border-transparent hover:border-pink-700 duration-300`;
 
-  const btnClass = `text-orange-600 cursor-pointer font-bold inline-block border border-pink-700 px-3 py-1 rounded hover:bg-slate-800 hover:text-white duration-600`;
+  const activeNavLinkClass = `text-orange-600 cursor-pointer font-bold inline-block my-3 border-b-2 border-pink-700`;
+
+  const navBtnClass = `cursor-pointer font-bold inline-block border border-pink-700 px-3 py-1 rounded hover:text-white`;
 
   const liBtnClass = `md:inline-block md:ml-7 ml-5 my-0`;
 
@@ -47,7 +49,12 @@ const Navbar = () => {
     <>
       {allNavLinks.map((link, index) => (
         <li key={index} className={liClass}>
-          <NavLink to={link.path} className={navLinkClass}>
+          <NavLink
+            to={link.path}
+            className={(navClass) =>
+              navClass.isActive ? activeNavLinkClass : navLinkClass
+            }
+          >
             {link.display}
           </NavLink>
         </li>
@@ -55,13 +62,19 @@ const Navbar = () => {
 
       {token && user ? (
         <li className={liBtnClass}>
-          <button onClick={handleLogOut} className={btnClass}>
+          <button
+            onClick={handleLogOut}
+            className={`text-red-600 hover:bg-red-800 ${navBtnClass}`}
+          >
             LogOut
           </button>
         </li>
       ) : (
         <li className={liBtnClass}>
-          <NavLink to="/login" className={btnClass}>
+          <NavLink
+            to="/login"
+            className={`text-slate-600 hover:bg-slate-800 ${navBtnClass}`}
+          >
             Login
           </NavLink>
         </li>
@@ -70,7 +83,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-slate-100 top-0 py-[3px] fixed w-full z-50 flex items-center justify-between">
+    <header className="bg-slate-100 shadow-md top-0 py-[3px] fixed w-full z-50 flex items-center justify-between">
       <div
         className="md:hidden fixed right-5 cursor-pointer z-50"
         style={{ color: "white" }}
