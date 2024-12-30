@@ -6,8 +6,13 @@ import { authContext } from "../context/AuthContext";
 const Navbar = () => {
   let [open, setOpen] = useState(false);
 
-  const liClass = `md:inline-block md:ml-10 ml-5 md:my-0 my-2`;
-  const navLinkClass = `text-white cursor-pointer font-Barlow font-normal text-base inline-block my-3 border-b-2 border-transparent hover:border-pink-700 duration-300`;
+  const liClass = `md:inline-block md:ml-8 ml-5 md:my-0 my-2`;
+
+  const navLinkClass = `text-orange-600 cursor-pointer font-bold inline-block my-3 border-b-2 border-transparent hover:border-pink-700 duration-300`;
+
+  const btnClass = `text-orange-600 cursor-pointer font-bold inline-block border border-pink-700 px-3 py-1 rounded hover:bg-slate-800 hover:text-white duration-600`;
+
+  const liBtnClass = `md:inline-block md:ml-7 ml-5 my-0`;
 
   const { user, token, dispatch } = useContext(authContext);
 
@@ -49,17 +54,14 @@ const Navbar = () => {
       ))}
 
       {token && user ? (
-        <li className={liClass}>
-          <button
-            onClick={handleLogOut}
-            className={`border px-2 py-1 rounded border-pink-700 ${navLinkClass}`}
-          >
+        <li className={liBtnClass}>
+          <button onClick={handleLogOut} className={btnClass}>
             LogOut
           </button>
         </li>
       ) : (
-        <li className={liClass}>
-          <NavLink to="/login" className={navLinkClass}>
+        <li className={liBtnClass}>
+          <NavLink to="/login" className={btnClass}>
             Login
           </NavLink>
         </li>
@@ -68,7 +70,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-[#19223a] top-0 py-[6px] fixed w-full z-50 flex items-center justify-between">
+    <header className="bg-slate-100 top-0 py-[3px] fixed w-full z-50 flex items-center justify-between">
       <div
         className="md:hidden fixed right-5 cursor-pointer z-50"
         style={{ color: "white" }}
@@ -98,13 +100,13 @@ const Navbar = () => {
       </div>
       <NavLink
         to="/"
-        className="flex justify-between items-center text-xl font-bold text-white pl-3"
+        className="flex justify-between items-center text-2xl font-extrabold text-orange-600 pl-3"
       >
         <img src={brandLogo} alt="Brand_Logo" className="w-[36px] h-9" />
         <h2 className="ml-1 hidden lg:block">POWER HACK</h2>
       </NavLink>
       <ul
-        className={`bg-[#19223a] md:pl-10 lg:pr-10 pr-20 md:static fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 ${
+        className={`md:pl-10 lg:pr-10 pr-20 md:static fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 ${
           !open ? "right-[-100%] " : "right-0"
         }`}
       >
