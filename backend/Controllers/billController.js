@@ -19,38 +19,69 @@ export const getAllBills = async (req, res) => {
 export const createBill = async (req, res, next) => {
   try {
     const newBill = new Bill(req.body);
-    //   const savedBill = await newBill.save();
+    const savedBill = await newBill.save();
 
-    newBill.logger();
+    // newBill.logger();
 
     res.status(200).json({
       success: true,
       message: "Bill submitted",
-      data: newBill,
+      data: savedBill,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-
       message: "Bill isn't submitted",
       message: error.message,
     });
   }
 };
 
-// update controller
+// update bill controller
 export const updateBill = async (req, res, next) => {
   const { id } = req.params;
-  const bill = await Bill(id, req.body);
+  try {
+    const updateBill = await Bill.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (!updateBill) {
+      return res.status(404).json({ message: "Bill not found" });
+    }
+    res.status(200).json({
+      status: true,
+      message: "Bill updated successfully",
+      data: updateBill,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "Failed to update the bill",
+      error: error.message,
+    });
+  }
+};
+
+// delete bill controller
+export const deleteBill = async (req, res, next) => {
+  const { id } = req.params;
+  const bill = await Bill(id);
+
+  if (!result.deletedCount) {
+    return res.status(400).json({
+      status: "fail",
+      error: "Couldn't delete the product",
+    });
+  }
+
   res.status(200).json({
-    status: true,
-    message: "Bill updated successfully",
+    status: "success",
+    message: "Successfully deleted the product",
   });
   try {
   } catch (error) {
     res.status(400).json({
-      status: false,
-      message: "Bill isn't updated",
+      status: "fail",
+      message: "Product isn't deleted",
       error: error.message,
     });
   }
