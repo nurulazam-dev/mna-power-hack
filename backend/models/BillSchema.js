@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 const BillSchema = new mongoose.Schema(
   {
-    billingHolder: { type: String, required: true },
+    billingHolder: {
+      type: String,
+      required: [true, "Name is required"],
+      trim: true,
+    },
     phone: {
       type: Number,
       required: true,
@@ -10,9 +14,22 @@ const BillSchema = new mongoose.Schema(
       min: [11, "Must be at least 11"],
       max: 15,
     },
-    amount: { type: Number, min: 1, required: true },
+    amount: {
+      type: Number,
+      required: [true, "Amount is required"],
+      min: [0, "Amount cannot be negative"],
+    },
+    status: {
+      type: String,
+      enum: ["Paid", "Unpaid"],
+      default: "Unpaid",
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  { timestamps: true, currentTime: () => Math.floor(Date.now() / 1000) }
+  { timestamps: true }
 );
 
 export default mongoose.model("Bill", BillSchema);
