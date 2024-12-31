@@ -64,24 +64,24 @@ export const updateBill = async (req, res, next) => {
 // delete bill controller
 export const deleteBill = async (req, res, next) => {
   const { id } = req.params;
-  const bill = await Bill(id);
-
-  if (!result.deletedCount) {
-    return res.status(400).json({
-      status: "fail",
-      error: "Couldn't delete the product",
-    });
-  }
-
-  res.status(200).json({
-    status: "success",
-    message: "Successfully deleted the product",
-  });
   try {
+    const deleteBill = await Bill.findByIdAndDelete(id);
+
+    if (!deleteBill) {
+      return res.status(400).json({
+        status: "fail",
+        error: "Bill not found.",
+      });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "Successfully deleted the bill.",
+    });
   } catch (error) {
     res.status(400).json({
       status: "fail",
-      message: "Product isn't deleted",
+      message: "Failed to delete the bill.",
       error: error.message,
     });
   }
