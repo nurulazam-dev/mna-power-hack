@@ -22,6 +22,10 @@ const BillSchema = new mongoose.Schema({
     enum: ["Paid", "Unpaid"],
     default: "Unpaid",
   },
+  billAttacher: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+  },
   createdAt: {
     type: Date,
     default: Date.now,
