@@ -11,7 +11,7 @@ import {
 const router = express.Router();
 
 router.get("/", authenticate, getAllBills);
-// router.post("/", authenticate, restrict(["accountant"]), createBill);
+// router.post("/", authenticate, restrict(["billingOfficer"]), createBill);
 router.post("/", authenticate, createBill);
 // router.put("/:id", authenticate, restrict(["accountant"]), updateBill);
 router.put("/:id", authenticate, updateBill);

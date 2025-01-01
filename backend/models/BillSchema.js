@@ -12,7 +12,7 @@ const BillSchema = new mongoose.Schema(
       required: true,
       unique: true,
       min: [11, "Must be at least 11"],
-      max: 15,
+      max: 14,
     },
     amount: {
       type: Number,
