@@ -15,6 +15,22 @@ export const getAllBills = async (req, res) => {
   }
 };
 
+// get all bills controller
+export const getBill = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const bill = await Bill.findById(id);
+
+    res.status(200).json({
+      success: true,
+      message: "Successfully got a bill",
+      data: bill,
+    });
+  } catch (error) {
+    res.status(404).json({ success: false, message: "Bill not found" });
+  }
+};
+
 // create a bill controller
 export const createBill = async (req, res, next) => {
   try {
