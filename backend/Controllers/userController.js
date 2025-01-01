@@ -34,3 +34,19 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ success: false, message: "Fail to delete user" });
   }
 };
+
+// get_single_User controller
+export const getSingleUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await User.findById(id).select("-password");
+
+    res.status(200).json({
+      success: true,
+      message: "Successfully got a user",
+      data: user,
+    });
+  } catch (error) {
+    res.status(404).json({ success: false, message: "User not found" });
+  }
+};
