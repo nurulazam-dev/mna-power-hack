@@ -6,11 +6,14 @@ import {
   createBill,
   deleteBill,
   getAllBills,
+  getBill,
   updateBill,
 } from "../Controllers/billController.js";
 const router = express.Router();
 
 router.get("/", authenticate, getAllBills);
+// router.get("/", authenticate, restrict(["accountant"]), getBill);
+router.get("/", authenticate, getBill);
 // router.post("/", authenticate, restrict(["billingOfficer"]), createBill);
 router.post("/", authenticate, createBill);
 // router.put("/:id", authenticate, restrict(["accountant"]), updateBill);
