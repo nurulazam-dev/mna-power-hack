@@ -35,8 +35,8 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-// get_single_User controller
-export const getSingleUser = async (req, res) => {
+// get_a_User controller
+export const getAUser = async (req, res) => {
   const id = req.params.id;
   try {
     const user = await User.findById(id).select("-password");
@@ -67,7 +67,7 @@ export const getAllUser = async (req, res) => {
 };
 
 // get_User_Profile controller
-export const getUserProfile = async (req, res) => {
+export const getMyProfile = async (req, res) => {
   const userId = req.userId;
 
   try {
