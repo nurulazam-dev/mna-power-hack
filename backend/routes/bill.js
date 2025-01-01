@@ -12,7 +12,8 @@ const router = express.Router();
 
 router.get("/", authenticate, getAllBills);
 // router.post("/", authenticate, restrict(["billingOfficer"]), createBill);
-router.post("/", authenticate, createBill);
+// router.post("/", authenticate, createBill);
+router.post("/", createBill);
 // router.put("/:id", authenticate, restrict(["accountant"]), updateBill);
 router.put("/:id", authenticate, updateBill);
 // router.delete("/:id", authenticate, restrict(["admin"]), deleteBill);

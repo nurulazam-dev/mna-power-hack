@@ -4,7 +4,8 @@ import { config } from "dotenv";
 import express, { json } from "express";
 import { set, connect } from "mongoose";
 
-import authRoutes from "./routes/auth.js";
+import authRoutes from "./Routes/auth.js";
+import billRoutes from "./Routes/bill.js";
 
 config();
 
@@ -24,7 +25,8 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }); */
-    connect(process.env.MONGODB_URL);
+    connect(process.env.LOCAL_DATABASE);
+    // connect(process.env.MONGODB_URL);
     console.log("MongoDB is connected");
   } catch (err) {
     console.log("MongoDB connection fail");
@@ -38,6 +40,7 @@ app.use(cors(corsOption));
 
 // routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/bills", billRoutes);
 // app.use("/api/v1/users", userRoutes);
 
 app.get("/", (req, res) => {
