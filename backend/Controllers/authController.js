@@ -17,7 +17,7 @@ export const register = async (req, res) => {
   try {
     let user = null;
 
-    if (role == "billingOfficer" || role == "accountant" || role == "admin") {
+    if (role == "billingOfficer" || "accountant" || "admin") {
       user = await User.findOne({ email });
     }
 
@@ -30,7 +30,7 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
 
-    if (role == "billingOfficer" || role == "accountant" || role == "admin") {
+    if (role == "billingOfficer" || "accountant" || "admin") {
       user = new User({
         name,
         email,
