@@ -9,3 +9,4 @@
 - Tailwind CSS
 - React Router Dom
 - React Icons
+- React Toastify
