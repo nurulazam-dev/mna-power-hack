@@ -6,3 +6,4 @@
 ### Use Technology / Framework / Library:
 **Frontend**
 - React.js
+- Tailwind CSS
