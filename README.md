@@ -13,3 +13,4 @@
 
 **Backend**
 - Express.js
+- MongoDB
