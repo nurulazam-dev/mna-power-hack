@@ -22,3 +22,4 @@
 - Mongoose
 - Bcrypt.js
 - Cookie Parser
+- Cors
