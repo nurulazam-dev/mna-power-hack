@@ -20,3 +20,4 @@
 - Express.js
 - MongoDB
 - Mongoose
+- Bcrypt.js
