@@ -21,3 +21,4 @@
 - MongoDB
 - Mongoose
 - Bcrypt.js
+- Cookie Parser
