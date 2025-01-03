@@ -24,3 +24,4 @@
 - Cookie Parser
 - Cors
 - Dotenv
+- Json Web Token (JWT)
