@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ProtectedRoutes from "./ProtectedRoutes";
+import NotFound from "../Pages/NotFound";
 
 const Routers = () => {
   return (
@@ -22,7 +23,7 @@ const Routers = () => {
         }
       />
       {/* <Route path="/about" element={<AboutUs />} /> */}
-      {/* <Route path="*" element={<NotFound />} /> */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
