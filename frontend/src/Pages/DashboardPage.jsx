@@ -1,4 +1,5 @@
 import Dashboard from "../components/Dashboard/Dashboard";
+import ManageUsers from "../components/Dashboard/ManageUsers";
 import Sidebar from "../components/Dashboard/Sidebar";
 
 const DashboardPage = () => {
@@ -7,6 +8,7 @@ const DashboardPage = () => {
       <Sidebar />
       <div className="mt-20 w-full px-8">
         <Dashboard />
+        <ManageUsers />
       </div>
     </section>
   );
