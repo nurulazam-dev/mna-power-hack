@@ -6,7 +6,7 @@
 
 [Live Demo](https://www.power-hack.com)
 
-- There are three types of users or rules on this website. They are Billing-officer, Accountant and admin.
+- There are three types of users or rules on this website. They are Billing-officer, Accountant and Admin.
 - Only Billing-officer can add the bill/bills.
 - Only Accountant can update the bill/bills.
 - Admin can manage the users and bill.
