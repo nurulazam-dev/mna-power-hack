@@ -1,5 +1,5 @@
-import Dashboard from "../Dashboard/Dashboard";
-import Sidebar from "../Dashboard/Sidebar";
+import Dashboard from "../components/Dashboard/Dashboard";
+import Sidebar from "../components/Dashboard/Sidebar";
 
 const DashboardPage = () => {
   return (
