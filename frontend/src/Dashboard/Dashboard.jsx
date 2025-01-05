@@ -1,7 +1,6 @@
 const Dashboard = () => {
   return (
     <div className="space-y-6">
-      {/* Heading */}
       <h1 className="text-4xl font-bold">Welcome to the Dashboard!</h1>
 
       {/* Cards */}
