@@ -5,7 +5,9 @@ const DashboardPage = () => {
   return (
     <section className="flex justify-between">
       <Sidebar />
-      <Dashboard />
+      <div className="mt-20 w-full px-8">
+        <Dashboard />
+      </div>
     </section>
   );
 };

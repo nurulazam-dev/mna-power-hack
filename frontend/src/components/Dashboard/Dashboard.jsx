@@ -1,6 +1,6 @@
 const Dashboard = () => {
   return (
-    <section className="mt-20 w-full px-8 text-black">
+    <section className="text-black">
       <h1 className="text-4xl mb-6 font-bold">Welcome to the Dashboard!</h1>
 
       {/* Cards */}
