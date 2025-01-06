@@ -4,6 +4,9 @@
 const ManageBills = () => {
   return (
     <section>
+      <h1 className="text-3xl mb-3 font-bold text-black text-center">
+        Manage Bills
+      </h1>
       <div className="border bg-green-500 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
         <div className="flex items-center">
           <h2 className="font-semibold text-2xl text-white">Billings</h2>
@@ -24,9 +27,9 @@ const ManageBills = () => {
           </div> */}
       </div>
 
-      <table className="table table-compact text-center w-full mx-auto">
+      <table className="table table-compact text-center text-black w-full mx-auto">
         <thead>
-          <tr>
+          <tr className="text-violet-700 text-[16px]">
             <th className="border">Billing ID</th>
             <th className="border">Billing Holder</th>
             <th className="border">Phone</th>
