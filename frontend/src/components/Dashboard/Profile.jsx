@@ -3,7 +3,7 @@ import { FaUserCircle } from "react-icons/fa";
 const Profile = () => {
   const user = {
     name: "Nurul Azam",
-    rule: "admin",
+    role: "admin",
     email: "nurul@azam.com",
     phone: "01712345678",
     /* profilePicture:
@@ -12,8 +12,8 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="card w-full shadow-xl bg-white">
+    <div className="">
+      <div className="card rounded-none w-full shadow-xl bg-white">
         {/* Profile Header */}
         <div className="card-body items-center text-center">
           <div className="avatar">
@@ -22,10 +22,10 @@ const Profile = () => {
               <img src={user.profilePicture} alt="Profile" />
             </div> */}
           </div>
-          <h2 className="text-violet-600 text-2xl font-bold border">
-            {user.name}
-          </h2>
-          <p className="text-gray-500 border">Joined on {user.joined}</p>
+          <h2 className="text-violet-600 text-2xl font-bold">{user.name}</h2>
+          <p className="text-gray-500 font-bold text-lg capitalize">
+            {user.role}
+          </p>
         </div>
 
         {/* Profile Details */}
@@ -45,14 +45,17 @@ const Profile = () => {
 
             {/* Membership */}
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <h3 className="text-sm text-gray-500">Rule</h3>
-              <p className="text-lg font-semibold">{user.rule}</p>
+              <h3 className="text-sm text-gray-500">Joined on</h3>
+
+              <p className="text-lg font-semibold">{user.joined}</p>
             </div>
           </div>
 
           {/* Edit Button */}
           <div className="mt-6 text-center">
-            <button className="btn btn-primary px-8">Edit Profile</button>
+            <button className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[18px] px-6 mt-2 mb-1 text-white hover:text-orange-500">
+              Update Profile
+            </button>
           </div>
         </div>
       </div>
