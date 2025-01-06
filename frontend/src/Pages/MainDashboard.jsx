@@ -2,6 +2,9 @@ import { TbHomeStats } from "react-icons/tb";
 import { FaUsersCog, FaRegUser, FaUserEdit } from "react-icons/fa";
 import { RiBillLine } from "react-icons/ri";
 import { useState } from "react";
+import Dashboard from "../components/Dashboard/Dashboard";
+import ManageUsers from "../components/Dashboard/ManageUsers";
+import ManageBills from "../components/Dashboard/ManageBills";
 
 const MainDashboard = () => {
   const [tab, setTab] = useState("dashboard");
@@ -15,8 +18,8 @@ const MainDashboard = () => {
     <section className="px-5 mx-auto my-6">
       <div className="flex w-full mx-auto">
         {/* =======================
-                 Tabs
-          =========================== */}
+                   Tabs
+          ========================= */}
         <div className="w-[13%] lg:w-[25%] lg:py-6 lg:px-[20px] px-1 pb-3 rounded-md shadow-md bg-violet-700 h-max lg:mr-0 mr-[6px]">
           <button
             onClick={() => setTab("dashboard")}
@@ -63,6 +66,17 @@ const MainDashboard = () => {
             <FaUserEdit className="w-7 h-7" />
             <p className="ml-3 hidden lg:block">Settings</p>
           </button>
+        </div>
+
+        {/* =======================
+                   Layout
+          ========================= */}
+        <div className="w-[87%] lg:w-[75%] lg:px-0 px-3 lg:ml-8 rounded-md lg:rounded-none shadow-md lg:shadow-none ">
+          <div className="lg:px-0 px-[10px]">
+            {tab == "dashboard" && <Dashboard />}
+            {tab == "manageUsers" && <ManageUsers />}
+            {tab == "manageBills" && <ManageBills />}
+          </div>
         </div>
       </div>
     </section>
