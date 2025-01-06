@@ -1,4 +1,4 @@
-const Dashboard = () => {
+const Overview = () => {
   return (
     <section className="text-black">
       <h1 className="text-4xl mb-6 font-bold">Welcome to the Dashboard!</h1>
@@ -69,4 +69,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Overview;

@@ -5,7 +5,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ProtectedRoutes from "./ProtectedRoutes";
 import NotFound from "../Pages/NotFound";
-import DashboardPage from "../Pages/DashboardPage";
+import Dashboard from "../Pages/Dashboard";
 
 const Routers = () => {
   return (
@@ -15,7 +15,7 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/billing-list" element={<BillingPage />} />
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route
         path="/billing-list"
         element={

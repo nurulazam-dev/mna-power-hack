@@ -1,6 +1,6 @@
 const ManageUsers = () => {
   return (
-    <section className="pt-6 my-10 bg-white overflow-x-auto">
+    <section>
       <h1 className="text-3xl mb-3 font-bold text-black text-center">
         Manage Users
       </h1>
