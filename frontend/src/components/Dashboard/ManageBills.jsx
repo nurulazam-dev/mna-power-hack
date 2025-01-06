@@ -7,13 +7,13 @@ const ManageBills = () => {
       <h1 className="text-3xl mb-3 font-bold text-black text-center">
         Manage Bills
       </h1>
-      <div className="border bg-green-500 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
+      <div className="border bg-violet-600 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
         <div className="flex items-center">
           <h2 className="font-semibold text-2xl text-white">Billings</h2>
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered mx-3 w-full max-w-xs"
+            className="input bg-white text-black mx-3 w-full max-w-xs"
           />
         </div>
         <div>
