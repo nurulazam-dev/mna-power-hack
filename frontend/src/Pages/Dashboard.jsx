@@ -5,6 +5,7 @@ import { useState } from "react";
 import ManageUsers from "../components/Dashboard/ManageUsers";
 import ManageBills from "../components/Dashboard/ManageBills";
 import Overview from "../components/Dashboard/Overview";
+import Profile from "../components/Dashboard/Profile";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("overview");
@@ -77,6 +78,7 @@ const Dashboard = () => {
             {tab == "overview" && <Overview />}
             {tab == "manageUsers" && <ManageUsers />}
             {tab == "manageBills" && <ManageBills />}
+            {tab == "profile" && <Profile />}
           </div>
         </div>
       </div>
