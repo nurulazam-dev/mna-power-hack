@@ -10,9 +10,9 @@ const Dashboard = () => {
   const [tab, setTab] = useState("overview");
 
   const activeTabClass =
-    "bg-slate-100 text-indigo-600 w-full mt-0 rounded-md flex items-center lg:justify-start justify-center lg:px-5 lg:py-2 px-1";
+    "bg-slate-100 text-indigo-600 w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-5 lg:py-2 px-1";
   const inactiveTabClass =
-    "bg-transparent text-white w-full mt-0 rounded-md flex items-center lg:justify-start justify-center lg:px-5 lg:py-2 px-1";
+    "bg-transparent text-white w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-5 lg:py-2 px-1";
   return (
     <section className="mx-auto">
       <div className="flex w-full mx-auto">
@@ -30,15 +30,7 @@ const Dashboard = () => {
             <TbHomeStats className="w-7 h-7" />
             <p className="ml-3 hidden lg:block">Overview</p>
           </button>
-          <button
-            onClick={() => setTab("manageUsers")}
-            className={`${
-              tab == "manageUsers" ? activeTabClass : inactiveTabClass
-            } `}
-          >
-            <FaUsersCog className="w-7 h-7" />
-            <p className="ml-3 hidden lg:block">Manage Users</p>
-          </button>
+
           <button
             onClick={() => setTab("manageBills")}
             className={`${
@@ -47,6 +39,15 @@ const Dashboard = () => {
           >
             <RiBillLine className="w-7 h-7" />
             <p className="ml-3 hidden lg:block">Manage Bills</p>
+          </button>
+          <button
+            onClick={() => setTab("manageUsers")}
+            className={`${
+              tab == "manageUsers" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <FaUsersCog className="w-7 h-7" />
+            <p className="ml-3 hidden lg:block">Manage Users</p>
           </button>
           <button
             onClick={() => setTab("profile")}
