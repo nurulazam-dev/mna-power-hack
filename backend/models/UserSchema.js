@@ -7,6 +7,12 @@ const UserSchema = new mongoose.Schema({
     required: [true, "Email is required"],
     unique: [true, "Email is unique"],
   },
+  phone: {
+    type: String,
+    required: [true, "Phone number is required"],
+    unique: [true, "Phone number is unique"],
+    match: [/^[0-9]{11}$/, "Phone number isn't 11 characters"],
+  },
   password: { type: String, required: [true, "Password is required"] },
   role: {
     type: String,

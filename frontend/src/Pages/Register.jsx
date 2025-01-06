@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../config";
 import Loading from "../shared/Loading";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
@@ -10,6 +11,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     password: "",
     role: "accountant",
   });
@@ -91,6 +93,24 @@ const Register = () => {
                   placeholder="Email"
                   name="email"
                   value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              {/* ========phone field======== */}
+              <label className="border border-black px-3 py-2 rounded flex items-center mb-4">
+                <FaPhoneAlt className="w-6 h-6 opacity-65" />
+                {/* <img
+                  src="https://freesvg.org/img/abstract-user-flat-4.png"
+                  alt=""
+                  className="w-7 h-7 opacity-30"
+                /> */}
+                <input
+                  type="phone"
+                  className="bg-white outline-none px-2 text-[17px] text-slate-700"
+                  placeholder="Phone Number"
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleInputChange}
                   required
                 />
