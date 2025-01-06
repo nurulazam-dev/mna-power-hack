@@ -3,7 +3,7 @@ import AddBillModal from "./AddBillModal";
 import DeleteBillModal from "./DeleteBillModal";
 import Table from "./Table";
 
-const ManageBills = () => {
+const ManageBillsCopy = () => {
   const [deleteBill, setDeleteBill] = useState(null);
   const [bills, setBills] = useState([]);
 
@@ -61,4 +61,4 @@ const ManageBills = () => {
   );
 };
 
-export default ManageBills;
+export default ManageBillsCopy;
