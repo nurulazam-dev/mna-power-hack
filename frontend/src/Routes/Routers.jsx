@@ -19,7 +19,7 @@ const Routers = () => {
       <Route
         path="/billing-list"
         element={
-          <ProtectedRoutes allowedRoles={["accountant"]}>
+          <ProtectedRoutes allowedRoles={["billingOfficer"]}>
             <BillingPage />
           </ProtectedRoutes>
         }
