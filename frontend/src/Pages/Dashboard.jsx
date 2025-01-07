@@ -21,7 +21,7 @@ const Dashboard = () => {
         {/* =======================
                    Tabs
           ========================= */}
-        <div className="w-[10%] lg:w-[20%] lg:py-6 lg:px-[20px] px-1 pb-3 rounded-md shadow-md bg-violet-600 h-screen lg:mr-0 mr-[6px] p-5 mt-10 text-white">
+        <div className="w-[10%] lg:w-[20%] lg:py-6 lg:px-[20px] px-1 pb-3 rounded-md shadow-md bg-slate-700 h-screen lg:mr-0 mr-[6px] p-5 mt-10 text-white">
           <div className="text-3xl text-center font-bold mb-4">Dashboard</div>
           <button
             onClick={() => setTab("overview")}
