@@ -14,7 +14,6 @@ const Profile = () => {
   return (
     <div className="">
       <div className="card rounded-none w-full shadow-xl bg-white">
-        {/* Profile Header */}
         <div className="card-body items-center text-center">
           <div className="avatar">
             <FaUserCircle className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" />
@@ -28,7 +27,6 @@ const Profile = () => {
           </p>
         </div>
 
-        {/* Profile Details */}
         <div className="p-6 bg-gray-100 rounded-b-lg">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Email */}
@@ -43,7 +41,7 @@ const Profile = () => {
               <p className="text-lg font-semibold">{user.phone}</p>
             </div>
 
-            {/* Membership */}
+            {/* Joined Date */}
             <div className="bg-white p-4 rounded-lg shadow-md">
               <h3 className="text-sm text-gray-500">Joined on</h3>
 
