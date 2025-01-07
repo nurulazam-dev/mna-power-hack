@@ -18,22 +18,22 @@ const Settings = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-black">Name</span>
               </label>
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="input bg-white border border-violet-600 w-full"
+                className="input bg-white border text-black border-violet-600 w-full"
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-black">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input bg-white border border-violet-600 w-full"
+                className="input bg-white border text-black border-violet-600 w-full"
               />
             </div>
           </div>
@@ -47,22 +47,22 @@ const Settings = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">New Password</span>
+                <span className="label-text text-black">New Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Enter new password"
-                className="input bg-white border border-violet-600 w-full"
+                className="input bg-white border text-black border-violet-600 w-full"
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Confirm Password</span>
+                <span className="label-text text-black">Confirm Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Confirm new password"
-                className="input bg-white border border-violet-600 w-full"
+                className="input bg-white border text-black border-violet-600 w-full"
               />
             </div>
           </div>
@@ -79,6 +79,7 @@ const Settings = () => {
                 <span className="label-text text-violet-600">
                   Email Notifications
                 </span>
+
                 <input type="checkbox" className="toggle toggle-primary" />
               </label>
             </div>
