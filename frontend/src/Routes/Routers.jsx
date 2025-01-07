@@ -7,6 +7,7 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import NotFound from "../Pages/NotFound";
 import Dashboard from "../Pages/Dashboard";
 import Contact from "../Pages/Contact";
+import About from "../Pages/About";
 
 const Routers = () => {
   return (
@@ -25,7 +26,7 @@ const Routers = () => {
           </ProtectedRoutes>
         }
       />
-      {/* <Route path="/about" element={<AboutUs />} /> */}
+      <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
