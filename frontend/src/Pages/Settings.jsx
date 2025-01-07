@@ -1,7 +1,7 @@
 const Settings = () => {
   return (
     <section className=" bg-white shadow-xl rounded-xl mb-5">
-      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-t-xl p-6">
+      <div className="bg-gradient-to-r from-violet-700 to-violet-400 text-white rounded-t-xl p-6">
         <h1 className="text-3xl font-bold">Settings</h1>
         <p className="mt-2 text-sm">
           Update your account, security, and notification preferences.
@@ -9,7 +9,7 @@ const Settings = () => {
       </div>
 
       {/* Settings Content */}
-      <div className="p-6 lg:p-10 space-y-4">
+      <div className="p-6 lg:p-10 lg:pt-5 space-y-6">
         {/* Profile Settings */}
         <div>
           <h2 className="text-2xl font-semibold text-gray-800">
