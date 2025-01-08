@@ -1,7 +1,24 @@
-import React from "react";
+import { useState } from "react";
+
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/style.css";
 
 const MyDayPicker = () => {
-  return <div></div>;
+  const [selected, setSelected] = useState(Date);
+  return (
+    <section>
+      <DayPicker
+        mode="single"
+        selected={selected}
+        onSelect={setSelected}
+        footer={
+          selected
+            ? `Selected: ${selected.toLocaleDateString()}`
+            : "Pick a day."
+        }
+      />
+    </section>
+  );
 };
 
 export default MyDayPicker;
