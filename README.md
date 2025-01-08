@@ -21,6 +21,7 @@
 - DaisyUi
 - React Icons
 - React Toastify
+- React Day Picker
 
 **Backend**
 
