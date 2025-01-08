@@ -1,3 +1,4 @@
+import MyDayPicker from "./Overview/MyDayPicker";
 import OverviewCards from "./Overview/OverviewCards";
 
 const Overview = () => {
@@ -12,7 +13,10 @@ const Overview = () => {
           <OverviewCards />
         </div>
         {/* last part */}
-        <div className="w-full lg:w-[25%]  mb-6 min-h-screen border border-red-700"></div>
+        <div className="w-full lg:w-[25%]  mb-6 min-h-screen border border-red-700">
+          {/* Calendar */}
+          <MyDayPicker />
+        </div>
       </div>
       {/* ======================================= */}
     </section>

@@ -12,16 +12,16 @@ const Dashboard = () => {
   const [tab, setTab] = useState("overview");
 
   const activeTabClass =
-    "bg-slate-100 text-indigo-600 w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-5 lg:py-2 px-1";
+    "bg-slate-100 text-indigo-600 w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
   const inactiveTabClass =
-    "bg-transparent text-white w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-5 lg:py-2 px-1";
+    "bg-transparent text-white w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
   return (
     <section className="mx-auto">
       <div className="flex w-full mx-auto">
         {/* =======================
                    Tabs
           ========================= */}
-        <div className="w-[10%] lg:w-[20%] lg:py-6 lg:px-[20px] px-1 pb-3 rounded-md shadow-md bg-slate-700 h-screen lg:mr-0 mr-[6px] p-5 mt-10 text-white">
+        <div className="w-[10%] lg:w-[18%] lg:py-6 lg:px-[15px] px-1 pb-3 rounded-md shadow-md bg-slate-700 h-screen lg:mr-0 mr-[6px] p-5 mt-10 text-white">
           <div className="text-3xl text-center font-bold mb-4">Dashboard</div>
           <button
             onClick={() => setTab("overview")}
@@ -74,7 +74,7 @@ const Dashboard = () => {
         {/* =======================
                    Layout
           ========================= */}
-        <div className="w-[90%] lg:w-[80%] lg:px-0 px-3 lg:mx-5 rounded-md lg:rounded-none shadow-md lg:shadow-none lg:mt-20">
+        <div className="w-[90%] lg:w-[82%] lg:px-0 px-3 lg:mx-5 rounded-md lg:rounded-none shadow-md lg:shadow-none lg:mt-20">
           <div className="lg:px-0 px-[10px]">
             {tab == "overview" && <Overview />}
             {tab == "manageUsers" && <ManageUsers />}
