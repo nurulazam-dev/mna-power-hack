@@ -6,17 +6,8 @@ import "react-day-picker/style.css";
 const MyDayPicker = () => {
   const [selected, setSelected] = useState();
   return (
-    <section className="shadow-lg">
-      <DayPicker
-        mode="single"
-        selected={selected}
-        onSelect={setSelected}
-        footer={
-          selected
-            ? `Selected: ${selected.toLocaleDateString()}`
-            : "Pick a day."
-        }
-      />
+    <section className="shadow-xl pb-2 mb-5">
+      <DayPicker mode="single" selected={selected} onSelect={setSelected} />
     </section>
   );
 };
