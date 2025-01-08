@@ -8,12 +8,12 @@ const Overview = () => {
       {/* ======================================= */}
       <div className="flex justify-center w-full">
         {/* middle part */}
-        <div className="w-full lg:w-[75%] lg:mr-5 mb-6 min-h-screen border border-green-700">
+        <div className="w-full lg:w-[70%] lg:mr-5 mb-6 min-h-screen border border-green-700">
           {/* Cards */}
           <OverviewCards />
         </div>
         {/* last part */}
-        <div className="w-full lg:w-[25%]  mb-6 min-h-screen border border-red-700">
+        <div className="w-full lg:w-[30%]  mb-6 min-h-screen border border-red-700">
           {/* Calendar */}
           <MyDayPicker />
         </div>

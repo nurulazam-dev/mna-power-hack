@@ -6,7 +6,7 @@ import "react-day-picker/style.css";
 const MyDayPicker = () => {
   const [selected, setSelected] = useState();
   return (
-    <section>
+    <section className="shadow-lg">
       <DayPicker
         mode="single"
         selected={selected}
