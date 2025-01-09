@@ -87,7 +87,7 @@ const BillBarChart = () => {
   };
 
   return (
-    <section className="px-2  my-5 border bg-white shadow-lg">
+    <section className="px-2  my-5 border bg-white shadow-lg rounded">
       <Bar className="mt-5" data={data} options={options} />
     </section>
   );
