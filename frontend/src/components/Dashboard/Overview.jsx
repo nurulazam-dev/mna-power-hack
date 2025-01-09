@@ -1,3 +1,4 @@
+import BillBarChart from "./Overview/BillBarChart";
 import MyDayPicker from "./Overview/MyDayPicker";
 import OverviewCards from "./Overview/OverviewCards";
 import OverviewUserBanner from "./Overview/OverviewUserBanner";
@@ -15,6 +16,8 @@ const Overview = () => {
           <OverviewUserBanner />
           {/* Cards */}
           <OverviewCards />
+          {/* BillBarChart */}
+          <BillBarChart />
         </div>
         {/* last part */}
         <div className="w-full lg:w-[30%]  mb-6 min-h-screen border border-red-700">
