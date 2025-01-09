@@ -4,7 +4,7 @@ import { FaPhone } from "react-icons/fa6";
 
 const TopBillHolder = () => {
   return (
-    <section className="shadow-xl bg-white rounded-md mb-4">
+    <section className="shadow-xl p-2 bg-white rounded-md mb-4">
       <h2 className="font-bold text-2xl text-violet-600 mb-2">
         Top Bill Holder
       </h2>
