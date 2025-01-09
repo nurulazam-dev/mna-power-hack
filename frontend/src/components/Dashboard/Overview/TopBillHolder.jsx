@@ -110,6 +110,31 @@ const TopBillHolder = () => {
               <FaPhone className="h-5 w-5 text-green-600" />
             </th>
           </tr>
+          {/* row 2 */}
+          <tr className="border-none">
+            <td className="p-0">
+              <div className="flex items-center gap-2">
+                <div className="avatar p-1">
+                  <div className="mask rounded-full mask-squircle h-12 w-12">
+                    <img
+                      src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold">Brice Swyre</div>
+                  <div className="text-sm opacity-50">Potia, Ctg.</div>
+                </div>
+              </div>
+            </td>
+
+            <th className="flex justify-center items-center">
+              <FaUserCircle className="h-6 w-6 text-blue-600 mr-2" />
+              <MdEmail className="h-6 w-6 text-indigo-600 mr-2" />
+              <FaPhone className="h-5 w-5 text-green-600" />
+            </th>
+          </tr>
         </tbody>
       </table>
     </section>
