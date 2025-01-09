@@ -14,10 +14,10 @@ const Overview = () => {
         <div className="w-full lg:w-[70%] lg:mr-5 mb-6 min-h-screen border border-green-700">
           {/* user-banner */}
           <OverviewUserBanner />
-          {/* Cards */}
-          <OverviewCards />
           {/* BillBarChart */}
           <BillBarChart />
+          {/* Cards */}
+          <OverviewCards />
         </div>
         {/* last part */}
         <div className="w-full lg:w-[30%]  mb-6 min-h-screen border border-red-700">
