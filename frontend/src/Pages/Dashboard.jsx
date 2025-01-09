@@ -16,12 +16,12 @@ const Dashboard = () => {
   const inactiveTabClass =
     "bg-transparent text-white w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
   return (
-    <section className="mx-auto">
+    <section className="mx-auto pb-5">
       <div className="flex w-full mx-auto">
         {/* =======================
                    Tabs
           ========================= */}
-        <div className="w-[10%] lg:w-[18%] lg:py-6 lg:px-[15px] px-1 pb-3 rounded-md shadow-md bg-slate-700 h-screen lg:mr-0 mr-[6px] p-5 mt-10 text-white">
+        <div className="w-[10%] lg:w-[18%] lg:py-6 lg:px-[15px] px-1 pb-3 rounded-md shadow-md bg-slate-700 max-h-full lg:mr-0 mr-[6px] p-5 mt-10 text-white">
           <div className="text-3xl text-center font-bold mb-4">Dashboard</div>
           <button
             onClick={() => setTab("overview")}
