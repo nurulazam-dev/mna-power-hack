@@ -4,7 +4,7 @@
 
 #### (Latest version)
 
-[Live Demo](https://www.power-hack.com)
+[Live Link](https://www.power-hack.com)
 
 - There are three types of users or rules on this website. They are Billing-officer, Accountant and Admin.
 - Only Billing-officer can add the bill/bills.
