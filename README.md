@@ -22,6 +22,7 @@
 - React Icons
 - React Toastify
 - React Day Picker
+- Chart.js
 
 **Backend**
 
