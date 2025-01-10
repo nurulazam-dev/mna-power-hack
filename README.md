@@ -23,6 +23,7 @@
 - React Toastify
 - React Day Picker
 - Chart.js
+- React-chart.js-2
 
 **Backend**
 
