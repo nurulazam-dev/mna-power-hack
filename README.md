@@ -9,7 +9,7 @@
 - There are three types of users or rules on this website. They are Billing-officer, Accountant and Admin.
 - Only Billing-officer can add the bill/bills.
 - Only Accountant can update the bill/bills.
-- Admin can manage the users and bills.
+- Admin can manage the users (CRUD) and bills.
 
 ### Use Technology / Framework / Library:
 
