@@ -21,7 +21,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="input text-black  bg-white border border-violet-600"
+                className="input text-black focus:outline-none  bg-white border border-violet-600"
               />
             </div>
 
@@ -33,7 +33,7 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input text-black  bg-white border border-violet-600"
+                className="input text-black focus:outline-none  bg-white border border-violet-600"
               />
             </div>
 
@@ -45,7 +45,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Enter subject"
-                className="input text-black  bg-white border border-violet-600"
+                className="input text-black focus:outline-none  bg-white border border-violet-600"
               />
             </div>
 
@@ -56,7 +56,7 @@ const Contact = () => {
               </label>
               <textarea
                 placeholder="Type your message here"
-                className="textarea textarea-bordered text-black  bg-white border border-violet-600 h-24"
+                className="textarea focus:outline-none textarea-bordered text-black  bg-white border border-violet-600 h-24"
               ></textarea>
             </div>
           </form>
