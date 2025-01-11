@@ -6,6 +6,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import brandLogo from "../assets/images/logo.png";
 
 const Footer = () => {
   return (
@@ -15,8 +16,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand Section */}
           <div>
-            <h1 className="text-3xl font-bold text-white">Power Hack</h1>
-            <p className="mt-4 text-gray-400">
+            <div className="flex items-center">
+              <img src={brandLogo} alt="" className="w-11" />
+              <h1 className="text-3xl font-bold text-orange-600">Power Hack</h1>
+            </div>
+            <p className="mt-4 text-gray-600">
               Revolutionizing energy billing with efficiency, transparency, and
               simplicity. Join us for a brighter future!
             </p>
@@ -66,7 +70,7 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div>
-            <h2 className="text-xl font-semibold text-white mb-4">
+            <h2 className="text-xl font-semibold text-violet-600 mb-4">
               Navigation
             </h2>
             <ul className="space-y-2">
@@ -95,7 +99,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h2 className="text-xl font-semibold text-white mb-4">
+            <h2 className="text-xl font-semibold text-violet-600 mb-4">
               Quick Links
             </h2>
             <ul className="space-y-2">
@@ -124,7 +128,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h2 className="text-xl font-semibold text-white mb-4">
+            <h2 className="text-xl font-semibold text-violet-600 mb-4">
               Newsletter
             </h2>
             <p className="text-gray-400 mb-4">
@@ -151,7 +155,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-700">
             &copy; {new Date().getFullYear()} Power Hack. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm">
