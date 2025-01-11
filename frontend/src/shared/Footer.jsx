@@ -20,11 +20,11 @@ const Footer = () => {
               <img src={brandLogo} alt="" className="w-11" />
               <h1 className="text-3xl font-bold text-orange-600">Power Hack</h1>
             </div>
-            <p className="mt-4 text-gray-600">
+            <p className="mt-1 text-gray-600">
               Revolutionizing energy billing with efficiency, transparency, and
               simplicity. Join us for a brighter future!
             </p>
-            <div className="flex items-center space-x-4 mt-6">
+            <div className="flex items-center space-x-4 mt-3">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div>
+          <div className="mx-auto">
             <h2 className="text-xl font-semibold text-violet-600 mb-4">
               Navigation
             </h2>
@@ -101,7 +101,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="mx-auto">
             <h2 className="text-xl font-semibold text-violet-600 mb-4">
               Quick Links
             </h2>
