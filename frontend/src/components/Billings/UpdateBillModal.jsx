@@ -19,7 +19,7 @@ const UpdateBillModal = () => {
               placeholder="Billing Holder Name"
               // onChange={handleChange}
               // value={data.name}
-              className="input outline-none border border-black w-full max-w-xs mt-4 bg-white"
+              className="input focus:outline-none outline-none border border-black w-full max-w-xs mt-4 bg-white"
               required
             />
 
@@ -29,7 +29,7 @@ const UpdateBillModal = () => {
               placeholder="Phone Number"
               // onChange={handleChange}
               // value={data.phone}
-              className="input outline-none border border-black w-full max-w-xs mt-4 bg-white"
+              className="input focus:outline-none outline-none border border-black w-full max-w-xs mt-4 bg-white"
               required
             />
             <input
@@ -38,7 +38,7 @@ const UpdateBillModal = () => {
               // onChange={handleChange}
               // value={data.amount}
               placeholder="Paid Amount"
-              className="input outline-none border border-black w-full max-w-xs mt-4 bg-white"
+              className="input focus:outline-none outline-none border border-black w-full max-w-xs mt-4 bg-white"
               required
             />
             <input
