@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300">
+    <footer className="bg-slate-100 text-gray-700">
       <div className="container mx-auto px-6 lg:px-16 py-12">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -25,7 +25,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-700 hover:bg-blue-600 transition"
+                className="p-3 rounded-full hover:bg-gray-700 bg-blue-600 transition"
               >
                 <FaFacebookF size={20} className="text-white" />
               </a>
@@ -33,7 +33,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-700 hover:bg-blue-400 transition"
+                className="p-3 rounded-full hover:bg-gray-700 bg-blue-400 transition"
               >
                 <FaTwitter size={20} className="text-white" />
               </a>
@@ -41,7 +41,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-700 hover:bg-pink-500 transition"
+                className="p-3 rounded-full hover:bg-gray-700 bg-pink-500 transition"
               >
                 <FaInstagram size={20} className="text-white" />
               </a>
@@ -49,7 +49,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-700 hover:bg-blue-800 transition"
+                className="p-3 rounded-full hover:bg-gray-700 bg-blue-800 transition"
               >
                 <FaLinkedinIn size={20} className="text-white" />
               </a>
@@ -57,7 +57,7 @@ const Footer = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-700 hover:bg-red-600 transition"
+                className="p-3 rounded-full hover:bg-gray-700 bg-red-600 transition"
               >
                 <FaYoutube size={20} className="text-white" />
               </a>
