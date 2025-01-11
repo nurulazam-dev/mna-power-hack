@@ -13,7 +13,7 @@ const ManageBills = () => {
           <input
             type="text"
             placeholder="Search"
-            className="input bg-white text-black mx-3 w-full max-w-xs"
+            className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
           />
         </div>
         <div>

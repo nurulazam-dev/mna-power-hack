@@ -23,7 +23,7 @@ const Settings = () => {
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="input bg-white border text-black border-violet-600 w-full"
+                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
               />
             </div>
             <div className="form-control">
@@ -33,7 +33,7 @@ const Settings = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input bg-white border text-black border-violet-600 w-full"
+                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
               />
             </div>
           </div>
@@ -52,7 +52,7 @@ const Settings = () => {
               <input
                 type="password"
                 placeholder="Enter new password"
-                className="input bg-white border text-black border-violet-600 w-full"
+                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
               />
             </div>
             <div className="form-control">
@@ -62,7 +62,7 @@ const Settings = () => {
               <input
                 type="password"
                 placeholder="Confirm new password"
-                className="input bg-white border text-black border-violet-600 w-full"
+                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
               />
             </div>
           </div>
