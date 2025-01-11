@@ -75,22 +75,28 @@ const Footer = () => {
             </h2>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="hover:text-white transition">
+                <Link to="/" className="hover:text-indigo-600 transition">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-white transition">
+                <Link to="/about" className="hover:text-indigo-600 transition">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-white transition">
+                <Link
+                  to="/services"
+                  className="hover:text-indigo-600 transition"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition">
+                <Link
+                  to="/contact"
+                  className="hover:text-indigo-600 transition"
+                >
                   Contact
                 </Link>
               </li>
@@ -104,22 +110,28 @@ const Footer = () => {
             </h2>
             <ul className="space-y-2">
               <li>
-                <Link to="/privacy" className="hover:text-white transition">
+                <Link
+                  to="/privacy"
+                  className="hover:text-indigo-600 transition"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="hover:text-white transition">
+                <Link to="/terms" className="hover:text-indigo-600 transition">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="hover:text-white transition">
+                <Link to="/faq" className="hover:text-indigo-600 transition">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/support" className="hover:text-white transition">
+                <Link
+                  to="/support"
+                  className="hover:text-indigo-600 transition"
+                >
                   Support
                 </Link>
               </li>
@@ -131,7 +143,7 @@ const Footer = () => {
             <h2 className="text-xl font-semibold text-violet-600 mb-4">
               Newsletter
             </h2>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-600 mb-4">
               Subscribe to receive the latest updates and offers.
             </p>
             <form className="flex">
@@ -159,10 +171,10 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Power Hack. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm">
-            <Link to="/privacy" className="hover:text-white transition">
+            <Link to="/privacy" className="hover:text-indigo-600 transition">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-white transition">
+            <Link to="/terms" className="hover:text-indigo-600 transition">
               Terms of Service
             </Link>
           </div>
