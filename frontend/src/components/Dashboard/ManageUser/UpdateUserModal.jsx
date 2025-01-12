@@ -23,7 +23,7 @@ const UpdateUserModal = () => {
       {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"> */}
       <input type="checkbox" id="update-user-modal" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box bg-white relative w-full max-w-xs">
+        <div className="modal-box bg-white relative w-full max-w-sm">
           {/* <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md"> */}
           <label
             htmlFor="update-user-modal"
