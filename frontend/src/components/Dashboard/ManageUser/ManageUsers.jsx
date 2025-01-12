@@ -1,5 +1,5 @@
 import DeleteUserModal from "./DeleteUserModal";
-import UpdateUserModal from "./UpdateUserModal";
+// import UpdateUserModal from "./UpdateUserModal";
 
 const ManageUsers = () => {
   return (
@@ -28,7 +28,7 @@ const ManageUsers = () => {
             <td className="border">25 December, 2024</td>
             <td className="flex justify-center">
               <div className="mx-2">
-                <UpdateUserModal />
+                {/* <UpdateUserModal /> */}
                 <label
                   htmlFor="update-user-modal"
                   className="btn btn-outline btn-success btn-xs"
