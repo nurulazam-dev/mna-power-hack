@@ -7,7 +7,10 @@ const OverviewUserBanner = () => {
       <div className="flex justify-between items-center p-2 pb-0">
         {/* info part */}
         <div className="px-4">
-          <h2 className="font-bold text-2xl mb-2">Hello Nurul Azam!</h2>
+          <h2 className="font-bold text-2xl mb-2">
+            Hello! Nurul Azam{" "}
+            <span className="text-sm font-normal">(Admin)</span>
+          </h2>
           <p className="opacity-85 font-thin text-[15px]">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
             quae consequuntur accusantium praesentium architec
