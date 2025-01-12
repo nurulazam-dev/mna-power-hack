@@ -3,10 +3,10 @@ import { useState } from "react";
 
 const UpdateUserModal = ({ user, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({
-    name: user.name || "",
-    email: user.email || "",
-    phone: user.phone || "",
-    role: user.role || "billingOfficer",
+    name: user?.name || "",
+    email: user?.email || "",
+    phone: user?.phone || "",
+    role: user?.role || "billingOfficer",
   });
 
   const handleInputChange = (e) => {
@@ -24,7 +24,9 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <input type="checkbox" id="update-user-modal" className="modal-toggle" />
       <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Update User</h2>
+        <h2 className="text-2xl text-center font-bold text-indigo-600 mb-4">
+          Update User
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Field */}
           <div>
@@ -36,7 +38,7 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
               placeholder="Enter user name"
               required
             />
@@ -52,7 +54,7 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
               placeholder="Enter user email"
               required
             />
@@ -68,7 +70,7 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
               placeholder="Enter user phone number"
               required
             />
@@ -83,7 +85,7 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
               name="role"
               value={formData.role}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full focus:outline-none outline-none border border-black  mt-1 bg-white"
             >
               <option value="billingOfficer">Billing Officer</option>
               <option value="accountant">Accountant</option>
