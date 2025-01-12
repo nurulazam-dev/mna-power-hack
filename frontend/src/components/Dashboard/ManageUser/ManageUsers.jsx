@@ -1,4 +1,4 @@
-// import DeleteUserModal from "./DeleteUserModal";
+import DeleteUserModal from "./DeleteUserModal";
 import UpdateUserModal from "./UpdateUserModal";
 
 const ManageUsers = () => {
@@ -37,7 +37,7 @@ const ManageUsers = () => {
                 </label>
               </div>
               <div className="mx-2">
-                {/* <DeleteUserModal /> */}
+                <DeleteUserModal />
                 <label
                   // onClick={() => setDeleteBill(bill)}
                   htmlFor="delete-user-modal"
