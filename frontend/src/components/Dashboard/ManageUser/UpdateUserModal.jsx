@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
-
-const UpdateUserModal = ({ user, onClose, onUpdate }) => {
+const UpdateUserModal = () => {
+  /* const UpdateUserModal = ({ user, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({
     name: user?.name || "",
     email: user?.email || "",
@@ -18,82 +16,96 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
     e.preventDefault();
     onUpdate(formData);
     onClose();
-  };
+  }; */
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div>
+      {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"> */}
       <input type="checkbox" id="update-user-modal" className="modal-toggle" />
-      <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
-        <h2 className="text-2xl text-center font-bold text-indigo-600 mb-4">
-          Update User
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name Field */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
+      <div className="modal">
+        <div className="modal-box bg-white relative w-full max-w-xs">
+          {/* <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md"> */}
+          <label
+            htmlFor="update-user-modal"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h2 className="text-2xl text-center font-bold text-indigo-600 mb-4">
+            Update User
+          </h2>
+          {/* <form onSubmit={handleSubmit} className="space-y-4"> */}
+          <form className="space-y-4">
+            {/* Name Field */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                // value={formData.name}
+                // onChange={handleInputChange}
+                className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
+                placeholder="Enter user name"
+                required
+              />
+            </div>
+
+            {/* Email Field */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                // value={formData.email}
+                // onChange={handleInputChange}
+                className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
+                placeholder="Enter user email"
+                required
+              />
+            </div>
+
+            {/* Phone Field */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Phone
+              </label>
+              <input
+                type="phone"
+                name="phone"
+                // value={formData.phone}
+                // onChange={handleInputChange}
+                className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
+                placeholder="Enter user phone number"
+                required
+              />
+            </div>
+
+            {/* Role Selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Role
+              </label>
+              <select
+                name="role"
+                // value={formData.role}
+                // onChange={handleInputChange}
+                className="select select-bordered w-full focus:outline-none outline-none border border-black  mt-1 bg-white"
+              >
+                <option value="billingOfficer">Billing Officer</option>
+                <option value="accountant">Accountant</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
             <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
-              placeholder="Enter user name"
-              required
+              type="submit"
+              value="Update User"
+              className="btn w-full border-none text-[15px] text-white hover:text-black max-w-xs mt-3 bg-violet-600 hover:bg-orange-600"
             />
-          </div>
-
-          {/* Email Field */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
-              placeholder="Enter user email"
-              required
-            />
-          </div>
-
-          {/* Phone Field */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Phone
-            </label>
-            <input
-              type="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
-              placeholder="Enter user phone number"
-              required
-            />
-          </div>
-
-          {/* Role Selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Role
-            </label>
-            <select
-              name="role"
-              value={formData.role}
-              onChange={handleInputChange}
-              className="select select-bordered w-full focus:outline-none outline-none border border-black  mt-1 bg-white"
-            >
-              <option value="billingOfficer">Billing Officer</option>
-              <option value="accountant">Accountant</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
-
-          <div className="flex justify-end space-x-4 mt-6">
+            {/* <div className="flex justify-end space-x-4 mt-6">
             <button
               type="button"
               onClick={onClose}
@@ -104,8 +116,9 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
             <button type="submit" className="btn btn-primary">
               Update
             </button>
-          </div>
-        </form>
+          </div> */}
+          </form>
+        </div>
       </div>
     </div>
   );
