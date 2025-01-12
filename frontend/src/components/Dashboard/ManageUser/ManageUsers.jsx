@@ -1,3 +1,5 @@
+import DeleteUserModal from "./DeleteUserModal";
+
 const ManageUsers = () => {
   return (
     <section>
@@ -34,10 +36,10 @@ const ManageUsers = () => {
                 </label>
               </div>
               <div className="mx-2">
-                {/* <DeleteBillModal /> */}
+                <DeleteUserModal />
                 <label
                   // onClick={() => setDeleteBill(bill)}
-                  htmlFor="user-delete-modal"
+                  htmlFor="delete-user-modal"
                   className="btn btn-outline btn-error btn-xs"
                 >
                   Delete

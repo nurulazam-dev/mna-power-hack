@@ -2,11 +2,11 @@ import { TbHomeStats } from "react-icons/tb";
 import { FaUsersCog, FaRegUser, FaUserEdit } from "react-icons/fa";
 import { RiBillLine } from "react-icons/ri";
 import { useState } from "react";
-import ManageUsers from "../components/Dashboard/ManageUsers";
 import ManageBills from "../components/Dashboard/ManageBills";
 import Overview from "../components/Dashboard/Overview";
 import Profile from "../components/Dashboard/Profile";
 import Settings from "../components/Dashboard/Settings";
+import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("overview");

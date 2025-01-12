@@ -8,6 +8,7 @@ const DeleteUserModal = ({ user, onClose, onDelete }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <input type="checkbox" id="delete-user-modal" className="modal-toggle" />
       <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-sm">
         <h2 className="text-lg font-bold text-red-600 text-center">
           Delete User

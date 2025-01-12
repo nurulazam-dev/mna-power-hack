@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import DeleteBillModal from "./DeleteBillModal";
 import UpdateBillModal from "./UpdateBillModal";
 

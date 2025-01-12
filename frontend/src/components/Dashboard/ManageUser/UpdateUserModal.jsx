@@ -22,6 +22,7 @@ const UpdateUserModal = ({ user, onClose, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <input type="checkbox" id="update-user-modal" className="modal-toggle" />
       <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Update User</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
