@@ -13,6 +13,7 @@ const DeleteBillModal = () => {
   return (
     <div>
       <input type="checkbox" id="bill-delete-modal" className="modal-toggle" />
+
       <div className="modal">
         <div className="modal-box relative w-full max-w-xs bg-white">
           <h3 className="text-xl mb-2 font-bold text-red-600">Delete Bill</h3>
