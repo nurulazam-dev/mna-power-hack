@@ -35,7 +35,7 @@ const UpdateUserModal = () => {
             Update User
           </h2>
           {/* <form onSubmit={handleSubmit} className="space-y-4"> */}
-          <form className="space-y-4">
+          <form className="space-y-3">
             {/* Name Field */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -103,7 +103,7 @@ const UpdateUserModal = () => {
             <input
               type="submit"
               value="Update User"
-              className="btn w-full border-none text-[15px] text-white hover:text-black max-w-xs mt-3 bg-violet-600 hover:bg-orange-600"
+              className="btn w-full border-none text-[15px] text-white hover:text-black mt-3 bg-violet-600 hover:bg-orange-600"
             />
             {/* <div className="flex justify-end space-x-4 mt-6">
             <button
