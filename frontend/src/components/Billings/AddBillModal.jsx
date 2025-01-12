@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 
 const AddBillModal = () => {
@@ -12,11 +11,36 @@ const AddBillModal = () => {
     setData({ ...data, [input.name]: input.value });
   };
 
-  const handleBillAdd = (event) => {
+  const handleBillAdd = async (event) => {
     event.preventDefault();
     const url = "http://localhost:8080/api/bill-list";
-    const { data: res } = axios.post(url, data);
-    console.log(res.message);
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const res = await response.json();
+      console.log(res.message);
+      alert("Bill added successfully!");
+
+      setData({
+        billingHolder: "",
+        phone: "",
+        amount: "",
+      });
+    } catch (error) {
+      console.error("Error adding bill:", error.message);
+      alert("Failed to add bill. Please try again.");
+    }
   };
 
   return (
@@ -35,7 +59,7 @@ const AddBillModal = () => {
           </h3>
           <form onSubmit={handleBillAdd}>
             <input
-              name="name"
+              name="billingHolder"
               type="text"
               placeholder="Billing Holder Name"
               onChange={handleChange}

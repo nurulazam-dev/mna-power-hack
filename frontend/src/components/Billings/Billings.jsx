@@ -1,6 +1,4 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-// import url from "../../assets/data/billsData.json";
 import AddBillModal from "./AddBillModal";
 import BillingsTable from "./BillingsTable";
 
@@ -8,18 +6,11 @@ const Billings = () => {
   const [bills, setBills] = useState([]);
   console.log("bills:", bills);
 
-  /* useEffect(() => {
-    fetch(url)
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
       // fetch('data.json')
       .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, []); */
-
-  useEffect(() => {
-    // axios.get(url).then((res) => {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-      setBills(res.data);
-    });
+      .then((data) => setBills(data));
   }, []);
 
   return (
