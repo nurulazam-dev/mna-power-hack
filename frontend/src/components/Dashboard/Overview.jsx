@@ -12,18 +12,13 @@ const Overview = () => {
       <div className="flex justify-center w-full">
         {/* middle part */}
         <div className="w-full lg:w-[65%] lg:mr-5 mb-6 min-h-screen">
-          {/* user-banner */}
           <OverviewUserBanner />
-          {/* BillBarChart */}
           <BillBarChart />
-          {/* Cards */}
           <OverviewCards />
         </div>
         {/* last part */}
         <div className="w-full lg:w-[35%]  mb-6 min-h-screen">
-          {/* Calendar */}
           <MyDayPicker />
-          {/* top bill holder */}
           <TopBillHolder />
         </div>
       </div>
