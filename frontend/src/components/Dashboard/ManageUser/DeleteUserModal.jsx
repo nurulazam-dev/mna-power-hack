@@ -1,18 +1,19 @@
-const DeleteUserModal = () => {
-  /* const DeleteUserModal = ({ deleteUser, setDeleteUser }) => {
-    const { _id, email } = deleteUser;
+/* eslint-disable react/prop-types */
 
-  const handleConfirm = () => {
-    fetch(`https://localhost:5000/api/user/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }; */
+const DeleteUserModal = ({ user, onDelete }) => {
+  const handleConfirm = async () => {
+    try {
+      await onDelete(user.id);
+      alert(`User ${user.email} has been deleted successfully.`);
+      document.getElementById("delete-user-modal").checked = false; // Close the modal
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      alert("Failed to delete the user. Please try again.");
+    }
+  };
 
   return (
     <div className="">
-      {/* <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"> */}
       <input type="checkbox" id="delete-user-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative w-full max-w-xs bg-white">
@@ -20,19 +21,13 @@ const DeleteUserModal = () => {
             Delete User
           </h3>
           <h3 className="font-semibold text-center text-slate-600 text-[16px]">
-            Are you sure? you want to delete{" "}
-            {/* <strong className="text-black">{email}
-            </strong> */}
-            <span className="text-black">power@hack.com </span>
+            Are you sure? You want to delete{" "}
+            <span className="text-black">{user?.email}</span>
           </h3>
           <div className="modal-action">
-            <label
-              htmlFor="delete-user-modal"
-              className="btn btn-error"
-              // onClick={() => handleConfirm}
-            >
+            <button className="btn btn-error" onClick={handleConfirm}>
               Confirm
-            </label>
+            </button>
             <label htmlFor="delete-user-modal" className="btn">
               Cancel
             </label>
