@@ -6,10 +6,10 @@
 
 [Live Link](https://www.power-hack.com)
 
-- There are three types of users or rules on this website. They are Billing-officer, Accountant and Admin.
-- Only Billing-officer can add the bill/bills.
-- Only Accountant can update the bill/bills.
-- Admin can manage the users (CRUD) and bills (CRUD).
+- Role-Based Access Control: Designed a system with three distinct user roles—Billing Officer, Accountant, and Admin—ensuring precise access control and functionality tailored to each role.
+- Bill Management System: Enabled Billing Officers to add bills, Accountants to update bills, and Admins to perform complete CRUD (Create, Read, Update, Delete) operations on bills.
+- User Management Features: Empowered Admins to manage users comprehensively, including updating and deleting user profiles with role assignments.
+- Dynamic Modal Integration: Built responsive and interactive modals for user and bill management tasks, enhancing user experience and operational efficiency.
 
 ### Use Technology / Framework / Library:
 
@@ -37,10 +37,3 @@
 - Json Web Token (JWT)
 
 **Project Demo**
-
-- User Management System:
-  Developed a user-friendly admin panel for managing user accounts, including viewing, updating, and deleting user profiles.
-- Update and Delete Modals:
-  Implemented interactive modals for updating user details and confirming user deletion, ensuring a seamless and secure user experience.
-- Role-Based Access Control:
-  Integrated role-based access control to assign and manage user roles such as Admin, Accountant, and Billing Officer.
