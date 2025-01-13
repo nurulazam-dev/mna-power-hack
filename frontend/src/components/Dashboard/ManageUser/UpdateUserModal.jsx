@@ -1,22 +1,50 @@
-const UpdateUserModal = () => {
-  /* const UpdateUserModal = ({ user, onClose, onUpdate }) => {
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
+
+const UpdateUserModal = ({ user, onUpdate }) => {
   const [formData, setFormData] = useState({
-    name: user?.name || "",
-    email: user?.email || "",
-    phone: user?.phone || "",
-    role: user?.role || "billingOfficer",
+    name: "",
+    email: "",
+    phone: "",
+    role: "billingOfficer",
   });
+
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        name: user.name || "",
+        email: user.email || "",
+        phone: user.phone || "",
+        role: user.role || "billingOfficer",
+      });
+    }
+  }, [user]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onUpdate(formData);
-    onClose();
-  }; */
+
+    if (!formData.name || !formData.phone) {
+      alert("Please fill in all fields except email.");
+      return;
+    }
+
+    try {
+      await onUpdate({ ...user, ...formData });
+      alert("User updated successfully!");
+      document.getElementById("update-user-modal").checked = false; // Close the modal
+    } catch (error) {
+      console.error("Error updating user:", error);
+      alert("Failed to update user.");
+    }
+  };
 
   return (
     <div>
@@ -32,8 +60,7 @@ const UpdateUserModal = () => {
           <h2 className="text-2xl text-center font-bold text-indigo-600 mb-4">
             Update User
           </h2>
-          {/* <form onSubmit={handleSubmit} className="space-y-4"> */}
-          <form className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3">
             {/* Name Field */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -42,15 +69,15 @@ const UpdateUserModal = () => {
               <input
                 type="text"
                 name="name"
-                // value={formData.name}
-                // onChange={handleInputChange}
+                value={formData.name}
+                onChange={handleInputChange}
                 className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
                 placeholder="Enter user name"
                 required
               />
             </div>
 
-            {/* Email Field */}
+            {/* Email Field (Read-Only) */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Email
@@ -58,11 +85,10 @@ const UpdateUserModal = () => {
               <input
                 type="email"
                 name="email"
-                // value={formData.email}
-                // onChange={handleInputChange}
-                className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
-                placeholder="Enter user email"
-                required
+                value={formData.email}
+                readOnly
+                className="input focus:outline-none outline-none border border-gray-400 w-full mt-1 bg-gray-100 cursor-not-allowed"
+                placeholder="User email"
               />
             </div>
 
@@ -72,10 +98,10 @@ const UpdateUserModal = () => {
                 Phone
               </label>
               <input
-                type="phone"
+                type="text"
                 name="phone"
-                // value={formData.phone}
-                // onChange={handleInputChange}
+                value={formData.phone}
+                onChange={handleInputChange}
                 className="input focus:outline-none outline-none border border-black w-full mt-1 bg-white"
                 placeholder="Enter user phone number"
                 required
@@ -89,32 +115,21 @@ const UpdateUserModal = () => {
               </label>
               <select
                 name="role"
-                // value={formData.role}
-                // onChange={handleInputChange}
-                className="select select-bordered w-full focus:outline-none outline-none border border-black  mt-1 bg-white"
+                value={formData.role}
+                onChange={handleInputChange}
+                className="select select-bordered w-full focus:outline-none outline-none border border-black mt-1 bg-white"
               >
                 <option value="billingOfficer">Billing Officer</option>
                 <option value="accountant">Accountant</option>
                 <option value="admin">Admin</option>
               </select>
             </div>
+
             <input
               type="submit"
               value="Update User"
               className="btn w-full border-none text-[15px] text-white hover:text-black mt-3 bg-violet-600 hover:bg-orange-600"
             />
-            {/* <div className="flex justify-end space-x-4 mt-6">
-            <button
-              type="button"
-              onClick={onClose}
-              className="btn btn-outline btn-error"
-            >
-              Cancel
-            </button>
-            <button type="submit" className="btn btn-primary">
-              Update
-            </button>
-          </div> */}
           </form>
         </div>
       </div>
