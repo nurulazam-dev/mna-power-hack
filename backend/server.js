@@ -6,6 +6,7 @@ import { set, connect } from "mongoose";
 
 import authRoutes from "./Routes/auth.js";
 import billRoutes from "./Routes/bill.js";
+import userRoutes from "./Routes/user.js";
 
 config();
 
@@ -41,7 +42,7 @@ app.use(cors(corsOption));
 // routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/bills", billRoutes);
-// app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Power Hack's Api is working");
