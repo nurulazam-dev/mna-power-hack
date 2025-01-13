@@ -6,10 +6,10 @@
 
 [Live Link](https://www.power-hack.com)
 
-- Role-Based Access Control: Designed a system with three distinct user roles—Billing Officer, Accountant, and Admin—ensuring precise access control and functionality tailored to each role.
-- Bill Management System: Enabled Billing Officers to add bills, Accountants to update bills, and Admins to perform complete CRUD (Create, Read, Update, Delete) operations on bills.
-- User Management Features: Empowered Admins to manage users comprehensively, including updating and deleting user profiles with role assignments.
-- Dynamic Modal Integration: Built responsive and interactive modals for user and bill management tasks, enhancing user experience and operational efficiency.
+- Role-Based Access Control: Implemented user roles—Billing Officer, Accountant, and Admin—with specific access rights for task delegation.
+- Bill Management System: Billing Officers add bills, Accountants update them, and Admins perform full CRUD operations for complete control.
+- User Management Features: Admins manage user profiles, enabling CRUD operations and role assignment to streamline user administration.
+- Dynamic Modal Integration: Developed interactive, responsive modals for bill and user management, enhancing operational efficiency and usability.
 
 ### Use Technology / Framework / Library:
 
