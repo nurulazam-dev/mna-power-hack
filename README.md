@@ -37,3 +37,10 @@
 - Json Web Token (JWT)
 
 **Project Demo**
+
+- User Management System:
+  Developed a user-friendly admin panel for managing user accounts, including viewing, updating, and deleting user profiles.
+- Update and Delete Modals:
+  Implemented interactive modals for updating user details and confirming user deletion, ensuring a seamless and secure user experience.
+- Role-Based Access Control:
+  Integrated role-based access control to assign and manage user roles such as Admin, Accountant, and Billing Officer.
