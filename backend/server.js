@@ -21,13 +21,13 @@ const corsOption = {
 set("strictQuery", false);
 const connectDB = async () => {
   try {
-    connect(process.env.MONGODB_URL, {
+    /* connect(process.env.MONGODB_URL, {
       // connect(process.env.LOCAL_DATABASE, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    });
+    }); */
     // connect(process.env.LOCAL_DATABASE);
-    // connect(process.env.MONGODB_URL);
+    connect(process.env.MONGODB_URL);
     console.log("MongoDB is connected");
   } catch (err) {
     console.log("MongoDB connection fail");
@@ -41,8 +41,8 @@ app.use(cors(corsOption));
 
 // routes
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/bills", billRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/bills", billRoutes);
 
 app.get("/", (req, res) => {
   res.send("Power Hack's Api is working");
