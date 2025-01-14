@@ -20,7 +20,7 @@
 - `Tailwind CSS`
 - `DaisyUi`
 - `React Icons`
-- React Toastify
+- `React Toastify`
 - React Day Picker
 - Chart.js
 - React-chart.js-2
