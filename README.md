@@ -15,7 +15,7 @@
 
 **Frontend**
 
-- React.js
+- `React.js`
 - React Router Dom
 - Tailwind CSS
 - DaisyUi
