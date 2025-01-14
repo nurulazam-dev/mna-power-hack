@@ -21,7 +21,7 @@
 - `DaisyUi`
 - `React Icons`
 - `React Toastify`
-- React Day Picker
+- `React Day Picker`
 - Chart.js
 - React-chart.js-2
 
