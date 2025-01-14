@@ -16,7 +16,7 @@
 **Frontend**
 
 - `React.js`
-- React Router Dom
+- 'React Router Dom`
 - Tailwind CSS
 - DaisyUi
 - React Icons
