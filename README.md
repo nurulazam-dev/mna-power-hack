@@ -18,7 +18,7 @@
 - `React.js`
 - `React Router Dom`
 - `Tailwind CSS`
-- DaisyUi
+- `DaisyUi`
 - React Icons
 - React Toastify
 - React Day Picker
