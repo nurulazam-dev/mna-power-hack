@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
-
 import { toast } from "react-toastify";
 
 const DeleteUserModal = ({ user, onDelete }) => {
   const handleConfirm = async () => {
     try {
       await onDelete(user._id);
-      // alert(`User ${user.email} has been deleted successfully.`);
       document.getElementById("delete-user-modal").checked = false; // Close the modal
     } catch (error) {
       toast.error(error);
-      // alert("Failed to delete the user. Please try again.");
     }
   };
 
