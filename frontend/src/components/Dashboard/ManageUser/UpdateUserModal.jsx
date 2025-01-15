@@ -26,10 +26,10 @@ const UpdateUserModal = ({ user, onUpdate }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
+    // Validate phone number
     if (name === "phone") {
-      // Validate phone number
       if (!/^\d{0,11}$/.test(value)) {
-        setPhoneError("Phone number must be numeric and up to 11 digits.");
+        setPhoneError("Phone number must be 11 digits.");
         return;
       } else {
         setPhoneError("");
