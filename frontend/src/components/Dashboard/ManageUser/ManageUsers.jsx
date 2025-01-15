@@ -89,7 +89,6 @@ const ManageUsers = () => {
         <table className="table table-compact text-center text-black w-full mx-auto">
           <thead>
             <tr className="text-violet-700 font-bold text-[16px]">
-              <th className="border">User ID</th>
               <th className="border">User Name</th>
               <th className="border">User Email</th>
               <th className="border">Phone</th>
@@ -101,13 +100,18 @@ const ManageUsers = () => {
           <tbody>
             {users?.map((user) => (
               <tr className="border text-left" key={user?._id}>
-                <td className="border">{user?._id}</td>
                 <td className="border">{user?.name}</td>
                 <td className="border">{user?.email}</td>
                 <td className="border">{user?.phone}</td>
                 <td className="border">{user?.role}</td>
                 <td className="border">
-                  {new Date(user?.createdAt).toDateString()}
+                  {user?.createdAt
+                    ? new Date(user.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })
+                    : "Date not available"}
                 </td>
                 <td className="flex justify-center">
                   <div className="mx-2">

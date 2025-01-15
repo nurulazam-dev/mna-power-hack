@@ -19,6 +19,10 @@ const UserSchema = new mongoose.Schema({
     enum: ["billingOfficer", "accountant", "admin"],
     default: "billingOfficer",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 export default mongoose.model("User", UserSchema);
