@@ -5,18 +5,13 @@ import { authContext } from "../../../context/AuthContext";
 
 const OverviewUserBanner = () => {
   const { user } = useContext(authContext);
-  console.log(user);
 
   return (
     <section className="bg-gradient-to-r from-violet-800 to-violet-300 text-white rounded-md mb-6">
       <div className="flex justify-between items-center p-2 pb-0">
         {/* info part */}
         <div className="px-4">
-          <h2 className="font-bold text-2xl mb-2">
-            {/* Hello! Nurul Azam{" "} */}
-            Hello! {user?.name}{" "}
-            <span className="text-sm font-normal">({user?.role})</span>
-          </h2>
+          <h2 className="font-bold text-2xl mb-2">Hello! {user?.name}</h2>
           <p className="opacity-85 font-thin text-[15px]">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
             quae consequuntur accusantium praesentium architec
