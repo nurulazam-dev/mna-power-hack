@@ -64,7 +64,7 @@ const Navbar = () => {
         <li className={liBtnClass}>
           <button
             onClick={handleLogOut}
-            className={`text-red-600 hover:bg-red-800 ${navBtnClass}`}
+            className={`text-red-600 hover:bg-red-600 ${navBtnClass}`}
           >
             LogOut
           </button>
