@@ -41,12 +41,12 @@ const ManageUsers = () => {
 
       if (response.ok) {
         toast.success("User deleted successfully!");
-        setUsers(users.filter((user) => user.id !== userId));
+        setUsers(users.filter((user) => user._id !== userId));
       } else {
         throw new Error("Failed to delete user.");
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error);
     }
   };
 
