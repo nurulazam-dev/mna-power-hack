@@ -13,7 +13,7 @@ const Register = () => {
     email: "",
     phone: "",
     password: "",
-    role: "accountant",
+    role: "billingOfficer",
   });
 
   const navigate = useNavigate();
