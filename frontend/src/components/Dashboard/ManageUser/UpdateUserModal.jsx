@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const UpdateUserModal = ({ user, onUpdate }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    role: "billingOfficer",
+    role: "",
   });
+
+  const [phoneError, setPhoneError] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -15,13 +18,24 @@ const UpdateUserModal = ({ user, onUpdate }) => {
         name: user.name || "",
         email: user.email || "",
         phone: user.phone || "",
-        role: user.role || "billingOfficer",
+        role: user.role || "",
       });
     }
   }, [user]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      // Validate phone number
+      if (!/^\d{0,11}$/.test(value)) {
+        setPhoneError("Phone number must be numeric and up to 11 digits.");
+        return;
+      } else {
+        setPhoneError("");
+      }
+    }
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -31,18 +45,17 @@ const UpdateUserModal = ({ user, onUpdate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone) {
-      alert("Please fill in all fields except email.");
+    // Validate phone length
+    if (formData.phone.length !== 11) {
+      setPhoneError("Phone number must be exactly 11 numeric characters.");
       return;
     }
 
     try {
       await onUpdate({ ...user, ...formData });
-      alert("User updated successfully!");
       document.getElementById("update-user-modal").checked = false; // Close the modal
     } catch (error) {
-      console.error("Error updating user:", error);
-      alert("Failed to update user.");
+      toast.error(error);
     }
   };
 
@@ -106,6 +119,9 @@ const UpdateUserModal = ({ user, onUpdate }) => {
                 placeholder="Enter user phone number"
                 required
               />
+              {phoneError && (
+                <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+              )}
             </div>
 
             {/* Role Selection */}

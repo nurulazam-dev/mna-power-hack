@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
-  console.log(users);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -55,7 +54,7 @@ const ManageUsers = () => {
   const handleUpdateUser = async (updatedUser) => {
     if (!updatedUser) return;
     try {
-      const response = await fetch(`${BASE_URL}/users/${updatedUser.id}`, {
+      const response = await fetch(`${BASE_URL}/users/${updatedUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -66,13 +65,15 @@ const ManageUsers = () => {
       if (response.ok) {
         toast.success("User updated successfully!");
         setUsers(
-          users.map((user) => (user.id === updatedUser.id ? updatedUser : user))
+          users.map((user) =>
+            user._id === updatedUser._id ? updatedUser : user
+          )
         );
       } else {
         throw new Error("Failed to update user.");
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error);
     }
   };
 
@@ -91,6 +92,7 @@ const ManageUsers = () => {
               <th className="border">User ID</th>
               <th className="border">User Name</th>
               <th className="border">User Email</th>
+              <th className="border">Phone</th>
               <th className="border">User Rule</th>
               <th className="border">User Created</th>
               <th className="border">Action</th>
@@ -98,10 +100,11 @@ const ManageUsers = () => {
           </thead>
           <tbody>
             {users?.map((user) => (
-              <tr className="border text-left" key={user?.id}>
+              <tr className="border text-left" key={user?._id}>
                 <td className="border">{user?._id}</td>
                 <td className="border">{user?.name}</td>
                 <td className="border">{user?.email}</td>
+                <td className="border">{user?.phone}</td>
                 <td className="border">{user?.role}</td>
                 <td className="border">
                   {new Date(user?.createdAt).toDateString()}
