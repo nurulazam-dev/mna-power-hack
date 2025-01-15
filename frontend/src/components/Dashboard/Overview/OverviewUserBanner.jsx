@@ -3,6 +3,7 @@ import { MdArrowOutward } from "react-icons/md";
 import useFetchData from "../../../hooks/useFetchData";
 import { BASE_URL } from "../../../../config";
 import Loading from "../../../shared/Loading";
+import Error from "../../../shared/Error";
 
 const OverviewUserBanner = () => {
   const { data: user, loading, error } = useFetchData(`${BASE_URL}/users`);
@@ -11,7 +12,7 @@ const OverviewUserBanner = () => {
   return (
     <section className="bg-gradient-to-r from-violet-800 to-violet-300 text-white rounded-md mb-6">
       {loading && <Loading />}
-      {/* {error && <Error />} */}
+      {error && <Error />}
       {!loading && !error && (
         <div className="flex justify-between items-center p-2 pb-0">
           {/* info part */}
