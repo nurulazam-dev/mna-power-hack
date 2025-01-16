@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { authContext } from "../../context/AuthContext";
+
 const Settings = () => {
+  const { user } = useContext(authContext);
+
   return (
     <section className=" bg-white shadow-xl rounded-xl mb-5">
       <div className="bg-gradient-to-r from-violet-700 to-violet-400 text-white rounded-t-xl p-6">
@@ -23,7 +28,10 @@ const Settings = () => {
               <input
                 type="text"
                 placeholder="Enter your name"
-                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
+                value={user?.name}
+                readOnly
+                disabled
+                className="input focus:outline-none border disabled:text-slate-600 disabled:border-violet-600 w-full disabled:bg-white"
               />
             </div>
             <div className="form-control">
@@ -33,7 +41,10 @@ const Settings = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
+                value={user?.email}
+                readOnly
+                disabled
+                className="input focus:outline-none border disabled:text-slate-600 disabled:border-violet-600 w-full disabled:bg-white"
               />
             </div>
           </div>
