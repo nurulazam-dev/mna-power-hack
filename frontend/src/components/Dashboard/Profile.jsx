@@ -19,9 +19,11 @@ const Profile = () => {
           <div className="avatar">
             <FaUserCircle className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" />
           </div>
-          <h2 className="text-violet-600 text-2xl font-bold">{user.name}</h2>
-          <p className="text-gray-500 font-bold text-lg capitalize">
-            {user.role}
+          <h2 className="text-violet-600 text-2xl font-bold">
+            {user ? user?.name : "User not found"}
+          </h2>
+          <p className="text-gray-500 text-sm">
+            {user ? user?.role : "User role not found"}
           </p>
         </div>
 
@@ -30,20 +32,26 @@ const Profile = () => {
             {/* Email */}
             <div className="bg-white p-4 rounded-lg shadow-md">
               <h3 className="text-sm text-gray-500">Email</h3>
-              <p className="text-lg font-semibold">{user.email}</p>
+              <p className="text-lg font-semibold">
+                {user ? user?.email : "User email not found"}
+              </p>
             </div>
 
             {/* Phone */}
             <div className="bg-white p-4 rounded-lg shadow-md">
               <h3 className="text-sm text-gray-500">Phone</h3>
-              <p className="text-lg font-semibold">{user.phone}</p>
+              <p className="text-lg font-semibold">
+                {user ? user?.phone : "Phone number not found"}
+              </p>
             </div>
 
             {/* User ID */}
             <div className="bg-white p-4 rounded-lg shadow-md">
               <h3 className="text-sm text-gray-500">User ID</h3>
 
-              <p className="text-lg font-semibold">{user._id}</p>
+              <p className="text-lg font-semibold">
+                {user ? user?._id : "User ID not found"}
+              </p>
             </div>
           </div>
 

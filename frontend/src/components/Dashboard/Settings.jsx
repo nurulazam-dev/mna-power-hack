@@ -130,7 +130,7 @@ const Settings = () => {
             <div className="flex justify-end mt-4">
               <button
                 type="submit"
-                className="btn btn-primary hover:btn-success hover:text-white"
+                className="border shadow-lg bg-indigo-600 hover:bg-black py-[8px] rounded font-thin text-[18px] px-6 mt-2 mb-1 text-white hover:text-orange-500"
               >
                 Change Password
               </button>
