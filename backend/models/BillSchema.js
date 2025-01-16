@@ -5,12 +5,14 @@ const BillSchema = new mongoose.Schema({
     type: String,
     required: [true, "Name is required"],
     trim: true,
+    minlength: [3, "Name must be at least 3 characters"],
+    maxlength: [100, "Name cannot exceed 100 characters"],
   },
   phone: {
     type: String,
     required: [true, "Phone number is required"],
-    unique: [true, "Phone number is unique"],
-    match: [/^[0-9]{11}$/, "Phone number isn't 11 characters"],
+    unique: [true, "Phone number must be unique"],
+    match: [/^[0-9]{11}$/, "Phone number must be exactly 11 digits"],
   },
   amount: {
     type: Number,
@@ -24,15 +26,29 @@ const BillSchema = new mongoose.Schema({
   },
   dateline: {
     type: Date,
+    required: [true, "Dateline is required"],
   },
   billAttacher: {
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   createdAt: {
     type: Date,
     default: Date.now,
+    immutable: true,
   },
+});
+
+BillSchema.index({ billAttacher: 1 });
+
+BillSchema.pre("find", function (next) {
+  this.populate("billAttacher", "name email");
+  next();
+});
+
+BillSchema.pre("findOne", function (next) {
+  this.populate("billAttacher", "name email");
+  next();
 });
 
 export default mongoose.model("Bill", BillSchema);
