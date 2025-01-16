@@ -63,7 +63,7 @@ const Settings = () => {
                 value={user?.name}
                 readOnly
                 disabled
-                className="input disabled:text-slate-600 w-full"
+                className="input disabled:bg-white disabled:border-violet-600 disabled:text-slate-600 w-full"
               />
             </div>
             <div className="form-control">
@@ -75,7 +75,7 @@ const Settings = () => {
                 value={user?.email}
                 readOnly
                 disabled
-                className="input disabled:text-slate-600 w-full"
+                className="input disabled:bg-white disabled:border-violet-600 disabled:text-slate-600 w-full"
               />
             </div>
           </div>
@@ -96,7 +96,7 @@ const Settings = () => {
                 placeholder="Enter new password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                className="input border text-black w-full"
+                className="input bg-white border-violet-600 text-slate-800 w-full focus:outline-none"
               />
             </div>
             <div className="form-control">
@@ -108,12 +108,15 @@ const Settings = () => {
                 placeholder="Confirm new password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="input border text-black w-full"
+                className="input bg-white border-violet-600 text-slate-800 w-full focus:outline-none"
               />
             </div>
           </div>
           <div className="flex justify-end mt-4">
-            <button onClick={handlePasswordChange} className="btn btn-primary">
+            <button
+              onClick={handlePasswordChange}
+              className="btn btn-primary hover:btn-success hover:text-white"
+            >
               Change Password
             </button>
           </div>
