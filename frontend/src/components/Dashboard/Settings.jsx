@@ -1,8 +1,41 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { authContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 
 const Settings = () => {
   const { user } = useContext(authContext);
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handlePasswordChange = async () => {
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/update-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user?.email,
+          newPassword,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Password updated successfully!");
+      } else {
+        toast.error(data.message || "Failed to update password.");
+      }
+    } catch (error) {
+      toast.error(error);
+    }
+  };
 
   return (
     <section className=" bg-white shadow-xl rounded-xl mb-5">
@@ -27,11 +60,10 @@ const Settings = () => {
               </label>
               <input
                 type="text"
-                placeholder="Enter your name"
                 value={user?.name}
                 readOnly
                 disabled
-                className="input focus:outline-none border disabled:text-slate-600 disabled:border-violet-600 w-full disabled:bg-white"
+                className="input disabled:text-slate-600 w-full"
               />
             </div>
             <div className="form-control">
@@ -40,11 +72,10 @@ const Settings = () => {
               </label>
               <input
                 type="email"
-                placeholder="Enter your email"
                 value={user?.email}
                 readOnly
                 disabled
-                className="input focus:outline-none border disabled:text-slate-600 disabled:border-violet-600 w-full disabled:bg-white"
+                className="input disabled:text-slate-600 w-full"
               />
             </div>
           </div>
@@ -63,7 +94,9 @@ const Settings = () => {
               <input
                 type="password"
                 placeholder="Enter new password"
-                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="input border text-black w-full"
               />
             </div>
             <div className="form-control">
@@ -73,45 +106,17 @@ const Settings = () => {
               <input
                 type="password"
                 placeholder="Confirm new password"
-                className="input focus:outline-none bg-white border text-black border-violet-600 w-full"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="input border text-black w-full"
               />
             </div>
           </div>
-        </div>
-
-        {/* Notification Settings */}
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-800">
-            Notification Settings
-          </h2>
-          <div className="mt-2 space-y-1">
-            <div className="form-control">
-              <label className="flex items-center">
-                <span className="label-text text-violet-600">
-                  Email Notifications
-                </span>
-
-                <input type="checkbox" className="toggle toggle-primary ml-2" />
-              </label>
-            </div>
-            <div className="form-control">
-              <label className="flex items-center">
-                <span className="label-text text-violet-600">
-                  Push Notifications
-                </span>
-                <input
-                  type="checkbox"
-                  className="toggle toggle-secondary ml-2"
-                />
-              </label>
-            </div>
+          <div className="flex justify-end mt-4">
+            <button onClick={handlePasswordChange} className="btn btn-primary">
+              Change Password
+            </button>
           </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex justify-end gap-4">
-          <button className="btn btn-primary">Save Changes</button>
-          <button className="btn btn-outline btn-error">Cancel</button>
         </div>
       </div>
     </section>
