@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { BASE_URL } from "../../../config";
 
 const AddBillModal = () => {
   const [data, setData] = useState({
     billingHolder: "",
     phone: "",
     amount: "",
+    status: "Unpaid",
+    dateline: "",
   });
 
   const handleChange = ({ currentTarget: input }) => {
@@ -13,7 +16,7 @@ const AddBillModal = () => {
 
   const handleBillAdd = async (event) => {
     event.preventDefault();
-    const url = "http://localhost:8080/api/bill-list";
+    const url = `${BASE_URL}/bills`;
 
     try {
       const response = await fetch(url, {
@@ -36,6 +39,8 @@ const AddBillModal = () => {
         billingHolder: "",
         phone: "",
         amount: "",
+        status: "Unpaid",
+        dateline: "",
       });
     } catch (error) {
       console.error("Error adding bill:", error.message);
@@ -83,6 +88,15 @@ const AddBillModal = () => {
               onChange={handleChange}
               value={data.amount}
               placeholder="Paid Amount"
+              className="input focus:outline-none border border-black w-full max-w-xs mt-4 bg-white text-black"
+              required
+            />
+            <input
+              name="dateline"
+              type="date"
+              onChange={handleChange}
+              value={data.dateline}
+              placeholder="Bill dateline"
               className="input focus:outline-none border border-black w-full max-w-xs mt-4 bg-white text-black"
               required
             />

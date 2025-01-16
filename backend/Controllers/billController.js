@@ -32,23 +32,32 @@ export const getBill = async (req, res) => {
 };
 
 // create a bill controller
-export const createBill = async (req, res, next) => {
+export const createBill = async (req, res) => {
   try {
-    const newBill = new Bill(req.body);
-    const savedBill = await newBill.save();
+    const { billingHolder, phone, amount, status, dateline } = req.body;
 
-    // newBill.logger();
+    const userId = req.user.id;
 
-    res.status(200).json({
-      success: true,
-      message: "Bill submitted",
-      data: savedBill,
+    if (!userId) {
+      return res.status(401).json({ error: "User not authenticated" });
+    }
+
+    const newBill = await Bill.create({
+      billingHolder,
+      phone,
+      amount,
+      status,
+      dateline,
+      billAttacher: userId,
+    });
+
+    res.status(201).json({
+      message: "Bill added successfully",
+      bill: newBill,
     });
   } catch (error) {
     res.status(500).json({
-      success: false,
-      message: "Bill isn't submitted",
-      message: error.message,
+      error: "Failed to add bill",
     });
   }
 };

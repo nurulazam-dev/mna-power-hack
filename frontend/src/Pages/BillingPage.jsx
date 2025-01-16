@@ -5,7 +5,6 @@ import { GrFormView } from "react-icons/gr";
 
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
-  console.log("bills:", bills);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
