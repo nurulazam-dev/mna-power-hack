@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { BASE_URL } from "../../../config";
 
-const AddBillModal = () => {
+const AddBillModal = ({ loggedInUserId }) => {
   const [data, setData] = useState({
     billingHolder: "",
     phone: "",
     amount: "",
     status: "Unpaid",
     dateline: "",
+    billAttacher: loggedInUserId,
   });
 
   const handleChange = ({ currentTarget: input }) => {
@@ -41,6 +43,7 @@ const AddBillModal = () => {
         amount: "",
         status: "Unpaid",
         dateline: "",
+        billAttacher: loggedInUserId,
       });
     } catch (error) {
       console.error("Error adding bill:", error.message);
