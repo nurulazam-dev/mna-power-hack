@@ -7,6 +7,7 @@ import {
   getAllUser,
   getAUser,
   getMyProfile,
+  updatePassword,
   updateUser,
 } from "../Controllers/userController.js";
 const router = express.Router();
@@ -20,5 +21,6 @@ router.get("/", getAllUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 router.get("/profile", getMyProfile);
+router.post("/update-password", updatePassword);
 
 export default router;

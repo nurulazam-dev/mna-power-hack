@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { authContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../../config";
 
 const Settings = () => {
   const { user } = useContext(authContext);
@@ -14,7 +15,7 @@ const Settings = () => {
     }
 
     try {
-      const response = await fetch("/api/update-password", {
+      const response = await fetch(`${BASE_URL}/update-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
