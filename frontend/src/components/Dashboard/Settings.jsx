@@ -8,14 +8,21 @@ const Settings = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handlePasswordChange = async () => {
+  const handlePasswordUpdate = async (e) => {
+    e.preventDefault();
+
+    if (!newPassword || !confirmPassword) {
+      toast.error("All fields are required.");
+      return;
+    }
+
     if (newPassword !== confirmPassword) {
       toast.error("Passwords do not match!");
       return;
     }
 
     try {
-      const response = await fetch(`${BASE_URL}/update-password`, {
+      const response = await fetch(`${BASE_URL}/users/update-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +36,9 @@ const Settings = () => {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success("Password updated successfully!");
+        toast.success(data.message);
+        setNewPassword("");
+        setConfirmPassword("");
       } else {
         toast.error(data.message || "Failed to update password.");
       }
@@ -87,40 +96,46 @@ const Settings = () => {
           <h2 className="text-2xl font-semibold text-gray-800">
             Security Settings
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black">New Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="Enter new password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                className="input bg-white border-violet-600 text-slate-800 w-full focus:outline-none"
-              />
+          <form onSubmit={handlePasswordUpdate}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black">New Password</span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="Enter new password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                  className="input bg-white border-violet-600 text-slate-800 w-full focus:outline-none"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black">
+                    Confirm Password
+                  </span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="Confirm new password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  className="input bg-white border-violet-600 text-slate-800 w-full focus:outline-none"
+                />
+              </div>
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black">Confirm Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="Confirm new password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="input bg-white border-violet-600 text-slate-800 w-full focus:outline-none"
-              />
+            <div className="flex justify-end mt-4">
+              <button
+                type="submit"
+                className="btn btn-primary hover:btn-success hover:text-white"
+              >
+                Change Password
+              </button>
             </div>
-          </div>
-          <div className="flex justify-end mt-4">
-            <button
-              onClick={handlePasswordChange}
-              className="btn btn-primary hover:btn-success hover:text-white"
-            >
-              Change Password
-            </button>
-          </div>
+          </form>
         </div>
       </div>
     </section>
