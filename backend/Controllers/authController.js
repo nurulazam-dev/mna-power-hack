@@ -91,3 +91,36 @@ export const login = async (req, res) => {
     return res.status(500).json({ status: false, message: "Failed to login" });
   }
 };
+
+export const updatePassword = async (req, res) => {
+  const { email, newPassword } = req.body;
+
+  if (!email || !newPassword) {
+    return res
+      .status(400)
+      .json({ message: "Email and password are required." });
+  }
+
+  try {
+    // Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    const user = await User.findOneAndUpdate(
+      { email },
+      { password: hashedPassword },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    res
+      .status(200)
+      .json({ success: true, message: "Password updated successfully." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
