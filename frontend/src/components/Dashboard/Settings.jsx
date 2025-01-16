@@ -75,20 +75,23 @@ const Settings = () => {
           </h2>
           <div className="mt-2 space-y-1">
             <div className="form-control">
-              <label className="cursor-pointer flex items-center justify-between">
+              <label className="flex items-center">
                 <span className="label-text text-violet-600">
                   Email Notifications
                 </span>
 
-                <input type="checkbox" className="toggle toggle-primary" />
+                <input type="checkbox" className="toggle toggle-primary ml-2" />
               </label>
             </div>
             <div className="form-control">
-              <label className="cursor-pointer flex items-center justify-between">
+              <label className="flex items-center">
                 <span className="label-text text-violet-600">
                   Push Notifications
                 </span>
-                <input type="checkbox" className="toggle toggle-secondary" />
+                <input
+                  type="checkbox"
+                  className="toggle toggle-secondary ml-2"
+                />
               </label>
             </div>
           </div>
@@ -96,8 +99,8 @@ const Settings = () => {
 
         {/* Action Buttons */}
         <div className="flex justify-end gap-4">
-          <button className="btn btn-outline btn-error">Cancel</button>
           <button className="btn btn-primary">Save Changes</button>
+          <button className="btn btn-outline btn-error">Cancel</button>
         </div>
       </div>
     </section>
