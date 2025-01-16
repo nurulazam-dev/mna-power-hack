@@ -35,15 +35,19 @@ export const restrict = (roles) => async (req, res, next) => {
 
   let user;
 
+  const billingOfficer = await User.findById(userId);
   const accountant = await User.findById(userId);
-  // const admin = await User.findById(userId);
+  const admin = await User.findById(userId);
 
+  if (billingOfficer) {
+    user = billingOfficer;
+  }
   if (accountant) {
     user = accountant;
   }
-  /* if (admin) {
+  if (admin) {
     user = admin;
-  } */
+  }
 
   if (!roles.includes(user.role)) {
     return res
