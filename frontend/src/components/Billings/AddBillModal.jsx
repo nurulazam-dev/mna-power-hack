@@ -12,9 +12,44 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
     dateline: "",
     billAttacher: loggedInUserId || null,
   });
+  const [errors, setErrors] = useState({});
+
+  const validateField = (name, value) => {
+    let error = "";
+
+    switch (name) {
+      case "billingHolder":
+        if (!value) error = "Name is required.";
+        else if (value.trim().length < 3)
+          error = "Name must be at least 3 characters.";
+        break;
+      case "phone":
+        if (!value) error = "Phone number is required.";
+        else if (!/^[0-9]{11}$/.test(value))
+          error = "Phone number must be exactly 11 digits.";
+        break;
+      case "amount":
+        if (!value) error = "Amount is required.";
+        else if (value <= 0) error = "Amount must be greater than 0.";
+        break;
+      case "dateline":
+        if (!value) error = "Dateline is required.";
+        break;
+      default:
+        break;
+    }
+
+    return error;
+  };
 
   const handleChange = ({ target: input }) => {
-    setData({ ...data, [input.name]: input.value });
+    const { name, value } = input;
+    const error = validateField(name, value);
+
+    setData({ ...data, [name]: value });
+    setErrors({ ...errors, [name]: error });
+
+    // setData({ ...data, [input.name]: input.value });
   };
 
   const handleBillAdd = async (e) => {
