@@ -38,11 +38,10 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
         },
         body: JSON.stringify(data),
       });
-      console.log(data);
 
       if (!response.ok) {
         if (response.status === 401) {
-          throw new Error("Unauthorized: Please log in again.");
+          throw new Error("You are Unauthorized.");
         } else if (response.status === 500) {
           throw new Error("Internal Server Error.");
         } else {

@@ -36,7 +36,8 @@ export const createBill = async (req, res) => {
   try {
     const { billingHolder, phone, amount, status, dateline } = req.body;
 
-    const userId = req.user.id;
+    // const userId = req.user?.id;
+    const userId = req.body.billAttacher;
 
     if (!userId) {
       return res.status(401).json({ error: "User not authenticated" });
@@ -56,8 +57,10 @@ export const createBill = async (req, res) => {
       bill: newBill,
     });
   } catch (error) {
+    console.error("Error details:", error);
     res.status(500).json({
       error: "Failed to add bill",
+      details: error.message,
     });
   }
 };
