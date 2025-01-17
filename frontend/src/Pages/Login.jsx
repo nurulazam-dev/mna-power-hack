@@ -114,11 +114,7 @@ const Login = () => {
                 type="submit"
                 className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500"
               >
-                {loading ? (
-                  <h2 className="text-white text-xl font-bold">Loading...</h2>
-                ) : (
-                  "Login"
-                )}
+                {loading ? <h2 className="text-white">Loading...</h2> : "Login"}
               </button>
             </form>
             <p className="text-center text-[13px] mt-1 text-slate-600">
