@@ -50,13 +50,9 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
       }
 
       const res = await response.json();
-      toast.success("Bill added successfully!");
+      toast.success(res.message);
 
       if (onAddBill) onAddBill(res);
-
-      /* const newBill = await response.json();
-      toast.success(newBill.message);
-      onAddBill(newBill); */
 
       setData({
         billingHolder: "",
@@ -66,6 +62,7 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
         dateline: "",
         billAttacher: loggedInUserId || null,
       });
+      document.getElementById("bill-add-modal").checked = false; // Close the modal after submit bill
     } catch (error) {
       toast.error(error.message);
     }
