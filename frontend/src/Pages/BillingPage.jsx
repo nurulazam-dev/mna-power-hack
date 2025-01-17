@@ -4,6 +4,7 @@ import { GrFormView } from "react-icons/gr";
 import ViewBillModal from "../components/Billings/ViewBillModal";
 import { BASE_URL } from "../../config";
 import { authContext } from "../context/AuthContext";
+import Loading from "../shared/Loading";
 
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
@@ -102,7 +103,7 @@ const BillingPage = () => {
       </div>
 
       {loading ? (
-        <div className="text-center my-4">Loading bills...</div>
+        <Loading />
       ) : error ? (
         <div className="text-center my-4 text-red-600">{error}</div>
       ) : filteredBills.length === 0 ? (

@@ -11,7 +11,7 @@ import {
 } from "../Controllers/billController.js";
 const router = express.Router();
 
-router.get("/", authenticate, getAllBills);
+router.get("/", getAllBills);
 // router.get("/", authenticate, restrict(["accountant"]), getBill);
 // router.post("/", authenticate, restrict(["billingOfficer"]), createBill);
 router.post("/", createBill);
