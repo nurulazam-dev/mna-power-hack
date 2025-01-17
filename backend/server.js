@@ -39,6 +39,15 @@ app.use(cookieParser());
 app.use(json());
 app.use(cors(corsOption));
 
+// Middleware for error handling in Express
+app.use((err, req, res, next) => {
+  if (err.name === "ValidationError") {
+    const errors = Object.values(err.errors).map((error) => error.message);
+    return res.status(400).json({ errors });
+  }
+  next(err);
+});
+
 // routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
