@@ -57,8 +57,15 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
 
     const token = localStorage.getItem("token");
 
-    if (!data.billingHolder || !data.phone || !data.amount || !data.dateline) {
-      toast.error("All fields are required!");
+    const validationErrors = {};
+    Object.keys(data).forEach((key) => {
+      const error = validateField(key, data[key]);
+      if (error) validationErrors[key] = error;
+    });
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      Object.values(validationErrors).forEach((error) => toast.error(error));
       return;
     }
 
@@ -75,13 +82,17 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
       });
 
       if (!response.ok) {
-        if (response.status === 401) {
-          throw new Error("You are Unauthorized.");
+        const res = await response.json();
+        if (response.status === 400 && res.errors) {
+          res.errors.forEach((error) => toast.error(error));
+        } else if (response.status === 401) {
+          throw new Error("You are Unauthorized");
         } else if (response.status === 500) {
-          throw new Error("Internal Server Error.");
+          throw new Error("Internal Server Error");
         } else {
           throw new Error(`HTTP Error: ${response.status}`);
         }
+        return;
       }
 
       const res = await response.json();
@@ -127,6 +138,9 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
               className="input focus:outline-none border text-black border-black w-full max-w-xs mt-4 bg-white"
               required
             />
+            {errors.billingHolder && (
+              <p className="text-red-600 text-sm">{errors.billingHolder}</p>
+            )}
             <input
               name="phone"
               type="number"
@@ -136,6 +150,9 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
               className="input focus:outline-none border border-black w-full max-w-xs mt-4 bg-white text-black"
               required
             />
+            {errors.phone && (
+              <p className="text-red-600 text-sm">{errors.phone}</p>
+            )}
             <input
               name="amount"
               type="number"
@@ -145,6 +162,9 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
               className="input focus:outline-none border border-black w-full max-w-xs mt-4 bg-white text-black"
               required
             />
+            {errors.amount && (
+              <p className="text-red-600 text-sm">{errors.amount}</p>
+            )}
             <input
               name="dateline"
               type="date"
@@ -154,6 +174,9 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
               className="input focus:outline-none border border-black w-full max-w-xs mt-4 bg-white text-black"
               required
             />
+            {errors.dateline && (
+              <p className="text-red-600 text-sm">{errors.dateline}</p>
+            )}
             <input
               type="submit"
               value="Bill Add"
