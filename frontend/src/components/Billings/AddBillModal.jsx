@@ -13,14 +13,21 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
     billAttacher: loggedInUserId || null,
   });
 
-  const handleChange = ({ currentTarget: input }) => {
+  const handleChange = ({ target: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
 
-  const handleBillAdd = async (event) => {
-    event.preventDefault();
-    const url = `${BASE_URL}/bills`;
+  const handleBillAdd = async (e) => {
+    e.preventDefault();
+
     const token = localStorage.getItem("token");
+
+    if (!data.billingHolder || !data.phone || !data.amount || !data.dateline) {
+      toast.error("All fields are required!");
+      return;
+    }
+
+    const url = `${BASE_URL}/bills`;
 
     try {
       const response = await fetch(url, {
@@ -31,20 +38,27 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
         },
         body: JSON.stringify(data),
       });
+      console.log(data);
 
       if (!response.ok) {
         if (response.status === 401) {
           throw new Error("Unauthorized: Please log in again.");
+        } else if (response.status === 500) {
+          throw new Error("Internal Server Error.");
+        } else {
+          throw new Error(`HTTP Error: ${response.status}`);
         }
-        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const res = await response.json();
-      toast.success(res.message);
+      toast.success("Bill added successfully!");
 
-      const newBill = await response.json();
+      if (onAddBill) onAddBill(res);
+
+      /* const newBill = await response.json();
       toast.success(newBill.message);
-      onAddBill(newBill);
+      onAddBill(newBill); */
+
       setData({
         billingHolder: "",
         phone: "",
@@ -59,7 +73,7 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
   };
 
   return (
-    <div>
+    <section>
       <input type="checkbox" id="bill-add-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative w-full max-w-xs bg-white">
@@ -117,7 +131,7 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

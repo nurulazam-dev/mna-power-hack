@@ -6,7 +6,6 @@ const BillSchema = new mongoose.Schema({
     required: [true, "Name is required"],
     trim: true,
     minlength: [3, "Name must be at least 3 characters"],
-    maxlength: [100, "Name cannot exceed 100 characters"],
   },
   phone: {
     type: String,
@@ -32,11 +31,11 @@ const BillSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  createdAt: {
+  /* createdAt: {
     type: Date,
     default: Date.now,
     immutable: true,
-  },
+  }, */
 });
 
 BillSchema.index({ billAttacher: 1 });
