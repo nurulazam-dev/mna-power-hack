@@ -1,21 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import AddBillModal from "../components/Billings/AddBillModal";
-import ViewBillModal from "../components/Billings/ViewBillModal";
 import { GrFormView } from "react-icons/gr";
-import { BASE_URL } from "../config";
+import ViewBillModal from "../components/Billings/ViewBillModal";
+import { BASE_URL } from "../../config";
+import { authContext } from "../context/AuthContext";
 
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
+  const [selectedBill, setSelectedBill] = useState(null);
   const [filteredBills, setFilteredBills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(10);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { user } = useContext(authContext);
 
   useEffect(() => {
-    fetchBills();
-  }, []);
+    if (user?._id) {
+      fetchBills();
+    }
+  }, [user?._id]);
 
   const fetchBills = async () => {
     setLoading(true);
@@ -76,8 +81,8 @@ const BillingPage = () => {
             className="input bg-white input-bordered text-black mx-3 w-full max-w-xs"
           />
         </div>
-        <div className="">
-          <AddBillModal onAddBill={handleAddBill} />
+        <div>
+          <AddBillModal onAddBill={handleAddBill} loggedInUserId={user?._id} />
           <label
             htmlFor="bill-add-modal"
             className="btn text-[15px] text-white border-none hover:bg-green-700"
@@ -115,9 +120,10 @@ const BillingPage = () => {
                   <td className="border">$ {bill?.amount}</td>
                   <td className="border">{bill?.date}</td>
                   <td className="flex justify-center items-center px-0">
-                    <ViewBillModal bill={bill} />
+                    <ViewBillModal bill={selectedBill} />
                     <label
                       htmlFor="bill-view-modal"
+                      onClick={() => setSelectedBill(bill)}
                       className="btn btn-outline btn-success btn-sm px-1"
                     >
                       <GrFormView className="w-7 h-7" />

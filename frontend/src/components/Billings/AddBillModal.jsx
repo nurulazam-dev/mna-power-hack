@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { BASE_URL } from "../../../config";
+import { toast } from "react-toastify";
 
-const AddBillModal = ({ loggedInUserId }) => {
+const AddBillModal = ({ loggedInUserId, onAddBill }) => {
   const [data, setData] = useState({
     billingHolder: "",
     phone: "",
     amount: "",
     status: "Unpaid",
     dateline: "",
-    billAttacher: loggedInUserId,
+    billAttacher: loggedInUserId || null,
   });
 
   const handleChange = ({ currentTarget: input }) => {
@@ -19,41 +20,47 @@ const AddBillModal = ({ loggedInUserId }) => {
   const handleBillAdd = async (event) => {
     event.preventDefault();
     const url = `${BASE_URL}/bills`;
+    const token = localStorage.getItem("token");
 
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
       });
 
       if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error("Unauthorized: Please log in again.");
+        }
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const res = await response.json();
-      console.log(res.message);
-      alert("Bill added successfully!");
+      toast.success(res.message);
 
+      const newBill = await response.json();
+      toast.success(newBill.message);
+      onAddBill(newBill);
       setData({
         billingHolder: "",
         phone: "",
         amount: "",
         status: "Unpaid",
         dateline: "",
-        billAttacher: loggedInUserId,
+        billAttacher: loggedInUserId || null,
       });
     } catch (error) {
-      console.error("Error adding bill:", error.message);
-      alert("Failed to add bill. Please try again.");
+      toast.error(error.message);
     }
   };
 
   return (
-    <div className="">
-      <input type="checkbox" id="bill-add-modal" className="modal-toggle " />
+    <div>
+      <input type="checkbox" id="bill-add-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative w-full max-w-xs bg-white">
           <label
@@ -75,7 +82,6 @@ const AddBillModal = ({ loggedInUserId }) => {
               className="input focus:outline-none border text-black border-black w-full max-w-xs mt-4 bg-white"
               required
             />
-
             <input
               name="phone"
               type="number"
