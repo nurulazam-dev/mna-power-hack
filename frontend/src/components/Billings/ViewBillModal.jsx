@@ -7,7 +7,7 @@ const ViewBillModal = ({ bill }) => {
     <>
       <input type="checkbox" id="bill-view-modal" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box relative max-w-xl">
+        <div className="modal-box bg-white relative max-w-sm">
           <label
             htmlFor="bill-view-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
@@ -15,13 +15,17 @@ const ViewBillModal = ({ bill }) => {
             ✕
           </label>
 
-          <h3 className="text-lg font-bold mb-4 text-center">Bill Details</h3>
+          <h3 className="text-[22px] font-bold text-center text-violet-600">
+            Bill Details
+          </h3>
+          <div className="divider divider-neutral my-2 opacity-40"></div>
+
           <div className="space-y-3">
             <p className="text-sm">
-              <strong>Billing ID:</strong> {bill?.id}
+              <strong>Bill ID:</strong> {bill?._id}
             </p>
             <p className="text-sm">
-              <strong>Billing Holder Name:</strong> {bill?.billingHolder}
+              <strong>Billing Holder:</strong> {bill?.billingHolder}
             </p>
             <p className="text-sm">
               <strong>Phone:</strong> {bill?.phone}
@@ -30,7 +34,7 @@ const ViewBillModal = ({ bill }) => {
               <strong>Paid Amount:</strong> $ {bill?.amount}
             </p>
             <p className="text-sm">
-              <strong>Paid Date:</strong> {bill?.date}
+              <strong>Dateline:</strong> {bill?.dateline}
             </p>
           </div>
         </div>
