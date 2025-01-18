@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../../../config";
 import Error from "../../shared/Error";
 import Loading from "../../shared/Loading";
+import ViewBillModal from "../Billings/ViewBillModal";
+import UpdateBillModal from "../Billings/UpdateBillModal";
+import DeleteBillModal from "../Billings/DeleteBillModal";
 
 const ManageBills = () => {
   const [bills, setBills] = useState([]);
@@ -51,14 +54,10 @@ const ManageBills = () => {
               />
             </div>
             <div>
-              <h2 className="font-bold text-xl text-white">Total Bills: 172</h2>
+              <h2 className="font-bold text-xl text-white">
+                Total Bills: {bills?.length}
+              </h2>
             </div>
-            {/* <div className="">
-            <AddBillModal />
-            <label htmlFor="bill-add-modal" className="btn">
-              Add New Bill
-            </label>
-          </div> */}
           </div>
 
           <table className="table table-compact text-center text-black w-full mx-auto">
@@ -94,16 +93,16 @@ const ManageBills = () => {
                   <td className="border">{bill?.billAttacher}</td>
                   <td className="flex justify-center">
                     <div className="mx-1">
-                      {/* <UpdateBillModal /> */}
+                      <ViewBillModal />
                       <label
-                        htmlFor="bill-modal"
+                        htmlFor="bill-view-modal"
                         className="btn btn-outline btn-primary btn-xs"
                       >
                         View
                       </label>
                     </div>
                     <div className="mx-1">
-                      {/* <UpdateBillModal /> */}
+                      <UpdateBillModal />
                       <label
                         htmlFor="bill-update-modal"
                         className="btn btn-outline btn-success btn-xs"
@@ -112,7 +111,7 @@ const ManageBills = () => {
                       </label>
                     </div>
                     <div className="mx-1">
-                      {/* <DeleteBillModal /> */}
+                      <DeleteBillModal />
                       <label
                         // onClick={() => setDeleteBill(bill)}
                         htmlFor="bill-delete-modal"
