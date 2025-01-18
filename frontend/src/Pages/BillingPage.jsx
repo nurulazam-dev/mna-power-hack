@@ -57,7 +57,7 @@ const BillingPage = () => {
         (bill) =>
           bill.billingHolder.toLowerCase().includes(term) ||
           bill.phone.includes(term) ||
-          bill.id.toString().includes(term)
+          bill.status.toString().includes(term)
       );
       setFilteredBills(filtered);
     }
@@ -106,7 +106,7 @@ const BillingPage = () => {
         <Loading />
       ) : error ? (
         <div className="text-center my-4 text-red-600">{error}</div>
-      ) : filteredBills.length === 0 ? (
+      ) : filteredBills?.length === 0 ? (
         <div className="text-center my-4">No bills found.</div>
       ) : (
         <>

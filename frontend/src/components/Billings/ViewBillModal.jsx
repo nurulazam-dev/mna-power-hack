@@ -36,11 +36,9 @@ const ViewBillModal = ({ bill }) => {
             <p className="text-sm">
               <strong>Status:</strong>{" "}
               <span
-                className={
-                  `${bill?.status}` == "Unpaid"
-                    ? "bg-red-500 rounded px-3 py-[3px] text-white uppercase"
-                    : "bg-green-500 rounded px-3 py-[3px] text-white uppercase"
-                }
+                className={`rounded px-3 py-[3px] text-white uppercase ${
+                  bill?.status === "Unpaid" ? "bg-red-500" : "bg-green-500"
+                }`}
               >
                 {bill?.status}
               </span>
