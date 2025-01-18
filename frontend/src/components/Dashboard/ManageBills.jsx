@@ -75,14 +75,22 @@ const ManageBills = () => {
               </tr>
             </thead>
             <tbody>
-              {bills?.map((bill) => (
+              {bills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
-                  <td className="border">BILL00{bill?.index}</td>
+                  <td className="border">BILL00{index + 1}</td>
                   <td className="border">{bill?.billingHolder}</td>
                   <td className="border">{bill?.phone}</td>
                   <td className="border">$ {bill?.amount}</td>
                   <td className="border">{bill?.status}</td>
-                  <td className="border">{bill?.dateline}</td>
+                  <td className="border">
+                    {bill?.dateline
+                      ? new Date(bill?.dateline).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "numeric",
+                          day: "numeric",
+                        })
+                      : "Date not available"}
+                  </td>
                   <td className="border">{bill?.billAttacher}</td>
                   <td className="flex justify-center">
                     <div className="mx-1">

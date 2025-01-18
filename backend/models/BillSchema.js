@@ -28,8 +28,8 @@ const BillSchema = new mongoose.Schema({
     required: [true, "Dateline is required"],
   },
   billAttacher: {
-    // type: mongoose.Schema.Types.ObjectId,
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    // type: String,
     ref: "User",
   },
   /* createdAt: {

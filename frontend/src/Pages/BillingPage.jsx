@@ -24,10 +24,10 @@ const BillingPage = () => {
   }, [user?._id]); */
 
   useEffect(() => {
-    if (user?.email) {
+    if (user?._id) {
       fetchBills();
     }
-  }, [user?.email]);
+  }, [user?._id]);
 
   const fetchBills = async () => {
     setLoading(true);
