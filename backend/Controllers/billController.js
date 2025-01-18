@@ -3,15 +3,19 @@ import Bill from "../models/BillSchema.js";
 // get all bills controller
 export const getAllBills = async (req, res) => {
   try {
-    const bills = await Bill.find({});
-
+    const bills = await Bill.find().sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
-      message: "Successfully got all bills",
+      message: "Bills retrieved successfully",
       data: bills,
     });
   } catch (error) {
-    res.status(404).json({ success: false, message: "Bills not found" });
+    console.error("Error fetching bills:", error.message);
+    res.status(500).json({
+      success: false,
+      message: "Failed to retrieve bills",
+      error: error.message,
+    });
   }
 };
 
