@@ -84,10 +84,10 @@ const ManageBills = () => {
                   <td className="border">{bill?.status}</td>
                   <td className="border">
                     {bill?.dateline
-                      ? new Date(bill?.dateline).toLocaleDateString("en-US", {
+                      ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
                           year: "numeric",
-                          month: "numeric",
-                          day: "numeric",
                         })
                       : "Date not available"}
                   </td>

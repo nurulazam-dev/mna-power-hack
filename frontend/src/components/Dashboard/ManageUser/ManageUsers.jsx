@@ -118,7 +118,7 @@ const ManageUsers = () => {
                     {user?.createdAt
                       ? new Date(user.createdAt).toLocaleDateString("en-US", {
                           year: "numeric",
-                          month: "long",
+                          month: "numeric",
                           day: "numeric",
                         })
                       : "Date not available"}
