@@ -116,10 +116,10 @@ const ManageUsers = () => {
                   <td className="border">{user?.role}</td>
                   <td className="border">
                     {user?.createdAt
-                      ? new Date(user.createdAt).toLocaleDateString("en-US", {
+                      ? new Date(user.createdAt).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
                           year: "numeric",
-                          month: "numeric",
-                          day: "numeric",
                         })
                       : "Date not available"}
                   </td>
