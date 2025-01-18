@@ -34,7 +34,27 @@ const ViewBillModal = ({ bill }) => {
               <strong>Paid Amount:</strong> $ {bill?.amount}
             </p>
             <p className="text-sm">
-              <strong>Dateline:</strong> {bill?.dateline}
+              <strong>Status:</strong>{" "}
+              <span
+                className={
+                  `${bill?.status}` == "Unpaid"
+                    ? "bg-red-500 rounded px-3 py-[3px] text-white uppercase"
+                    : "bg-green-500 rounded px-3 py-[3px] text-white uppercase"
+                }
+              >
+                {bill?.status}
+              </span>
+            </p>
+            <p className="text-sm">
+              <strong>Dateline:</strong>{" "}
+              {new Date(bill?.dateline).toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+            </p>
+            <p className="text-sm">
+              <strong>Bill Attacher:</strong> {bill?.billAttacher}
             </p>
           </div>
         </div>
