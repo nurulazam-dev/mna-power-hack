@@ -80,7 +80,7 @@ const ManageBills = () => {
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
               <tr className="text-violet-700 text-[16px]">
-                <th className="border">Billing ID</th>
+                <th className="border">Billing S.</th>
                 <th className="border">Billing Holder</th>
                 <th className="border">Phone</th>
                 <th className="border">Amount</th>

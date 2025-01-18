@@ -22,7 +22,7 @@ const ViewBillModal = ({ bill }) => {
 
           <div className="space-y-3">
             <p className="text-sm">
-              <strong>Bill ID:</strong> {bill?._id}
+              <strong>Billing ID:</strong> {bill?._id}
             </p>
             <p className="text-sm">
               <strong>Billing Holder:</strong> {bill?.billingHolder}
