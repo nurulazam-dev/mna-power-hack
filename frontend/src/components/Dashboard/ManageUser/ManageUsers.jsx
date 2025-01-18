@@ -12,7 +12,7 @@ const ManageUsers = () => {
   const [error, setError] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage] = useState(10);
+  const [usersPerPage] = useState(5);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -99,6 +99,7 @@ const ManageUsers = () => {
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
               <tr className="text-violet-700 font-bold text-[16px]">
+                <th className="border">Index</th>
                 <th className="border">User Name</th>
                 <th className="border">User Email</th>
                 <th className="border">Phone</th>
@@ -108,8 +109,9 @@ const ManageUsers = () => {
               </tr>
             </thead>
             <tbody>
-              {currentUsers?.map((user) => (
+              {currentUsers?.map((user, index) => (
                 <tr className="border text-left" key={user?._id}>
+                  <td className="border">ULN-{indexOfFirstUser + index + 1}</td>
                   <td className="border">{user?.name}</td>
                   <td className="border">{user?.email}</td>
                   <td className="border">{user?.phone}</td>
