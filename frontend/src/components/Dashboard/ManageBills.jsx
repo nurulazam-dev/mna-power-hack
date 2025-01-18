@@ -1,6 +1,3 @@
-// import AddBillModal from "./AddBillModal";
-// import DeleteBillModal from "./DeleteBillModal";
-
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../../config";
 import Error from "../../shared/Error";
