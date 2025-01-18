@@ -122,7 +122,7 @@ const BillingPage = () => {
               </tr>
             </thead>
             <tbody>
-              {currentBills.map((bill) => (
+              {currentBills?.map((bill) => (
                 <tr key={bill?._id} className="border text-left">
                   <td className="border">{bill?._id}</td>
                   <td className="border">{bill?.billingHolder}</td>
