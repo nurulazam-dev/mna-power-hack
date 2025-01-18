@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { BASE_URL, token } from "../../../config";
 
 const DeleteBillModal = ({ bill, onDelete }) => {
   const [loading, setLoading] = useState(false);
@@ -9,27 +10,32 @@ const DeleteBillModal = ({ bill, onDelete }) => {
   const handleDelete = async () => {
     setLoading(true);
     setError(null);
-
     try {
-      const response = await fetch(`/api/bills/${bill._id}`, {
+      const response = await fetch(`${BASE_URL}/bills/${bill._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
+        Authorization: `Bearer ${token}`,
       });
 
+      console.log("Response:", response);
+
       if (!response.ok) {
+        const errorDetails = await response.text();
+        console.error("Error details:", errorDetails);
         throw new Error("Failed to delete the bill");
       }
 
       const result = await response.json();
       onDelete(result.data);
-      setLoading(false);
+      toast.success(result?.message);
       document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
-      setLoading(false);
       setError(err.message);
-      toast.error(error);
+      console.error("Error:", err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
