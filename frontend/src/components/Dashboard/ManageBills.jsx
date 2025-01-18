@@ -10,6 +10,10 @@ const ManageBills = () => {
   const [bills, setBills] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedBill, setSelectedBill] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [billsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchBills = async () => {
@@ -31,6 +35,20 @@ const ManageBills = () => {
     fetchBills();
   }, []);
 
+  // Handle search filtering
+  const filteredBills = bills.filter(
+    (bill) =>
+      bill.billingHolder.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      bill.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      bill.status.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const indexOfLastBill = currentPage * billsPerPage;
+  const indexOfFirstBill = indexOfLastBill - billsPerPage;
+  const currentBills = filteredBills.slice(indexOfFirstBill, indexOfLastBill);
+
+  const totalPages = Math.ceil(filteredBills.length / billsPerPage);
+
   return (
     <section>
       <h1 className="text-3xl mb-3 font-bold text-black text-center">
@@ -46,13 +64,15 @@ const ManageBills = () => {
               <h2 className="font-semibold text-2xl text-white">Billings</h2>
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search by Holder, Phone, or Status"
                 className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <div>
               <h2 className="font-bold text-xl text-white">
-                Total Bills: {bills?.length}
+                Total Bills: {filteredBills?.length}
               </h2>
             </div>
           </div>
@@ -71,9 +91,11 @@ const ManageBills = () => {
               </tr>
             </thead>
             <tbody>
-              {bills?.map((bill, index) => (
+              {currentBills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
-                  <td className="border">BILL2025-{index + 1}</td>
+                  <td className="border">
+                    BILL2025-{indexOfFirstBill + index + 1}
+                  </td>
                   <td className="border">{bill?.billingHolder}</td>
                   <td className="border">{bill?.phone}</td>
                   <td className="border">$ {bill?.amount}</td>
@@ -90,8 +112,9 @@ const ManageBills = () => {
                   <td className="border">{bill?.billAttacher}</td>
                   <td className="flex justify-center">
                     <div className="mx-1">
-                      <ViewBillModal />
+                      <ViewBillModal bill={selectedBill} />
                       <label
+                        onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-view-modal"
                         className="btn btn-outline btn-primary btn-xs"
                       >
@@ -99,8 +122,12 @@ const ManageBills = () => {
                       </label>
                     </div>
                     <div className="mx-1">
-                      <UpdateBillModal />
+                      <UpdateBillModal
+                        bill={selectedBill}
+                        onUpdate={setBills}
+                      />
                       <label
+                        onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-update-modal"
                         className="btn btn-outline btn-success btn-xs"
                       >
@@ -108,9 +135,16 @@ const ManageBills = () => {
                       </label>
                     </div>
                     <div className="mx-1">
-                      <DeleteBillModal />
+                      <DeleteBillModal
+                        bill={selectedBill}
+                        onDelete={(deletedBill) =>
+                          setBills((prev) =>
+                            prev.filter((b) => b._id !== deletedBill._id)
+                          )
+                        }
+                      />
                       <label
-                        // onClick={() => setDeleteBill(bill)}
+                        onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-delete-modal"
                         className="btn btn-outline btn-error btn-xs"
                       >
@@ -122,6 +156,20 @@ const ManageBills = () => {
               ))}
             </tbody>
           </table>
+
+          <div className="flex justify-center mt-4">
+            {[...Array(totalPages).keys()].map((page) => (
+              <button
+                key={page + 1}
+                className={`btn btn-xs mx-1 ${
+                  currentPage === page + 1 ? "btn-active" : ""
+                }`}
+                onClick={() => setCurrentPage(page + 1)}
+              >
+                {page + 1}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </section>
