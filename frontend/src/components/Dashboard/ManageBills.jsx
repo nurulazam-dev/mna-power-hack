@@ -77,7 +77,7 @@ const ManageBills = () => {
             <tbody>
               {bills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
-                  <td className="border">BILL00{index + 1}</td>
+                  <td className="border">BILL2025-{index + 1}</td>
                   <td className="border">{bill?.billingHolder}</td>
                   <td className="border">{bill?.phone}</td>
                   <td className="border">$ {bill?.amount}</td>
