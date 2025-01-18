@@ -42,6 +42,17 @@ const Dashboard = () => {
             <RiBillLine className="w-7 h-7" />
             <p className="ml-3 hidden lg:block">Manage Bills</p>
           </button>
+
+          <button
+            onClick={() => setTab("paidBills")}
+            className={`${
+              tab == "paidBills" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <RiBillLine className="w-7 h-7" />
+            <p className="ml-3 hidden lg:block">Paid Bills</p>
+          </button>
+
           <button
             onClick={() => setTab("manageUsers")}
             className={`${
