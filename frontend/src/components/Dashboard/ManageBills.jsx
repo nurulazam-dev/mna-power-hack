@@ -99,7 +99,18 @@ const ManageBills = () => {
                   <td className="border">{bill?.billingHolder}</td>
                   <td className="border">{bill?.phone}</td>
                   <td className="border">$ {bill?.amount}</td>
-                  <td className="border">{bill?.status}</td>
+                  <td className="border text-center">
+                    {" "}
+                    <span
+                      className={
+                        `${bill?.status}` == "Unpaid"
+                          ? "text-red-600"
+                          : "text-green-600"
+                      }
+                    >
+                      {bill?.status}
+                    </span>
+                  </td>
                   <td className="border">
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
