@@ -95,9 +95,9 @@ export const updateBill = async (req, res, next) => {
 
 // delete bill controller
 export const deleteBill = async (req, res, next) => {
-  const { id } = req.params;
+  const { _id } = req.params;
   try {
-    const deleteBill = await Bill.findByIdAndDelete(id);
+    const deleteBill = await Bill.findByIdAndDelete(_id);
 
     if (!deleteBill) {
       return res.status(400).json({

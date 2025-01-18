@@ -1,35 +1,64 @@
-const DeleteBillModal = () => {
-  // const DeleteBillModal = ({ deleteBill, setDeleteBill }) => {
-  // const { _id, name } = deleteBill;
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import { toast } from "react-toastify";
 
-  /* const handleConfirm = () => {
-    fetch(`https://localhost:5000/api/billing-list/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }; */
+const DeleteBillModal = ({ bill, onDelete }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleDelete = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`/api/bills/${bill._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete the bill");
+      }
+
+      const result = await response.json();
+      onDelete(result.data);
+      setLoading(false);
+      document.getElementById("bill-delete-modal").checked = false;
+    } catch (err) {
+      setLoading(false);
+      setError(err.message);
+      toast.error(error);
+    }
+  };
 
   return (
     <div>
       <input type="checkbox" id="bill-delete-modal" className="modal-toggle" />
-
       <div className="modal">
         <div className="modal-box relative w-full max-w-xs bg-white">
-          <h3 className="text-xl mb-2 font-bold text-red-600">Delete Bill</h3>
-          <h3 className="font-bold text-violet-500 text-[16px]">
-            Are you sure you want to delete{" "}
-            {/* <strong className="text-black">{billingHolder} `--- no bill`</strong> */}
-            <strong className="text-black">{name} `--- no bill`</strong>
+          <h3 className="text-xl font-bold text-red-600 text-center">
+            Delete Bill
           </h3>
+          <div className="divider divider-neutral my-2 opacity-40"></div>
+          <p className="text-[14px] text-red-600">
+            Are you sure you want to delete{" "}
+            <strong className="text-black font-bold">
+              {bill?.billingHolder}
+            </strong>
+            &apos;s bill? Phone number:{" "}
+            <strong className="text-black font-bold">{bill?.phone}</strong>
+          </p>
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           <div className="modal-action">
-            <label
-              htmlFor="bill-delete-modal"
-              className="btn btn-error btn-xs"
-              // onClick={() => handleConfirm}
+            <button
+              onClick={handleDelete}
+              className={`btn btn-error btn-xs ${loading ? "loading" : ""}`}
+              disabled={loading}
             >
-              Confirm
-            </label>
+              {loading ? "Deleting..." : "Confirm"}
+            </button>
             <label htmlFor="bill-delete-modal" className="btn btn-xs">
               Cancel
             </label>

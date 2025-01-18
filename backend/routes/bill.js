@@ -19,6 +19,6 @@ router.get("/", authenticate, getBill);
 // router.put("/:id", authenticate, restrict(["accountant"]), updateBill);
 router.put("/:id", authenticate, updateBill);
 // router.delete("/:id", authenticate, restrict(["admin"]), deleteBill);
-router.delete("/:id", authenticate, deleteBill);
+router.delete("/:id", deleteBill);
 
 export default router;
