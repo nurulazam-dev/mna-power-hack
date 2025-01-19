@@ -45,7 +45,9 @@ const BillingPage = () => {
 
   const indexOfLastBill = currentPage * billsPerPage;
   const indexOfFirstBill = indexOfLastBill - billsPerPage;
-  const currentBills = bills?.slice(indexOfFirstBill, indexOfLastBill);
+  const currentBills = Array.isArray(bills)
+    ? bills.slice(indexOfFirstBill, indexOfLastBill)
+    : [];
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
