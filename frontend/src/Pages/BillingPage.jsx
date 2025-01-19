@@ -116,21 +116,25 @@ const BillingPage = () => {
             </tbody>
           </table>
           <div className="pagination flex justify-center my-4">
-            {[...Array(Math.ceil(bills?.length / billsPerPage)).keys()].map(
-              (page) => (
-                <button
-                  key={page}
-                  onClick={() => paginate(page + 1)}
-                  className={`px-3 py-1 mx-1 border rounded ${
-                    currentPage === page + 1
-                      ? "bg-violet-600 text-white"
-                      : "bg-white"
-                  }`}
-                >
-                  {page + 1}
-                </button>
-              )
-            )}
+            {[
+              ...Array(
+                Math.ceil(
+                  (Array.isArray(bills) ? bills.length : 0) / billsPerPage
+                )
+              ).keys(),
+            ].map((page) => (
+              <button
+                key={page}
+                onClick={() => paginate(page + 1)}
+                className={`px-3 py-1 mx-1 border rounded ${
+                  currentPage === page + 1
+                    ? "bg-violet-600 text-white"
+                    : "bg-white"
+                }`}
+              >
+                {page + 1}
+              </button>
+            ))}
           </div>
         </>
       )}
