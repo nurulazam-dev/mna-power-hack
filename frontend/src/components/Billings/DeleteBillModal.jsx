@@ -8,8 +8,14 @@ const DeleteBillModal = ({ bill, onDelete }) => {
   const [error, setError] = useState(null);
 
   const handleDelete = async () => {
+    if (!bill?._id) {
+      setError("Invalid bill ID");
+      return;
+    }
+
     setLoading(true);
     setError(null);
+
     try {
       const response = await fetch(`${BASE_URL}/bills/${bill._id}`, {
         method: "DELETE",
