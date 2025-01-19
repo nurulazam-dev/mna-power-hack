@@ -29,7 +29,6 @@ const BillSchema = new mongoose.Schema({
   },
   billAttacher: {
     type: mongoose.Schema.Types.ObjectId,
-    // type: String,
     ref: "User",
   },
   /* createdAt: {
@@ -39,7 +38,7 @@ const BillSchema = new mongoose.Schema({
   }, */
 });
 
-BillSchema.index({ billAttacher: 1 });
+/* BillSchema.index({ billAttacher: 1 });
 
 BillSchema.pre("find", function (next) {
   this.populate("billAttacher", "name email");
@@ -49,6 +48,6 @@ BillSchema.pre("find", function (next) {
 BillSchema.pre("findOne", function (next) {
   this.populate("billAttacher", "name email");
   next();
-});
+}); */
 
 export default mongoose.model("Bill", BillSchema);

@@ -49,6 +49,12 @@ const ManageBills = () => {
 
   const totalPages = Math.ceil(filteredBills.length / billsPerPage);
 
+  const handleDelete = (deletedBill) => {
+    setBills((prevBills) =>
+      prevBills.filter((bill) => bill._id !== deletedBill._id)
+    );
+  };
+
   return (
     <section>
       <h1 className="text-3xl mb-3 font-bold text-black text-center">
@@ -148,11 +154,7 @@ const ManageBills = () => {
                     <div className="mx-1">
                       <DeleteBillModal
                         bill={selectedBill}
-                        onDelete={(deletedBill) =>
-                          setBills((prev) =>
-                            prev.filter((b) => b.id !== deletedBill.id)
-                          )
-                        }
+                        onDelete={handleDelete}
                       />
                       <label
                         onClick={() => setSelectedBill(bill)}

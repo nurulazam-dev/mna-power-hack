@@ -10,7 +10,7 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
     amount: "",
     status: "Unpaid",
     dateline: "",
-    billAttacher: loggedInUserId || null,
+    billAttacher: loggedInUserId,
   });
   const [errors, setErrors] = useState({});
 
@@ -48,8 +48,6 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
 
     setData({ ...data, [name]: value });
     setErrors({ ...errors, [name]: error });
-
-    // setData({ ...data, [input.name]: input.value });
   };
 
   const handleBillAdd = async (e) => {

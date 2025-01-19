@@ -1,15 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import AddBillModal from "../components/Billings/AddBillModal";
-import { GrFormView } from "react-icons/gr";
-import ViewBillModal from "../components/Billings/ViewBillModal";
+// import { GrFormView } from "react-icons/gr";
+// import ViewBillModal from "../components/Billings/ViewBillModal";
 import { BASE_URL } from "../../config";
 import { authContext } from "../context/AuthContext";
 import Loading from "../shared/Loading";
 
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
-  const [selectedBill, setSelectedBill] = useState(null);
-  console.log(bills);
+  // const [selectedBill, setSelectedBill] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(10);
@@ -62,10 +61,7 @@ const BillingPage = () => {
           </h2>
         </div>
         <div>
-          <AddBillModal
-            onAddBill={handleAddBill}
-            loggedInUserId={user?.email}
-          />
+          <AddBillModal onAddBill={handleAddBill} loggedInUserId={user?._id} />
           <label
             htmlFor="bill-add-modal"
             className="btn text-[15px] text-white border-none hover:bg-green-700"
@@ -92,7 +88,7 @@ const BillingPage = () => {
                 <th className="border">Phone</th>
                 <th className="border">Due $</th>
                 <th className="border">Dateline</th>
-                <th className="border">Action</th>
+                {/* <th className="border">Action</th> */}
               </tr>
             </thead>
             <tbody>
@@ -112,7 +108,7 @@ const BillingPage = () => {
                         })
                       : "Date not available"}
                   </td>
-                  <td className="flex justify-center items-center px-0">
+                  {/* <td className="flex justify-center items-center px-0">
                     <ViewBillModal bill={selectedBill} />
                     <label
                       htmlFor="bill-view-modal"
@@ -122,7 +118,7 @@ const BillingPage = () => {
                       <GrFormView className="w-7 h-7" />
                       View
                     </label>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

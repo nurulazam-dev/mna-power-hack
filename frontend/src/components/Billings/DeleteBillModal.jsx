@@ -7,7 +7,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleDelete = async () => {
+  const handleDeleteBill = async () => {
     if (!bill?._id) {
       setError("Invalid bill ID");
       return;
@@ -30,7 +30,9 @@ const DeleteBillModal = ({ bill, onDelete }) => {
       }
 
       const result = await response.json();
+      console.log("data : ", result);
       onDelete(result.data);
+
       toast.success(result?.message);
       document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
@@ -60,7 +62,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           <div className="modal-action">
             <button
-              onClick={handleDelete}
+              onClick={handleDeleteBill}
               className={`btn btn-error btn-xs ${loading ? "loading" : ""}`}
               disabled={loading}
             >
