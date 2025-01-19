@@ -31,9 +31,9 @@ const DeleteBillModal = ({ bill, onDelete }) => {
 
       const result = await response.json();
       console.log("data : ", result);
-      onDelete(result.data);
+      onDelete?.(result.data);
 
-      toast.success(result?.message);
+      toast.success(result?.message || "Bill deleted successfully");
       document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
       setError(err.message);
@@ -51,20 +51,26 @@ const DeleteBillModal = ({ bill, onDelete }) => {
             Delete Bill
           </h3>
           <div className="divider divider-neutral my-2 opacity-40"></div>
-          <p className="text-[14px] text-red-600">
-            Are you sure you want to delete{" "}
-            <strong className="text-black font-bold">
-              {bill?.billingHolder}
-            </strong>
-            &apos;s bill? Phone number:{" "}
-            <strong className="text-black font-bold">{bill?.phone}</strong>
-          </p>
+
+          {bill ? (
+            <p className="text-[14px] text-red-600">
+              Are you sure you want to delete{" "}
+              <strong className="text-black font-bold">
+                {bill?.billingHolder}
+              </strong>
+              &apos;s bill? Phone number:{" "}
+              <strong className="text-black font-bold">{bill?.phone}</strong>
+            </p>
+          ) : (
+            <p className="text-[14px] text-gray-600">No bill selected.</p>
+          )}
+
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           <div className="modal-action">
             <button
               onClick={handleDeleteBill}
               className={`btn btn-error btn-xs ${loading ? "loading" : ""}`}
-              disabled={loading}
+              disabled={loading || !bill}
             >
               {loading ? "Deleting..." : "Confirm"}
             </button>
