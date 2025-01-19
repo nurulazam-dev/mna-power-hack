@@ -86,22 +86,32 @@ const BillingPage = () => {
           <table className="table table-compact text-center text-black w-10/12 mx-auto">
             <thead>
               <tr className="text-black font-bold text-[16px]">
+                <th className="border">Billing S.</th>
                 <th className="border">Billing ID</th>
-                <th className="border">Billing Holder Name</th>
+                <th className="border">Billing Holder</th>
                 <th className="border">Phone</th>
-                <th className="border">Paid Amount</th>
-                <th className="border">Paid Date</th>
+                <th className="border">Due $</th>
+                <th className="border">Dateline</th>
                 <th className="border">Action</th>
               </tr>
             </thead>
             <tbody>
-              {currentBills?.map((bill) => (
+              {currentBills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
+                  <td className="border">BILL2025-{index + 1}</td>
                   <td className="border">{bill?._id}</td>
                   <td className="border">{bill?.billingHolder}</td>
                   <td className="border">{bill?.phone}</td>
                   <td className="border">$ {bill?.amount}</td>
-                  <td className="border">{bill?.date}</td>
+                  <td className="border">
+                    {bill?.dateline
+                      ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        })
+                      : "Date not available"}
+                  </td>
                   <td className="flex justify-center items-center px-0">
                     <ViewBillModal bill={selectedBill} />
                     <label
