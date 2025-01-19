@@ -150,7 +150,7 @@ const ManageBills = () => {
                         bill={selectedBill}
                         onDelete={(deletedBill) =>
                           setBills((prev) =>
-                            prev.filter((b) => b._id !== deletedBill._id)
+                            prev.filter((b) => b.id !== deletedBill.id)
                           )
                         }
                       />
