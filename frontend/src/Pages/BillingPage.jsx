@@ -9,8 +9,7 @@ import Loading from "../shared/Loading";
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
-  const [filteredBills, setFilteredBills] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(10);
   const [loading, setLoading] = useState(false);
@@ -33,7 +32,6 @@ const BillingPage = () => {
       }
       const data = await response.json();
       setBills(data);
-      setFilteredBills(data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -41,31 +39,13 @@ const BillingPage = () => {
     }
   };
 
-  const handleSearch = (e) => {
-    const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
-    if (term.trim() === "") {
-      setFilteredBills(bills);
-    } else {
-      const filtered = bills.filter(
-        (bill) =>
-          bill.billingHolder.toLowerCase().includes(term) ||
-          bill.phone.includes(term) ||
-          bill.status.toString().includes(term)
-      );
-      setFilteredBills(filtered);
-    }
-  };
-
   const handleAddBill = (newBill) => {
     setBills((prev) => [newBill, ...prev]);
-    setFilteredBills((prev) => [newBill, ...prev]);
   };
 
-  // Pagination logic
   const indexOfLastBill = currentPage * billsPerPage;
   const indexOfFirstBill = indexOfLastBill - billsPerPage;
-  const currentBills = filteredBills.slice(indexOfFirstBill, indexOfLastBill);
+  const currentBills = bills?.slice(indexOfFirstBill, indexOfLastBill);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -73,14 +53,9 @@ const BillingPage = () => {
     <section className="pt-6 my-10 bg-white overflow-x-auto">
       <div className="border bg-violet-600 my-4 rounded flex justify-between w-10/12 mx-auto px-7 py-2">
         <div className="flex items-center">
-          <h2 className="font-semibold text-2xl text-white">Billings</h2>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleSearch}
-            className="input bg-white input-bordered text-black mx-3 w-full max-w-xs"
-          />
+          <h2 className="font-semibold text-2xl text-white">
+            Total Billings: <span className="text-black">{bills?.length}</span>{" "}
+          </h2>
         </div>
         <div>
           <AddBillModal
@@ -100,7 +75,7 @@ const BillingPage = () => {
         <Loading />
       ) : error ? (
         <div className="text-center my-4 text-red-600">{error}</div>
-      ) : filteredBills?.length === 0 ? (
+      ) : bills?.length === 0 ? (
         <div className="text-center my-4">No bills found.</div>
       ) : (
         <>
@@ -139,21 +114,21 @@ const BillingPage = () => {
             </tbody>
           </table>
           <div className="pagination flex justify-center my-4">
-            {[
-              ...Array(Math.ceil(filteredBills.length / billsPerPage)).keys(),
-            ].map((page) => (
-              <button
-                key={page}
-                onClick={() => paginate(page + 1)}
-                className={`px-3 py-1 mx-1 border rounded ${
-                  currentPage === page + 1
-                    ? "bg-violet-600 text-white"
-                    : "bg-white"
-                }`}
-              >
-                {page + 1}
-              </button>
-            ))}
+            {[...Array(Math.ceil(bills?.length / billsPerPage)).keys()].map(
+              (page) => (
+                <button
+                  key={page}
+                  onClick={() => paginate(page + 1)}
+                  className={`px-3 py-1 mx-1 border rounded ${
+                    currentPage === page + 1
+                      ? "bg-violet-600 text-white"
+                      : "bg-white"
+                  }`}
+                >
+                  {page + 1}
+                </button>
+              )
+            )}
           </div>
         </>
       )}
