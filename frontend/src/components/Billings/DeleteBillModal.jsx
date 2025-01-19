@@ -25,11 +25,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
         },
       });
 
-      console.log("Response:", response);
-
       if (!response.ok) {
-        const errorDetails = await response.text();
-        console.error("Error details:", errorDetails);
         throw new Error("Failed to delete the bill");
       }
 
@@ -39,7 +35,6 @@ const DeleteBillModal = ({ bill, onDelete }) => {
       document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
       setError(err.message);
-      console.error("Error:", err.message);
     } finally {
       setLoading(false);
     }
