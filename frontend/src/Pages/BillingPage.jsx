@@ -9,6 +9,7 @@ import Loading from "../shared/Loading";
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
+  console.log(bills);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(10);
@@ -31,7 +32,7 @@ const BillingPage = () => {
         throw new Error(`Failed to fetch bills: ${response.status}`);
       }
       const data = await response.json();
-      setBills(data);
+      setBills(data?.data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -45,6 +46,7 @@ const BillingPage = () => {
 
   const indexOfLastBill = currentPage * billsPerPage;
   const indexOfFirstBill = indexOfLastBill - billsPerPage;
+
   const currentBills = Array.isArray(bills)
     ? bills.slice(indexOfFirstBill, indexOfLastBill)
     : [];
@@ -56,7 +58,7 @@ const BillingPage = () => {
       <div className="border bg-violet-600 my-4 rounded flex justify-between w-10/12 mx-auto px-7 py-2">
         <div className="flex items-center">
           <h2 className="font-semibold text-2xl text-white">
-            Total Billings: <span className="text-black">{bills?.length}</span>{" "}
+            Total Billings : {bills?.length}{" "}
           </h2>
         </div>
         <div>
@@ -77,7 +79,7 @@ const BillingPage = () => {
         <Loading />
       ) : error ? (
         <div className="text-center my-4 text-red-600">{error}</div>
-      ) : bills?.length === 0 ? (
+      ) : currentBills?.length === 0 ? (
         <div className="text-center my-4">No bills found.</div>
       ) : (
         <>
