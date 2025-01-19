@@ -17,12 +17,6 @@ const BillingPage = () => {
   const [error, setError] = useState(null);
   const { user } = useContext(authContext);
 
-  /*  useEffect(() => {
-    if (user?._id) {
-      fetchBills();
-    }
-  }, [user?._id]); */
-
   useEffect(() => {
     if (user?._id) {
       fetchBills();
