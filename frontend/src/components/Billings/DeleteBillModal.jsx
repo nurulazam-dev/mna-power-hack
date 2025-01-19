@@ -15,8 +15,8 @@ const DeleteBillModal = ({ bill, onDelete }) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        Authorization: `Bearer ${token}`,
       });
 
       console.log("Response:", response);
