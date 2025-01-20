@@ -23,8 +23,6 @@ const DeleteBillModal = ({ bill, onDelete }) => {
       return;
     }
 
-    setLoading(true);
-    setError(null);
 
     try {
       const response = await fetch(`${BASE_URL}/bills/${bill._id}`, {
