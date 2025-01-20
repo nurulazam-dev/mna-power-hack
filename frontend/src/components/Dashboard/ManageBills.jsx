@@ -53,15 +53,33 @@ const ManageBills = () => {
       toast.error(error);
     }
   };
-  /* const result = await response.json();
-   
 
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+  // bill update handler
+  const handleUpdateBill = async (updatedBill) => {
+    if (!updatedBill) return;
+    try {
+      const response = await fetch(`${BASE_URL}/bills/${updatedBill._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedBill),
+      });
+
+      if (response.ok) {
+        toast.success("Bill updated successfully!");
+        setBills(
+          bills.map((bill) =>
+            bill._id !== updatedBill._id ? updatedBill : bill
+          )
+        );
+      } else {
+        throw new Error("Failed to update bill.");
+      }
+    } catch (error) {
+      toast.error(error);
     }
-  }; */
+  };
 
   // Handle search filtering
   const filteredBills = bills.filter(
@@ -76,12 +94,6 @@ const ManageBills = () => {
   const currentBills = filteredBills.slice(indexOfFirstBill, indexOfLastBill);
 
   const totalPages = Math.ceil(filteredBills.length / billsPerPage);
-
-  /* const handleDelete = (deletedBill) => {
-    setBills((prevBills) =>
-      prevBills.filter((bill) => bill._id !== deletedBill._id)
-    );
-  }; */
 
   return (
     <section>
@@ -169,7 +181,7 @@ const ManageBills = () => {
                     <div className="mx-1">
                       <UpdateBillModal
                         bill={selectedBill}
-                        onUpdate={setBills}
+                        onUpdate={handleUpdateBill}
                       />
                       <label
                         onClick={() => setSelectedBill(bill)}
