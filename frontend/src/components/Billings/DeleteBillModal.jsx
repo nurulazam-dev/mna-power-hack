@@ -27,9 +27,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
         
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to delete the bill");
-      }
+      
 
       const result = await response.json();
       console.log("data : ", result);
