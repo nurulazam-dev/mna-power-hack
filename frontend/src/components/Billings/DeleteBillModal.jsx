@@ -1,12 +1,7 @@
 /* eslint-disable react/prop-types */
-// import { useState } from "react";
 import { toast } from "react-toastify";
-// import { BASE_URL, token } from "../../../config";
 
 const DeleteBillModal = ({ bill, onDelete }) => {
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
-
   const handleConfirm = async () => {
     try {
       await onDelete(bill._id);
