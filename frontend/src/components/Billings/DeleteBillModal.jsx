@@ -34,7 +34,6 @@ const DeleteBillModal = ({ bill, onDelete }) => {
             <p className="text-[14px] text-gray-600">No bill selected.</p>
           )}
 
-          {/*  {error && <p className="text-red-500 text-sm mt-2">{error}</p>} */}
           <div className="modal-action">
             {/* <button
               onClick={handleConfirm}
