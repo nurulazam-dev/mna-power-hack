@@ -54,8 +54,7 @@ const ManageBills = () => {
     }
   };
   /* const result = await response.json();
-      console.log("data : ", result);
-      onDelete?.(result.data);
+   
 
     } catch (err) {
       setError(err.message);
