@@ -18,10 +18,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
 
   // bill delete handler
   /* const handleDeleteBill = async () => {
-    if (!bill?._id) {
-      setError("Invalid bill ID");
-      return;
-    }
+    
 
 
     try {
