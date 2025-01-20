@@ -5,6 +5,7 @@ import Loading from "../../shared/Loading";
 import ViewBillModal from "../Billings/ViewBillModal";
 import UpdateBillModal from "../Billings/UpdateBillModal";
 import DeleteBillModal from "../Billings/DeleteBillModal";
+import { toast } from "react-toastify";
 
 const ManageBills = () => {
   const [bills, setBills] = useState([]);
@@ -42,11 +43,17 @@ const ManageBills = () => {
         method: "DELETE",
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to delete the bill");
+      if (response.ok) {
+        toast.success("Bill deleted successfully!");
+        setBills(bills.filter((bill) => bill._id !== billId));
+      } else {
+        throw new Error("Failed to delete bill.");
       }
-
-      const result = await response.json();
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+  /* const result = await response.json();
       console.log("data : ", result);
       onDelete?.(result.data);
 
@@ -57,7 +64,7 @@ const ManageBills = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }; */
 
   // Handle search filtering
   const filteredBills = bills.filter(
@@ -73,11 +80,11 @@ const ManageBills = () => {
 
   const totalPages = Math.ceil(filteredBills.length / billsPerPage);
 
-  const handleDelete = (deletedBill) => {
+  /* const handleDelete = (deletedBill) => {
     setBills((prevBills) =>
       prevBills.filter((bill) => bill._id !== deletedBill._id)
     );
-  };
+  }; */
 
   return (
     <section>
@@ -178,7 +185,7 @@ const ManageBills = () => {
                     <div className="mx-1">
                       <DeleteBillModal
                         bill={selectedBill}
-                        onDelete={handleDelete}
+                        onDelete={handleDeleteBill}
                       />
                       <label
                         onClick={() => setSelectedBill(bill)}

@@ -1,11 +1,20 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+// import { useState } from "react";
 import { toast } from "react-toastify";
-import { BASE_URL, token } from "../../../config";
+// import { BASE_URL, token } from "../../../config";
 
 const DeleteBillModal = ({ bill, onDelete }) => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
+
+  const handleConfirm = async () => {
+    try {
+      await onDelete(bill._id);
+      document.getElementById("bill-delete-modal").checked = false; // Close the modal
+    } catch (error) {
+      toast.error(error);
+    }
+  };
 
   // bill delete handler
   /* const handleDeleteBill = async () => {
@@ -66,14 +75,21 @@ const DeleteBillModal = ({ bill, onDelete }) => {
             <p className="text-[14px] text-gray-600">No bill selected.</p>
           )}
 
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+          {/*  {error && <p className="text-red-500 text-sm mt-2">{error}</p>} */}
           <div className="modal-action">
-            <button
-              onClick={handleDeleteBill}
+            {/* <button
+              onClick={handleConfirm}
               className={`btn btn-error btn-xs ${loading ? "loading" : ""}`}
               disabled={loading || !bill}
             >
               {loading ? "Deleting..." : "Confirm"}
+            </button> */}
+            <button
+              onClick={handleConfirm}
+              /* className={`btn btn-error btn-xs ${loading ? "loading" : ""}`} */
+              className={`btn btn-error btn-xs `}
+            >
+              {/*  {loading ? "Deleting..." : "Confirm"} */} Delete
             </button>
             <label htmlFor="bill-delete-modal" className="btn btn-xs">
               Cancel
