@@ -35,19 +35,9 @@ const DeleteBillModal = ({ bill, onDelete }) => {
           )}
 
           <div className="modal-action">
-            {/* <button
-              onClick={handleConfirm}
-              className={`btn btn-error btn-xs ${loading ? "loading" : ""}`}
-              disabled={loading || !bill}
-            >
-              {loading ? "Deleting..." : "Confirm"}
-            </button> */}
-            <button
-              onClick={handleConfirm}
-              /* className={`btn btn-error btn-xs ${loading ? "loading" : ""}`} */
-              className={`btn btn-error btn-xs `}
-            >
-              {/*  {loading ? "Deleting..." : "Confirm"} */} Delete
+            <button onClick={handleConfirm} className="btn btn-error btn-xs">
+              {" "}
+              Delete
             </button>
             <label htmlFor="bill-delete-modal" className="btn btn-xs">
               Cancel
