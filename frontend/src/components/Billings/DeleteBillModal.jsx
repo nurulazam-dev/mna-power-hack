@@ -30,7 +30,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
       
 
 
-      toast.success(result?.message || "Bill deleted successfully");
+      
       document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
       setError(err.message);
