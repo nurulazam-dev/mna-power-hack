@@ -29,11 +29,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
 
       
 
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
+   
   }; */
 
   return (
