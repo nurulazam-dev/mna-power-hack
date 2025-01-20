@@ -18,17 +18,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
 
   // bill delete handler
   /* const handleDeleteBill = async () => {
-    
-
-
-    try {
-      const response = await fetch(`${BASE_URL}/bills/${bill._id}`, {
-        method: "DELETE",
-        
-      });
-
-      
-
+  
    
   }; */
 
