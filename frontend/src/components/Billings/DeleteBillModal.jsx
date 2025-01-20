@@ -16,12 +16,6 @@ const DeleteBillModal = ({ bill, onDelete }) => {
     }
   };
 
-  // bill delete handler
-  /* const handleDeleteBill = async () => {
-  
-   
-  }; */
-
   return (
     <div>
       <input type="checkbox" id="bill-delete-modal" className="modal-toggle" />
