@@ -57,8 +57,6 @@ const ManageBills = () => {
       console.log("data : ", result);
       onDelete?.(result.data);
 
-      toast.success(result?.message || "Bill deleted successfully");
-      document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
       setError(err.message);
     } finally {
