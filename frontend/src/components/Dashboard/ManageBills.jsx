@@ -68,16 +68,19 @@ const ManageBills = () => {
 
       if (response.ok) {
         toast.success("Bill updated successfully!");
+
+        const result = await response.json();
+
         setBills(
           bills.map((bill) =>
-            bill._id !== updatedBill._id ? updatedBill : bill
+            bill._id === updatedBill._id ? result.data : bill
           )
         );
       } else {
         throw new Error("Failed to update bill.");
       }
     } catch (error) {
-      toast.error(error);
+      toast.error(error.message);
     }
   };
 
