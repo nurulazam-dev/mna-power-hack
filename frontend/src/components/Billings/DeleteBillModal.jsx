@@ -7,7 +7,8 @@ const DeleteBillModal = ({ bill, onDelete }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleDeleteBill = async () => {
+  // bill delete handler
+  /* const handleDeleteBill = async () => {
     if (!bill?._id) {
       setError("Invalid bill ID");
       return;
@@ -40,7 +41,7 @@ const DeleteBillModal = ({ bill, onDelete }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }; */
 
   return (
     <div>

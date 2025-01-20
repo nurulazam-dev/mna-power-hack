@@ -35,6 +35,30 @@ const ManageBills = () => {
     fetchBills();
   }, []);
 
+  // bill delete handler
+  const handleDeleteBill = async (billId) => {
+    try {
+      const response = await fetch(`${BASE_URL}/bills/${billId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete the bill");
+      }
+
+      const result = await response.json();
+      console.log("data : ", result);
+      onDelete?.(result.data);
+
+      toast.success(result?.message || "Bill deleted successfully");
+      document.getElementById("bill-delete-modal").checked = false;
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Handle search filtering
   const filteredBills = bills.filter(
     (bill) =>
