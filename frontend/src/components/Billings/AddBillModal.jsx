@@ -3,15 +3,18 @@ import { useState } from "react";
 import { BASE_URL } from "../../../config";
 import { toast } from "react-toastify";
 
-const AddBillModal = ({ loggedInUserId, onAddBill }) => {
+// const AddBillModal = ({ loggedInUserId, onAddBill }) => {
+const AddBillModal = ({ billAttacherId, billAttacherEmail, onAddBill }) => {
   const [data, setData] = useState({
     billingHolder: "",
     phone: "",
     amount: "",
     status: "Unpaid",
     dateline: "",
-    billAttacher: loggedInUserId,
+    billAttacher: "",
   });
+  console.log("data: ", data);
+
   const [errors, setErrors] = useState({});
 
   const validateField = (name, value) => {
@@ -76,8 +79,16 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
+        // body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          billAttacher: {
+            _id: billAttacherId,
+            email: billAttacherEmail,
+          },
+        }),
       });
+      console.log("res: ", response);
 
       if (!response.ok) {
         const res = await response.json();
@@ -104,7 +115,8 @@ const AddBillModal = ({ loggedInUserId, onAddBill }) => {
         amount: "",
         status: "Unpaid",
         dateline: "",
-        billAttacher: loggedInUserId || null,
+        // billAttacher: loggedInUserId || null,
+        billAttacher: "",
       });
       document.getElementById("bill-add-modal").checked = false; // Close the modal after submit bill
     } catch (error) {

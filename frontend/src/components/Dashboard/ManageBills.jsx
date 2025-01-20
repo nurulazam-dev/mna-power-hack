@@ -169,7 +169,7 @@ const ManageBills = () => {
                         })
                       : "Date not available"}
                   </td>
-                  <td className="border">{bill?.billAttacher}</td>
+                  <td className="border">{bill?.billAttacher?.email}</td>
                   <td className="flex justify-center">
                     <div className="mx-1">
                       <ViewBillModal bill={selectedBill} />

@@ -16,11 +16,14 @@ const BillingPage = () => {
   const [error, setError] = useState(null);
   const { user } = useContext(authContext);
 
+  const billAttacherId = user?._id;
+  const billAttacherEmail = user?.email;
+
   useEffect(() => {
-    if (user?._id) {
+    if (billAttacherId && billAttacherEmail) {
       fetchBills();
     }
-  }, [user?._id]);
+  }, [billAttacherId, billAttacherEmail]);
 
   const fetchBills = async () => {
     setLoading(true);
@@ -61,7 +64,12 @@ const BillingPage = () => {
           </h2>
         </div>
         <div>
-          <AddBillModal onAddBill={handleAddBill} loggedInUserId={user?._id} />
+          <AddBillModal
+            onAddBill={handleAddBill}
+            billAttacherId={billAttacherId}
+            billAttacherEmail={billAttacherEmail}
+            // loggedInUserId={billAttacherId && billAttacherEmail}
+          />
           <label
             htmlFor="bill-add-modal"
             className="btn text-[15px] text-white border-none hover:bg-green-700"
