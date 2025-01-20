@@ -29,9 +29,6 @@ const DeleteBillModal = ({ bill, onDelete }) => {
 
       
 
-      const result = await response.json();
-      console.log("data : ", result);
-      onDelete?.(result.data);
 
       toast.success(result?.message || "Bill deleted successfully");
       document.getElementById("bill-delete-modal").checked = false;
