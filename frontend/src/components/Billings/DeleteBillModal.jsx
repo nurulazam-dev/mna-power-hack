@@ -29,9 +29,6 @@ const DeleteBillModal = ({ bill, onDelete }) => {
 
       
 
-
-      
-      document.getElementById("bill-delete-modal").checked = false;
     } catch (err) {
       setError(err.message);
     } finally {
