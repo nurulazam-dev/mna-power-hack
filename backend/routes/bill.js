@@ -17,7 +17,7 @@ router.get("/", getAllBills);
 router.post("/", createBill);
 router.get("/", authenticate, getBill);
 // router.put("/:id", authenticate, restrict(["accountant"]), updateBill);
-router.put("/:id", authenticate, updateBill);
+router.put("/:id", updateBill);
 // router.delete("/:id", authenticate, restrict(["admin"]), deleteBill);
 router.delete("/:id", deleteBill);
 

@@ -25,7 +25,6 @@ const BillSchema = new mongoose.Schema({
   },
   dateline: {
     type: Date,
-    required: [true, "Dateline is required"],
   },
   billAttacher: {
     type: mongoose.Schema.Types.ObjectId,
