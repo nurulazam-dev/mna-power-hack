@@ -54,7 +54,10 @@ const ViewBillModal = ({ bill }) => {
               })}
             </p>
             <p className="text-sm">
-              <strong>Bill Attacher:</strong> {bill?.billAttacher}
+              <strong>Bill Attacher:</strong> {bill?.billAttacher?.email}
+            </p>
+            <p className="text-sm">
+              <strong>Bill A. ID:</strong> {bill?.billAttacher?._id}
             </p>
           </div>
         </div>
