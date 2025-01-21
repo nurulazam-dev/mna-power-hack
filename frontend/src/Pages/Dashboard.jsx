@@ -7,6 +7,7 @@ import Overview from "../components/Dashboard/Overview";
 import Profile from "../components/Dashboard/Profile";
 import Settings from "../components/Dashboard/Settings";
 import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
+import UnpaidBills from "../components/Dashboard/UnpaidBills";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("overview");
@@ -44,13 +45,13 @@ const Dashboard = () => {
           </button>
 
           <button
-            onClick={() => setTab("paidBills")}
+            onClick={() => setTab("unpaidBills")}
             className={`${
-              tab == "paidBills" ? activeTabClass : inactiveTabClass
+              tab == "unpaidBills" ? activeTabClass : inactiveTabClass
             } `}
           >
             <RiBillLine className="w-7 h-7" />
-            <p className="ml-3 hidden lg:block">Paid Bills</p>
+            <p className="ml-3 hidden lg:block">Unpaid Bills</p>
           </button>
 
           <button
@@ -88,8 +89,9 @@ const Dashboard = () => {
         <div className="w-[90%] lg:w-[82%] lg:px-0 px-3 lg:mx-5 rounded-md lg:rounded-none shadow-md lg:shadow-none lg:mt-20">
           <div className="lg:px-0 px-[10px]">
             {tab == "overview" && <Overview />}
-            {tab == "manageUsers" && <ManageUsers />}
             {tab == "manageBills" && <ManageBills />}
+            {tab == "unpaidBills" && <UnpaidBills />}
+            {tab == "manageUsers" && <ManageUsers />}
             {tab == "profile" && <Profile />}
             {tab == "settings" && <Settings />}
           </div>
