@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { authContext } from "../context/AuthContext";
 import { BASE_URL } from "../../config";
@@ -12,6 +12,8 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const { dispatch } = useContext(authContext);
 
   const handleInputChange = (e) => {
@@ -47,7 +49,7 @@ const Login = () => {
 
       setLoading(false);
       toast.success(result.message);
-      navigate("/home");
+      navigate(from, { replace: true });
     } catch (error) {
       toast.error(error.message);
       setLoading(false);
