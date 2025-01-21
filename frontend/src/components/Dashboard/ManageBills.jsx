@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 
 const ManageBills = () => {
   const [bills, setBills] = useState([]);
+  const [unpaidBills, setUnpaidBills] = useState([]);
+  const [paidBills, setPaidBills] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedBill, setSelectedBill] = useState(null);
@@ -26,6 +28,10 @@ const ManageBills = () => {
           throw new Error(result.message);
         }
         setBills(result.data);
+        setPaidBills(result?.data?.filter((bill) => bill.status === "Paid"));
+        setUnpaidBills(
+          result?.data?.filter((bill) => bill.status === "Unpaid")
+        );
         setLoading(false);
       } catch (error) {
         setLoading(false);
@@ -108,6 +114,37 @@ const ManageBills = () => {
       {error && <Error />}
       {!loading && !error && (
         <div>
+          {/* bill summary */}
+          <table className="table table-compact text-center text-black w-full mx-auto">
+            <thead>
+              <tr className="text-black bg-indigo-300 text-[16px]">
+                <th className="border">Total Bills</th>
+                <th className="border">Paid Bills</th>
+                <th className="border">Unpaid Bills</th>
+                <th className="border">Total Bills Amount</th>
+                <th className="border">Paid Bills Amount</th>
+                <th className="border">Unpaid Bills Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border text-center">
+                <td className="border border-indigo-300">
+                  {filteredBills?.length}
+                </td>
+
+                <td className="border border-indigo-300">
+                  {paidBills?.length}
+                </td>
+                <td className="border border-indigo-300">
+                  {unpaidBills?.length}
+                </td>
+                <td className="border border-indigo-300">$ 35652</td>
+                <td className="border border-indigo-300">$ 19526</td>
+                <td className="border border-indigo-300">$ 16534</td>
+              </tr>
+            </tbody>
+          </table>
+
           {/* search bar part */}
           <div className="border bg-violet-600 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
             <div className="flex items-center">
