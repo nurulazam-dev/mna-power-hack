@@ -96,7 +96,7 @@ const ManageBills = () => {
   const indexOfFirstBill = indexOfLastBill - billsPerPage;
   const currentBills = filteredBills.slice(indexOfFirstBill, indexOfLastBill);
 
-  const totalPages = Math.ceil(filteredBills.length / billsPerPage);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <section>
@@ -215,8 +215,8 @@ const ManageBills = () => {
             </tbody>
           </table>
 
-          <div className="flex justify-center mt-4">
-            {[...Array(totalPages).keys()].map((page) => (
+          <div className="pagination flex justify-center mt-4">
+            {/*  {[...Array(totalPages).keys()].map((page) => (
               <button
                 key={page + 1}
                 className={`btn btn-xs mx-1 ${
@@ -226,7 +226,23 @@ const ManageBills = () => {
               >
                 {page + 1}
               </button>
-            ))}
+            ))} */}
+
+            {[...Array(Math.ceil(bills.length / billsPerPage)).keys()].map(
+              (page) => (
+                <button
+                  key={page}
+                  onClick={() => paginate(page + 1)}
+                  className={`px-3 py-1 mx-1 border rounded ${
+                    currentPage === page + 1
+                      ? "bg-violet-600 text-white"
+                      : "bg-white"
+                  }`}
+                >
+                  {page + 1}
+                </button>
+              )
+            )}
           </div>
         </div>
       )}
