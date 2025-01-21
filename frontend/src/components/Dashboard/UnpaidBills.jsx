@@ -15,7 +15,7 @@ const UnpaidBills = () => {
   const [billsPerPage] = useState(5);
 
   useEffect(() => {
-    const fetchBills = async () => {
+    const fetchUnpaidBills = async () => {
       setLoading(true);
       try {
         const response = await fetch(`${BASE_URL}/bills`);
@@ -23,8 +23,10 @@ const UnpaidBills = () => {
         if (!response.ok) {
           throw new Error(result.message);
         }
-
-        setBills(result?.data?.filter((bill) => bill.status === "Unpaid"));
+        const unpaidBills = result?.data?.filter(
+          (bill) => bill.status === "Unpaid"
+        );
+        setBills(unpaidBills);
         setLoading(false);
       } catch (error) {
         setLoading(false);
@@ -32,7 +34,7 @@ const UnpaidBills = () => {
       }
     };
 
-    fetchBills();
+    fetchUnpaidBills();
   }, []);
 
   // bill update handler
@@ -52,11 +54,9 @@ const UnpaidBills = () => {
 
         const result = await response.json();
 
-        setBills(
-          bills.map((bill) =>
-            bill._id === updatedBill._id ? result.data : bill
-          )
-        );
+        if (result.data.status !== "Unpaid") {
+          setBills(bills.filter((bill) => bill._id !== updatedBill._id));
+        }
       } else {
         throw new Error("Failed to update bill.");
       }
