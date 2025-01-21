@@ -14,7 +14,7 @@ const ManageBills = () => {
   const [selectedBill, setSelectedBill] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [billsPerPage] = useState(10);
+  const [billsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchBills = async () => {
