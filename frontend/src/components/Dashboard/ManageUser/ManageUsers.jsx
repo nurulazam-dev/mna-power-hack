@@ -98,20 +98,19 @@ const ManageUsers = () => {
         <div>
           {/* search bar part */}
           <div className="border bg-violet-600 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
-            <div className="flex items-center">
-              <h2 className="font-semibold text-2xl text-white">Billings</h2>
-              <input
-                type="text"
-                placeholder="Search by "
-                className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
-                /* value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)} */
-              />
-            </div>
             <div>
               <h2 className="font-bold text-xl text-white">
                 Total Users: {users?.length}
               </h2>
+            </div>
+            <div className="">
+              <input
+                type="text"
+                placeholder="Search by Email, Phone, or Role"
+                className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
+                /* value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)} */
+              />
             </div>
           </div>
           <table className="table table-compact text-center text-black w-full mx-auto">
