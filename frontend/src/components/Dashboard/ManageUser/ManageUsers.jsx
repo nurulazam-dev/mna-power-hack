@@ -11,6 +11,7 @@ const ManageUsers = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(5);
 
@@ -79,10 +80,18 @@ const ManageUsers = () => {
     }
   };
 
+  // Handle search filtering
+  const filteredUsers = users.filter(
+    (user) =>
+      user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.role.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   // Pagination logic
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+  const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -100,7 +109,7 @@ const ManageUsers = () => {
           <div className="border bg-violet-600 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
             <div>
               <h2 className="font-bold text-xl text-white">
-                Total Users: {users?.length}
+                Total Users: {filteredUsers?.length}
               </h2>
             </div>
             <div className="">
@@ -108,8 +117,8 @@ const ManageUsers = () => {
                 type="text"
                 placeholder="Search by Email, Phone, or Role"
                 className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
-                /* value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)} */
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
