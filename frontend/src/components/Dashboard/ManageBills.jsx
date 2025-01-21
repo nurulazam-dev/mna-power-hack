@@ -126,6 +126,7 @@ const ManageBills = () => {
             </div>
           </div>
 
+          {/* table part */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
               <tr className="text-violet-700 text-[16px]">
