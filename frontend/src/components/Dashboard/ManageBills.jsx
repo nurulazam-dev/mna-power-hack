@@ -218,12 +218,7 @@ const ManageBills = () => {
           <div className="pagination flex justify-center mt-4">
             {/*  {[...Array(totalPages).keys()].map((page) => (
               <button
-                key={page + 1}
-                className={`btn btn-xs mx-1 ${
-                  currentPage === page + 1 ? "btn-active" : ""
-                }`}
-                onClick={() => setCurrentPage(page + 1)}
-              >
+                
                 {page + 1}
               </button>
             ))} */}
