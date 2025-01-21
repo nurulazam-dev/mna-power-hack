@@ -217,10 +217,7 @@ const ManageBills = () => {
 
           <div className="pagination flex justify-center mt-4">
             {/*  {[...Array(totalPages).keys()].map((page) => (
-              <button
-                
-                {page + 1}
-              </button>
+             
             ))} */}
 
             {[...Array(Math.ceil(bills.length / billsPerPage)).keys()].map(
