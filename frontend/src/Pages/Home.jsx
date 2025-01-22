@@ -178,6 +178,10 @@ const Home = () => {
                 </div>
                 <div className="timeline-start mb-10 md:text-end">
                   <div className="text-lg font-black">🔧Meter Installation</div>
+                  Our certified technicians will visit your premises to install
+                  an electricity meter. This step ensures accurate tracking of
+                  electricity consumption and prepares your property for the
+                  final connection.
                 </div>
                 <hr />
               </li>
