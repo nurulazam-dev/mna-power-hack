@@ -8,7 +8,7 @@ import TopBillHolder from "./Overview/TopBillHolder";
 const Overview = () => {
   return (
     <section className="text-black">
-      <h1 className="text-4xl mb-6 font-bold">Welcome to the Dashboard!</h1>
+      <h1 className="text-4xl mb-4 font-bold">Welcome to the Dashboard!</h1>
       {/* ======================================= */}
       <div className="flex justify-center w-full">
         {/* middle part */}
