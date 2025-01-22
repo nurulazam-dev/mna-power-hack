@@ -7,10 +7,10 @@ const Contact = () => {
         Contact Us
       </h2>
       <div className="flex items-center justify-center w-full">
-        <div className="lg:w-3/5 w-full">
+        <div className="lg:w-1/2 w-full">
           <img src={contactImg} alt="contact Img" />
         </div>
-        <div className="lg:w-2/5 w-full">
+        <div className="lg:w-1/2 w-full">
           {/* Contact Form */}
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Name */}
