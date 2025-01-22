@@ -30,36 +30,35 @@ const About = () => {
         </div>
 
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-slate-600">Why Choose Us?</h2>
-          <p className="text-gray-600 mt-4">
-            Discover the unique benefits of choosing Power-Hack for all your
-            electricity supply needs.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
-            <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-4">⚡</div>
+          <h2 className="text-3xl font-bold text-slate-600 text-center">
+            Why Choose Us?
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-3">
+            <div className="card shadow-lg bg-white py-3 px-6 text-center">
+              <div className="text-primary text-5xl mb-2">⚡</div>
               <h3 className="text-xl font-bold text-slate-500">
                 Reliable Power Supply
               </h3>
-              <p className="text-gray-500 mt-3">
+              <p className="text-gray-500 mt-1 text-justify">
                 Enjoy uninterrupted electricity with our dependable and robust
                 infrastructure.
               </p>
             </div>
             <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-4">💡</div>
+              <div className="text-primary text-5xl mb-2">💡</div>
               <h3 className="text-xl font-bold text-slate-500">
                 Energy Efficiency
               </h3>
-              <p className="text-gray-500 mt-3">
+              <p className="text-gray-500 mt-1">
                 Save on energy costs with our innovative and eco-friendly power
                 solutions.
               </p>
             </div>
             <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-4">📞</div>
+              <div className="text-primary text-5xl mb-2">📞</div>
               <h3 className="text-xl font-bold text-slate-500">24/7 Support</h3>
-              <p className="text-gray-500 mt-3">
+              <p className="text-gray-500 mt-1">
                 Get assistance anytime with our dedicated customer support team.
               </p>
             </div>
