@@ -158,9 +158,11 @@ const ManageBills = () => {
                 <td className="border border-indigo-300">
                   {unpaidBills?.length}
                 </td>
-                <td className="border border-indigo-300">${totalPaidAmount}</td>
                 <td className="border border-indigo-300">
-                  ${totalUnpaidAmount}
+                  ${totalPaidAmount.toFixed(2)}
+                </td>
+                <td className="border border-indigo-300">
+                  ${totalUnpaidAmount.toFixed(2)}
                 </td>
                 <td className="border border-indigo-300">$ 16534</td>
               </tr>
