@@ -4,8 +4,7 @@ import powerPlanImg from "../assets/images/power-plan.jpg";
 const About = () => {
   return (
     <div className="mt-6 py-8">
-      <div className="px-6 lg:px-20">
-        {/* Hero Section */}
+      <div className="px-8">
         <div className="flex flex-col md:flex-row items-center mb-5">
           <div className="text-center md:text-left md:w-1/2">
             <h1 className="text-[39px] font-bold text-black">
@@ -30,7 +29,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Features Section */}
         <div className="text-center">
           <h2 className="text-4xl font-bold text-slate-600">Why Choose Us?</h2>
           <p className="text-gray-600 mt-4">
@@ -68,7 +66,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Action Button Section */}
         <div className="text-center my-12 shadow-lg py-5 bg-violet-50">
           <h2 className="text-4xl font-bold text-slate-600">
             Ready to Power Your Home or Business?
@@ -87,7 +84,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Mission and Vision Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
           <div className="card shadow-lg bg-white p-6">
             <h2 className="text-3xl font-bold">Our Mission</h2>
