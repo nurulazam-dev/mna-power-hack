@@ -203,24 +203,15 @@ const Home = () => {
                 </div>
                 <div className="timeline-end md:mb-10">
                   <div className="text-lg font-black">⚡Power Connection</div>
+                  Finally, the electricity supply will be connected to your
+                  property, ensuring a seamless and reliable power supply. Our
+                  team will also provide a brief orientation on using the meter
+                  and billing system effectively.
                 </div>
                 <hr />
               </li>
             </ul>
             {/* ====================== */}
-            <div className="relative border-l-4 border-violet-600">
-              {[
-                { step: "Submit Application", icon: "📝" },
-                { step: "Inspection & Approval", icon: "✔️" },
-                { step: "Meter Installation", icon: "🔧" },
-                { step: "Power Connection", icon: "⚡" },
-              ].map((process, index) => (
-                <div key={index} className="mb-8 flex items-center gap-4 pl-6">
-                  <span className="text-2xl">{process.icon}</span>
-                  <p className="text-lg text-gray-700">{process.step}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
       </div>
