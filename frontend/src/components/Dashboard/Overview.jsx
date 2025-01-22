@@ -2,12 +2,14 @@ import BillBarChart from "./Overview/BillBarChart";
 import MyDayPicker from "./Overview/MyDayPicker";
 import OverviewCards from "./Overview/OverviewCards";
 import OverviewUserBanner from "./Overview/OverviewUserBanner";
+import Summary from "./Overview/summary";
 import TopBillHolder from "./Overview/TopBillHolder";
 
 const Overview = () => {
   return (
     <section className="text-black">
       <h1 className="text-4xl mb-6 font-bold">Welcome to the Dashboard!</h1>
+      <Summary />
       {/* ======================================= */}
       <div className="flex justify-center w-full">
         {/* middle part */}
