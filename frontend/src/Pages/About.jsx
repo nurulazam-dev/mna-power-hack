@@ -12,9 +12,10 @@ const About = () => {
               Welcome to <span className="text-orange-600">Power Hack</span>
             </h1>
             <p className="text-gray-600 mt-3 text-lg">
-              We’re on a mission to make bill management stress-free, secure,
-              and efficient. Join us as we revolutionize the way you handle your
-              payments!
+              At Power Hack, we provide seamless electricity solutions for
+              residential and commercial clients. Our commitment lies in
+              ensuring a smooth billing process, reliable services, and
+              round-the-clock customer support to keep your lights on.
             </p>
             <button className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] text-white hover:text-orange-500 mt-4 px-8">
               Get Started
