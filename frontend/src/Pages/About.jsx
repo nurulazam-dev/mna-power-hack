@@ -3,13 +3,13 @@ import powerPlanImg from "../assets/images/power-plan.jpg";
 
 const About = () => {
   return (
-    <div className="mt-6 py-12">
+    <div className="mt-6 py-8">
       <div className="px-6 lg:px-20">
         {/* Hero Section */}
-        <div className="flex flex-col md:flex-row items-center mb-10">
+        <div className="flex flex-col md:flex-row items-center mb-5">
           <div className="text-center md:text-left md:w-1/2">
             <h1 className="text-[39px] font-bold text-black">
-              Welcome to <span className="text-orange-600">Power Hack</span>
+              Our <span className="text-orange-600">Power Hack</span>
             </h1>
             <p className="text-gray-600 mt-3 text-lg">
               At Power Hack, we provide seamless electricity solutions for
@@ -34,76 +34,73 @@ const About = () => {
         <div className="text-center">
           <h2 className="text-4xl font-bold text-slate-600">Why Choose Us?</h2>
           <p className="text-gray-600 mt-4">
-            Discover the unique benefits of using Power Hack for all your
-            billing needs.
+            Discover the unique benefits of choosing Power-Hack for all your
+            electricity supply needs.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
             <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-4">🎨</div>
+              <div className="text-primary text-5xl mb-4">⚡</div>
               <h3 className="text-xl font-bold text-slate-500">
-                User-Friendly Design
+                Reliable Power Supply
               </h3>
               <p className="text-gray-500 mt-3">
-                Experience an intuitive platform that makes managing bills a
-                breeze.
+                Enjoy uninterrupted electricity with our dependable and robust
+                infrastructure.
               </p>
             </div>
             <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-4">🔒</div>
+              <div className="text-primary text-5xl mb-4">💡</div>
               <h3 className="text-xl font-bold text-slate-500">
-                Secure Payments
+                Energy Efficiency
               </h3>
               <p className="text-gray-500 mt-3">
-                Rest easy with robust security measures safeguarding your
-                transactions.
+                Save on energy costs with our innovative and eco-friendly power
+                solutions.
               </p>
             </div>
             <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-4">💬</div>
+              <div className="text-primary text-5xl mb-4">📞</div>
               <h3 className="text-xl font-bold text-slate-500">24/7 Support</h3>
               <p className="text-gray-500 mt-3">
-                Get assistance whenever you need it with our dedicated support
-                team.
+                Get assistance anytime with our dedicated customer support team.
               </p>
             </div>
           </div>
         </div>
 
-        {/* action btn part */}
-        <div className="text-center mt-5 shadow-lg py-5 bg-violet-50">
+        {/* Action Button Section */}
+        <div className="text-center my-12 shadow-lg py-5 bg-violet-50">
           <h2 className="text-4xl font-bold text-slate-600">
-            Ready to Simplify Your Bills?
+            Ready to Power Your Home or Business?
           </h2>
           <p className="text-gray-600 mt-3">
-            Join thousands of satisfied users who trust Power Hack for their
-            bill management needs.
+            Join thousands of satisfied customers who trust Power-Hack for their
+            electricity needs.
           </p>
           <div className="mt-6">
             <Link
               to="/login"
               className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] text-white hover:text-orange-500 px-10"
             >
-              Sign Up Now
+              Get Started
             </Link>
           </div>
         </div>
 
         {/* Mission and Vision Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
           <div className="card shadow-lg bg-white p-6">
-            <h2 className="text-3xl font-bold ">Our Mission</h2>
+            <h2 className="text-3xl font-bold">Our Mission</h2>
             <p className="text-gray-600 mt-4">
-              To empower users with an innovative and secure platform that
-              simplifies bill payments while offering unmatched convenience and
-              transparency.
+              To deliver safe, reliable, and affordable electricity, enhancing
+              lives and driving sustainable progress.
             </p>
           </div>
           <div className="card shadow-lg bg-white p-6">
             <h2 className="text-3xl font-bold">Our Vision</h2>
             <p className="text-gray-600 mt-4">
-              To be a global leader in digital bill management solutions,
-              setting new standards in reliability, security, and user
-              satisfaction.
+              To be a leading electricity provider, setting benchmarks in
+              innovation, efficiency, and customer satisfaction globally.
             </p>
           </div>
         </div>
