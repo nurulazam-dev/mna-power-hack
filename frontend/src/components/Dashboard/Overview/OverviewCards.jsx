@@ -20,7 +20,7 @@ const OverviewCards = () => {
       <div className="bg-white rounded w-full border shadow-xl flex justify-between items-center p-4">
         <div>
           <h2 className="font-bold text-indigo-600">Total Bills</h2>
-          <p className="text-3xl">4,567</p>
+          <p className="text-3xl">4875</p>
         </div>
         <div>
           <LiaAddressCardSolid className="w-14 h-14 text-indigo-600" />
