@@ -152,6 +152,11 @@ const Home = () => {
                   <div className="text-lg font-black">
                     ✔️Inspection & Approval
                   </div>
+                  Once your application is received, our technical team will
+                  schedule an inspection to assess your property and ensure it
+                  meets safety and regulatory standards. After a successful
+                  inspection, the application will be approved for the next
+                  steps.
                 </div>
                 <hr />
               </li>
