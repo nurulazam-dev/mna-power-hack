@@ -8,7 +8,7 @@ const HeroSection = () => {
       style={{
         background: `url(${powerPlan})`,
         backgroundSize: "cover",
-        height: "80vh",
+        height: "75vh",
         backgroundRepeat: "no-repeat",
       }}
       className="flex justify-center items-center"

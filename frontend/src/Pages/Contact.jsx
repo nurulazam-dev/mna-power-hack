@@ -1,17 +1,17 @@
+import contactImg from "../assets/images/contact-us.png";
+
 const Contact = () => {
   return (
-    <div className="mt-10 py-5 flex items-center justify-center">
-      <div className="">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-black">Contact Us</h1>
-          <p className="text-gray-600 my-2">
-            We’d love to hear from you! Reach out to us for inquiries, feedback,
-            or support.
-          </p>
+    <div className="mt-10 py-5 px-8">
+      <h2 className="text-3xl mb-2 font-bold text-slate-600 text-center">
+        Contact Us
+      </h2>
+      <div className="flex items-center justify-center w-full">
+        <div className="lg:w-3/5 w-full">
+          <img src={contactImg} alt="contact Img" />
         </div>
-
-        {/* Contact Form */}
-        <div className="mt-6">
+        <div className="lg:w-2/5 w-full">
+          {/* Contact Form */}
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Name */}
             <div className="form-control">
@@ -60,11 +60,10 @@ const Contact = () => {
               ></textarea>
             </div>
           </form>
+          <button className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500">
+            Send Message
+          </button>
         </div>
-
-        <button className="border shadow-lg bg-violet-600 hover:bg-black py-[8px] rounded font-thin text-[20px] w-full mt-4 mb-1 text-white hover:text-orange-500">
-          Send Message
-        </button>
       </div>
     </div>
   );

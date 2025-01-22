@@ -97,7 +97,7 @@ const ManageUsers = () => {
 
   return (
     <section>
-      <h1 className="text-3xl mb-3 font-bold text-black text-center">
+      <h1 className="text-3xl mb-2 font-bold text-slate-600 text-center">
         Manage Users
       </h1>
 
