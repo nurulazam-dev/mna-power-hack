@@ -55,7 +55,7 @@ const About = () => {
             {chooseUsData?.map((data, index) => (
               <div
                 key={index}
-                className="card shadow-lg bg-white py-3 px-6 text-center"
+                className="card shadow-md rounded bg-white py-3 px-6 text-center"
               >
                 <div className="text-primary text-5xl mb-2">{data?.icon}</div>
                 <h3 className="text-xl font-bold text-slate-500">
