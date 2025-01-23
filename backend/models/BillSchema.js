@@ -27,10 +27,17 @@ const BillSchema = new mongoose.Schema({
     type: Date,
   },
   billAttacher: {
-    // type: mongoose.Schema.Types.ObjectId,
-    // ref: "User",
     _id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     email: { type: String },
+  },
+  billUpdater: {
+    type: String,
+    required: false,
+    trim: true,
+  },
+  billUpdatedDate: {
+    type: Date,
+    default: Date.now,
   },
   /* createdAt: {
     type: Date,

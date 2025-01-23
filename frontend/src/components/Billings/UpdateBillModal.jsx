@@ -2,13 +2,17 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-const UpdateBillModal = ({ bill, onUpdate }) => {
+const UpdateBillModal = ({ bill, billUpdaterEmail, onUpdate }) => {
   const [formData, setFormData] = useState({
     billingHolder: "",
     phone: "",
     amount: "",
     status: "",
+    billUpdater: "",
+    updatedDate: "",
   });
+
+  console.log("Bill updater: ", billUpdaterEmail);
 
   useEffect(() => {
     if (bill) {
@@ -17,6 +21,8 @@ const UpdateBillModal = ({ bill, onUpdate }) => {
         phone: bill.phone || "",
         amount: bill.amount || "",
         status: bill.status || "",
+        billUpdater: bill.billUpdater || "",
+        updatedDate: bill.updatedDate || "",
       });
     }
   }, [bill]);

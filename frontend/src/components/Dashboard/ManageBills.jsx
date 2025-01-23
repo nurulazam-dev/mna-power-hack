@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BASE_URL } from "../../../config";
 import Error from "../../shared/Error";
 import Loading from "../../shared/Loading";
@@ -6,6 +6,7 @@ import ViewBillModal from "../Billings/ViewBillModal";
 import UpdateBillModal from "../Billings/UpdateBillModal";
 import DeleteBillModal from "../Billings/DeleteBillModal";
 import { toast } from "react-toastify";
+import { authContext } from "../../context/AuthContext";
 
 const ManageBills = () => {
   const [bills, setBills] = useState([]);
@@ -15,6 +16,8 @@ const ManageBills = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(5);
+  const { user } = useContext(authContext);
+  const billUpdaterEmail = user?.email;
 
   useEffect(() => {
     const fetchBills = async () => {
@@ -186,6 +189,7 @@ const ManageBills = () => {
                     <div className="mx-1">
                       <UpdateBillModal
                         bill={selectedBill}
+                        billUpdaterEmail={billUpdaterEmail}
                         onUpdate={handleUpdateBill}
                       />
                       <label

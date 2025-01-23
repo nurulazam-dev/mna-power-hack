@@ -6,7 +6,6 @@ import Loading from "../shared/Loading";
 
 const BillingPage = () => {
   const [bills, setBills] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(10);
   const [loading, setLoading] = useState(false);

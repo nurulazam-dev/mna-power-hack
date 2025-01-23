@@ -85,7 +85,6 @@ const AddBillModal = ({ billAttacherId, billAttacherEmail, onAddBill }) => {
           },
         }),
       });
-      console.log("res: ", response);
 
       if (!response.ok) {
         const res = await response.json();
