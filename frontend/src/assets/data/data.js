@@ -1,4 +1,4 @@
-export const services = [
+export const servicesData = [
   {
     title: "Power Distribution",
     description: "Efficient power supply to all areas.",
