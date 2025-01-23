@@ -3,7 +3,6 @@ import { useState } from "react";
 import { BASE_URL } from "../../../config";
 import { toast } from "react-toastify";
 
-// const AddBillModal = ({ loggedInUserId, onAddBill }) => {
 const AddBillModal = ({ billAttacherId, billAttacherEmail, onAddBill }) => {
   const [data, setData] = useState({
     billingHolder: "",
@@ -13,7 +12,6 @@ const AddBillModal = ({ billAttacherId, billAttacherEmail, onAddBill }) => {
     dateline: "",
     billAttacher: "",
   });
-  console.log("data: ", data);
 
   const [errors, setErrors] = useState({});
 
@@ -79,7 +77,6 @@ const AddBillModal = ({ billAttacherId, billAttacherEmail, onAddBill }) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        // body: JSON.stringify(data),
         body: JSON.stringify({
           ...data,
           billAttacher: {
@@ -115,7 +112,6 @@ const AddBillModal = ({ billAttacherId, billAttacherEmail, onAddBill }) => {
         amount: "",
         status: "Unpaid",
         dateline: "",
-        // billAttacher: loggedInUserId || null,
         billAttacher: "",
       });
       document.getElementById("bill-add-modal").checked = false; // Close the modal after submit bill
