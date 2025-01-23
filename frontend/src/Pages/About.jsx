@@ -40,7 +40,7 @@ const About = () => {
               <h3 className="text-xl font-bold text-slate-500">
                 Reliable Power Supply
               </h3>
-              <p className="text-gray-500 mt-1 text-justify">
+              <p className="text-gray-500 mt-1">
                 Enjoy uninterrupted electricity with our dependable and robust
                 infrastructure.
               </p>
