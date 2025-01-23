@@ -2,6 +2,23 @@ import { Link } from "react-router-dom";
 import powerPlanImg from "../assets/images/power-plan.jpg";
 
 const About = () => {
+  const chooseUsData = [
+    {
+      icon: "⚡",
+      title: "Reliable Power Supply",
+      desc: "Enjoy uninterrupted electricity with our dependable and robust infrastructure.",
+    },
+    {
+      icon: "💡",
+      title: "Energy Efficiency",
+      desc: "Save on energy costs with our innovative and eco-friendly power solutions.",
+    },
+    {
+      icon: "📞",
+      title: "24/7 Support",
+      desc: "Get assistance anytime with our dedicated customer support team.",
+    },
+  ];
   return (
     <div className="mt-6 py-8">
       <div className="px-8">
@@ -35,33 +52,18 @@ const About = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-3">
-            <div className="card shadow-lg bg-white py-3 px-6 text-center">
-              <div className="text-primary text-5xl mb-2">⚡</div>
-              <h3 className="text-xl font-bold text-slate-500">
-                Reliable Power Supply
-              </h3>
-              <p className="text-gray-500 mt-1">
-                Enjoy uninterrupted electricity with our dependable and robust
-                infrastructure.
-              </p>
-            </div>
-            <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-2">💡</div>
-              <h3 className="text-xl font-bold text-slate-500">
-                Energy Efficiency
-              </h3>
-              <p className="text-gray-500 mt-1">
-                Save on energy costs with our innovative and eco-friendly power
-                solutions.
-              </p>
-            </div>
-            <div className="card shadow-lg bg-white p-6 text-center">
-              <div className="text-primary text-5xl mb-2">📞</div>
-              <h3 className="text-xl font-bold text-slate-500">24/7 Support</h3>
-              <p className="text-gray-500 mt-1">
-                Get assistance anytime with our dedicated customer support team.
-              </p>
-            </div>
+            {chooseUsData?.map((data, index) => (
+              <div
+                key={index}
+                className="card shadow-lg bg-white py-3 px-6 text-center"
+              >
+                <div className="text-primary text-5xl mb-2">{data?.icon}</div>
+                <h3 className="text-xl font-bold text-slate-500">
+                  {data?.title}
+                </h3>
+                <p className="text-gray-500 mt-1">{data?.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
