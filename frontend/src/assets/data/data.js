@@ -50,3 +50,21 @@ export const servicesData = [
     icon: "🏭",
   },
 ];
+
+export const chooseUsData = [
+  {
+    icon: "⚡",
+    title: "Reliable Power Supply",
+    desc: "Enjoy uninterrupted electricity with our dependable and robust infrastructure.",
+  },
+  {
+    icon: "💡",
+    title: "Energy Efficiency",
+    desc: "Save on energy costs with our innovative and eco-friendly power solutions.",
+  },
+  {
+    icon: "📞",
+    title: "24/7 Support",
+    desc: "Get assistance anytime with our dedicated customer support team.",
+  },
+];

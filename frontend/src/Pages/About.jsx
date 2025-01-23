@@ -1,24 +1,8 @@
 import { Link } from "react-router-dom";
 import powerPlanImg from "../assets/images/power-plan.jpg";
+import { chooseUsData } from "../assets/data/data";
 
 const About = () => {
-  const chooseUsData = [
-    {
-      icon: "⚡",
-      title: "Reliable Power Supply",
-      desc: "Enjoy uninterrupted electricity with our dependable and robust infrastructure.",
-    },
-    {
-      icon: "💡",
-      title: "Energy Efficiency",
-      desc: "Save on energy costs with our innovative and eco-friendly power solutions.",
-    },
-    {
-      icon: "📞",
-      title: "24/7 Support",
-      desc: "Get assistance anytime with our dedicated customer support team.",
-    },
-  ];
   return (
     <div className="mt-6 py-8">
       <div className="px-8">
