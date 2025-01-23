@@ -6,11 +6,11 @@ const About = () => {
     <div className="mt-6 py-8">
       <div className="px-8">
         <div className="flex flex-col md:flex-row items-center mb-5">
-          <div className="text-center md:text-left md:w-1/2">
+          <div className="text-center md:text-left md:w-1/2 lg:pr-3">
             <h1 className="text-[39px] font-bold text-black">
               Our <span className="text-orange-600">Power Hack</span>
             </h1>
-            <p className="text-gray-600 mt-3 text-lg">
+            <p className="text-gray-600 mt-3 text-lg text-justify">
               At Power Hack, we provide seamless electricity solutions for
               residential and commercial clients. Our commitment lies in
               ensuring a smooth billing process, reliable services, and
