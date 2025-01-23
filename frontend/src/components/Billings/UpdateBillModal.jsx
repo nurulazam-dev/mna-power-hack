@@ -8,11 +8,7 @@ const UpdateBillModal = ({ bill, billUpdaterEmail, onUpdate }) => {
     phone: "",
     amount: "",
     status: "",
-    billUpdater: "",
-    updatedDate: "",
   });
-
-  console.log("Bill updater: ", billUpdaterEmail);
 
   useEffect(() => {
     if (bill) {
@@ -21,8 +17,6 @@ const UpdateBillModal = ({ bill, billUpdaterEmail, onUpdate }) => {
         phone: bill.phone || "",
         amount: bill.amount || "",
         status: bill.status || "",
-        billUpdater: bill.billUpdater || "",
-        updatedDate: bill.updatedDate || "",
       });
     }
   }, [bill]);
@@ -39,8 +33,17 @@ const UpdateBillModal = ({ bill, billUpdaterEmail, onUpdate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const updatedBill = {
+      ...bill,
+      ...formData,
+      billUpdater: billUpdaterEmail,
+      updatedDate: new Date().toISOString(),
+    };
+
+    console.log("Update Bill: ", updatedBill);
+
     try {
-      await onUpdate({ ...bill, ...formData });
+      await onUpdate(updatedBill);
 
       document.getElementById("bill-update-modal").checked = false; // Close the modal
     } catch (error) {

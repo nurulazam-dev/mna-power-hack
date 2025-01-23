@@ -61,6 +61,8 @@ const ManageBills = () => {
   const handleUpdateBill = async (updatedBill) => {
     if (!updatedBill) return;
     try {
+      updatedBill.billUpdater = user?.email;
+      updatedBill.updatedDate = new Date().toISOString();
       const response = await fetch(`${BASE_URL}/bills/${updatedBill._id}`, {
         method: "PUT",
         headers: {
