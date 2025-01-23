@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BASE_URL } from "../../../config";
 import Error from "../../shared/Error";
 import Loading from "../../shared/Loading";
 import UpdateBillModal from "../Billings/UpdateBillModal";
 import { toast } from "react-toastify";
+import { authContext } from "../../context/AuthContext";
 
 const UnpaidBills = () => {
   const [bills, setBills] = useState([]);
@@ -13,6 +14,8 @@ const UnpaidBills = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(5);
+  const { user } = useContext(authContext);
+  const billUpdaterEmail = user?.email;
 
   useEffect(() => {
     const fetchUnpaidBills = async () => {
@@ -41,6 +44,8 @@ const UnpaidBills = () => {
   const handleUpdateBill = async (updatedBill) => {
     if (!updatedBill) return;
     try {
+      updatedBill.billUpdater = user?.email;
+      updatedBill.updatedDate = new Date().toISOString();
       const response = await fetch(`${BASE_URL}/bills/${updatedBill._id}`, {
         method: "PUT",
         headers: {
@@ -144,6 +149,7 @@ const UnpaidBills = () => {
                     <div className="mx-1">
                       <UpdateBillModal
                         bill={selectedBill}
+                        billUpdaterEmail={billUpdaterEmail}
                         onUpdate={handleUpdateBill}
                       />
                       <label
