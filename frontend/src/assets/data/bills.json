@@ -1,0 +1,168 @@
+[
+  {
+    "billAttacher": {
+      "_id": "6787cc1a8c09ee8b977d7273",
+      "email": "nurul@azam.com"
+    },
+    "_id": "678eaae581b5e1fc5eef700f",
+    "billingHolder": "rakib",
+    "phone": "01834975846",
+    "amount": 880,
+    "status": "Unpaid",
+    "dateline": "2025-02-20T00:00:00.000Z",
+    "__v": 0,
+    "billUpdater": "nurul@azam.com",
+    "updatedDate": "2025-01-24T05:03:53.894Z"
+  },
+  {
+    "billAttacher": {
+      "_id": "6787cc1a8c09ee8b977d7273",
+      "email": "nurul@azam.com"
+    },
+    "_id": "678eab6a81b5e1fc5eef7011",
+    "billingHolder": "Axio",
+    "phone": "01978457878",
+    "amount": 960,
+    "status": "Unpaid",
+    "dateline": "2025-02-20T00:00:00.000Z",
+    "__v": 0,
+    "billUpdater": "nurul@azam.com",
+    "updatedDate": "2025-01-24T04:42:12.941Z"
+  },
+  {
+    "billAttacher": {
+      "_id": "6788b66e8ee32ba997711dd6",
+      "email": "ariyan@khan.com"
+    },
+    "_id": "678fb7e6ae86ad0b66a5f57c",
+    "billingHolder": "Rakibul Hasan",
+    "phone": "01697548245",
+    "amount": 780,
+    "status": "Paid",
+    "dateline": "2025-02-20T00:00:00.000Z",
+    "__v": 0,
+    "billUpdater": "nurul@azam.com",
+    "updatedDate": "2025-01-24T04:42:02.565Z"
+  },
+  {
+    "billAttacher": {
+      "_id": "6788b66e8ee32ba997711dd6",
+      "email": "ariyan@khan.com"
+    },
+    "_id": "678fb7ffae86ad0b66a5f57e",
+    "billingHolder": "Jamal Uddin",
+    "phone": "01712458608",
+    "amount": 990,
+    "status": "Paid",
+    "dateline": "2025-02-20T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "6788b66e8ee32ba997711dd6",
+      "email": "ariyan@khan.com"
+    },
+    "_id": "678fb814ae86ad0b66a5f580",
+    "billingHolder": "Mr. Joy",
+    "phone": "01712458689",
+    "amount": 1280,
+    "status": "Paid",
+    "dateline": "2025-02-20T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "678a8c36ad536506f352ba5c",
+      "email": "farahali@gmail.com"
+    },
+    "_id": "678fb91bae86ad0b66a5f597",
+    "billingHolder": "Kamrul Hasan",
+    "phone": "01823456780",
+    "amount": 1560,
+    "status": "Paid",
+    "dateline": "2025-02-10T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "678a8c36ad536506f352ba5c",
+      "email": "farahali@gmail.com"
+    },
+    "_id": "678fb94aae86ad0b66a5f599",
+    "billingHolder": "Rakibul Hasan",
+    "phone": "01725896328",
+    "amount": 860,
+    "status": "Unpaid",
+    "dateline": "2025-02-12T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "678a8c56ad536506f352ba5f",
+      "email": "rahim.uddin@gmail.com"
+    },
+    "_id": "67907a89fa23dd33de91e689",
+    "billingHolder": "Mohammad Fahim",
+    "phone": "01678945613",
+    "amount": 980,
+    "status": "Unpaid",
+    "dateline": "2025-02-12T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "678a8c56ad536506f352ba5f",
+      "email": "rahim.uddin@gmail.com"
+    },
+    "_id": "67907ab0fa23dd33de91e68b",
+    "billingHolder": "Kabir Khan",
+    "phone": "01978596499",
+    "amount": 320,
+    "status": "Unpaid",
+    "dateline": "2025-02-13T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "678a8c56ad536506f352ba5f",
+      "email": "rahim.uddin@gmail.com"
+    },
+    "_id": "67907aeefa23dd33de91e68f",
+    "billingHolder": "Askoy Kumar",
+    "phone": "01725896326",
+    "amount": 1150,
+    "status": "Paid",
+    "dateline": "2025-02-12T00:00:00.000Z",
+    "__v": 0,
+    "billUpdater": "nurul@azam.com",
+    "updatedDate": "2025-01-23T17:24:58.913Z"
+  },
+  {
+    "billAttacher": {
+      "_id": "678a8c56ad536506f352ba5f",
+      "email": "rahim.uddin@gmail.com"
+    },
+    "_id": "67907b25fa23dd33de91e691",
+    "billingHolder": "Sakib Uddin",
+    "phone": "01925147859",
+    "amount": 135,
+    "status": "Unpaid",
+    "dateline": "2025-02-12T00:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "billAttacher": {
+      "_id": "6787cc1a8c09ee8b977d7273",
+      "email": "nurul@azam.com"
+    },
+    "_id": "67927938d7dd74bdcf241b80",
+    "billingHolder": "Jahanara Begum",
+    "phone": "01712458688",
+    "amount": 1000,
+    "status": "Unpaid",
+    "dateline": "2025-02-12T00:00:00.000Z",
+    "updatedDate": "2025-01-24T05:04:57.511Z",
+    "__v": 0,
+    "billUpdater": "nurul@azam.com"
+  }
+]
