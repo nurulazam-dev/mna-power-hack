@@ -1,4 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
+import { TbHomeStats } from "react-icons/tb";
+import { FaUsersCog, FaRegUser, FaUserEdit } from "react-icons/fa";
+import { RiBillLine } from "react-icons/ri";
 
 const DashboardCopy = () => {
   return (
@@ -19,7 +22,7 @@ const DashboardCopy = () => {
           </div>
           <li>
             <Link to="/dashboard-copy">
-              {/* <FontAwesomeIcon icon={faUser} className="lg:mr-3 md:mr-2 mr-0" /> */}
+              <TbHomeStats className="lg:mr-3 md:mr-2 mr-0" />
               <span className="lg:block hidden">Overview</span>
             </Link>
           </li>
@@ -27,49 +30,32 @@ const DashboardCopy = () => {
             <> */}
           <li>
             <Link to="/dashboard-copy/manage-users">
-              {/* <FontAwesomeIcon
-                    icon={faChartLine}
-                    className="lg:mr-3 md:mr-2 mr-0"
-                  /> */}
+              <FaUsersCog className="lg:mr-3 md:mr-2 mr-0" />
               <span className="lg:block hidden">Manage Users</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard-copy/manage-bills">
-              {/*  <FontAwesomeIcon
-                    icon={faCartShopping}
-                    className="lg:mr-3 md:mr-2 mr-0"
-                  /> */}
+              <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
+
               <span className="lg:block hidden">Manage Bills</span>
             </Link>
           </li>
           <li>
-            <Link to="/dashboard/addProduct">
-              {/* <FontAwesomeIcon
-                    icon={faSquarePlus}
-                    className="lg:mr-3 md:mr-2 mr-0"
-                  /> */}
-              <span className="lg:block hidden">Add Product</span>
+            <Link to="/dashboard-copy/manage-bills">
+              <FaRegUser className="lg:mr-3 md:mr-2 mr-0" />
+
+              <span className="lg:block hidden">Profile</span>
             </Link>
           </li>
           <li>
-            <Link to="/dashboard/manageProducts">
-              {/* <FontAwesomeIcon
-                    icon={faTableList}
-                    className="lg:mr-3 md:mr-2 mr-0"
-                  /> */}
-              <span className="lg:block hidden">Manage Products</span>
+            <Link to="/dashboard-copy/manage-bills">
+              <FaUserEdit className="lg:mr-3 md:mr-2 mr-0" />
+
+              <span className="lg:block hidden">Settings</span>
             </Link>
           </li>
-          <li>
-            <Link to="/dashboard/makeAdminPanel">
-              {/* <FontAwesomeIcon
-                    icon={faPeopleRoof}
-                    className="lg:mr-3 md:mr-2 mr-0"
-                  /> */}
-              <span className="lg:block hidden">Make Admin</span>
-            </Link>
-          </li>
+
           {/* </>
           ) : (
             <> */}
