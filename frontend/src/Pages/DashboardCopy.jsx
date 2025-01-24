@@ -39,14 +39,14 @@ const DashboardCopy = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashboard-copy/manage-bills">
+            <Link to="/dashboard-copy/profile">
               <FaRegUser className="lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Profile</span>
             </Link>
           </li>
           <li>
-            <Link to="/dashboard-copy/manage-bills">
+            <Link to="/dashboard-copy/settings">
               <FaUserEdit className="lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Settings</span>
