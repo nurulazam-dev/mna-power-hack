@@ -135,27 +135,29 @@ const ManageBills = () => {
           {/* table part */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-violet-700 text-[16px]">
-                <th className="border">Billing S.</th>
-                <th className="border">Billing Holder</th>
-                <th className="border">Phone</th>
-                <th className="border">Amount</th>
-                <th className="border">Status</th>
-                <th className="border">Dateline</th>
-                <th className="border">Bill Attacher</th>
-                <th className="border">Action</th>
+              <tr className="text-violet-700 text-[14px]">
+                <th className="border p-2">No</th>
+                <th className="border p-1 py-2">Billing Holder</th>
+                <th className="border p-1 py-2">Phone</th>
+                <th className="border p-1 py-2">Amount</th>
+                <th className="border p-1 py-2">Status</th>
+                <th className="border p-1 py-2">Dateline</th>
+                <th className="border p-1 py-2">B.Attach</th>
+                <th className="border p-1 py-2">Updated</th>
+                <th className="border p-1 py-2">Updater</th>
+                <th className="border p-1 py-2">Action</th>
               </tr>
             </thead>
             <tbody>
               {currentBills?.map((bill, index) => (
-                <tr key={bill?._id} className="border text-left">
-                  <td className="border">
-                    BILL2025-{indexOfFirstBill + index + 1}
+                <tr key={bill?._id} className="border text-left text-[13px]">
+                  <td className="border text-center p-0">
+                    B-{indexOfFirstBill + index + 1}
                   </td>
-                  <td className="border">{bill?.billingHolder}</td>
-                  <td className="border">{bill?.phone}</td>
-                  <td className="border">$ {bill?.amount}</td>
-                  <td className="border text-center">
+                  <td className="border p-1 py-2">{bill?.billingHolder}</td>
+                  <td className="border p-1 py-2">{bill?.phone}</td>
+                  <td className="border p-1 py-2">$ {bill?.amount}</td>
+                  <td className="border text-center p-1 py-2">
                     {" "}
                     <span
                       className={
@@ -167,17 +169,34 @@ const ManageBills = () => {
                       {bill?.status}
                     </span>
                   </td>
-                  <td className="border">
+                  <td className="border p-1 py-2">
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
                           day: "2-digit",
                           month: "2-digit",
-                          year: "numeric",
+                          year: "2-digit",
                         })
                       : "Date not available"}
                   </td>
-                  <td className="border">{bill?.billAttacher?.email}</td>
-                  <td className="flex justify-center">
+                  <td className="border p-1 py-2">
+                    {bill?.billAttacher?.email}
+                  </td>
+                  <td className="border p-1 py-2">
+                    {bill?.updatedDate
+                      ? new Date(bill?.updatedDate).toLocaleDateString(
+                          "en-GB",
+                          {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "2-digit",
+                          }
+                        )
+                      : "Not updated"}
+                  </td>
+                  <td className="border p-1 py-2">
+                    {bill?.billUpdater ? bill?.billUpdater : "Not updated"}
+                  </td>
+                  <td className="flex justify-center items-center p-1 py-2">
                     <div className="mx-1">
                       <ViewBillModal bill={selectedBill} />
                       <label

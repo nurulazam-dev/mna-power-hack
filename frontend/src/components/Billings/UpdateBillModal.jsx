@@ -40,8 +40,6 @@ const UpdateBillModal = ({ bill, billUpdaterEmail, onUpdate }) => {
       updatedDate: new Date().toISOString(),
     };
 
-    console.log("Update Bill: ", updatedBill);
-
     try {
       await onUpdate(updatedBill);
 

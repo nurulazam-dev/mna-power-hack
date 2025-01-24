@@ -3,8 +3,6 @@
 const ViewBillModal = ({ bill }) => {
   if (!bill) return null;
 
-  console.log(bill);
-
   return (
     <>
       <input type="checkbox" id="bill-view-modal" className="modal-toggle" />
