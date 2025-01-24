@@ -52,8 +52,8 @@ const BillingPage = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="pt-6 my-10 bg-white overflow-x-auto">
-      <div className="border bg-violet-600 my-4 rounded flex justify-between w-10/12 mx-auto px-7 py-2">
+    <section className="pt-6 px-8 my-10 bg-white w-full mx-auto">
+      <div className="border bg-violet-600 my-4 rounded flex justify-between mx-auto px-7 py-2">
         <div className="flex items-center">
           <h2 className="font-semibold text-2xl text-white">
             Total Billings : {bills?.length}{" "}
@@ -82,26 +82,29 @@ const BillingPage = () => {
         <div className="text-center my-4">No bills found.</div>
       ) : (
         <>
-          <table className="table table-compact text-center text-black w-10/12 mx-auto">
+          <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
               <tr className="text-black font-bold text-[16px]">
-                <th className="border">Billing S.</th>
-                <th className="border">Billing ID</th>
-                <th className="border">Billing Holder</th>
-                <th className="border">Phone</th>
-                <th className="border">Due $</th>
-                <th className="border">Dateline</th>
+                <th className="border px-1 py-3">Bill S.</th>
+                <th className="border px-2 py-3">Billing ID</th>
+                <th className="border px-2 py-3">Billing Holder</th>
+                <th className="border px-2 py-3">Phone</th>
+                <th className="border px-2 py-3">Due $</th>
+                <th className="border px-2 py-3">Dateline</th>
+                <th className="border px-2 py-3">Bill Attach</th>
               </tr>
             </thead>
             <tbody>
               {currentBills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
-                  <td className="border">BILL2025-{index + 1}</td>
-                  <td className="border">{bill?._id}</td>
-                  <td className="border">{bill?.billingHolder}</td>
-                  <td className="border">{bill?.phone}</td>
-                  <td className="border">$ {bill?.amount}</td>
-                  <td className="border">
+                  <td className="border px-1 py-3 text-center">
+                    BILL-{index + 1}
+                  </td>
+                  <td className="border px-2 py-3">{bill?._id}</td>
+                  <td className="border px-2 py-3">{bill?.billingHolder}</td>
+                  <td className="border px-2 py-3">{bill?.phone}</td>
+                  <td className="border px-2 py-3">$ {bill?.amount}</td>
+                  <td className="border px-2 py-3">
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
                           day: "2-digit",
@@ -109,6 +112,9 @@ const BillingPage = () => {
                           year: "numeric",
                         })
                       : "Date not available"}
+                  </td>
+                  <td className="border px-2 py-3">
+                    {bill?.billAttacher?.email}
                   </td>
                 </tr>
               ))}
