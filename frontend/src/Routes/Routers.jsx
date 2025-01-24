@@ -14,6 +14,7 @@ import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
 import ManageBills from "../components/Dashboard/ManageBills";
 import Settings from "../components/Dashboard/Settings";
 import Profile from "../components/Dashboard/Profile";
+import UnpaidBills from "../components/Dashboard/UnpaidBills";
 
 const Routers = () => {
   return (
@@ -29,6 +30,8 @@ const Routers = () => {
         <Route index element={<Overview />} />
         <Route path="manage-users" element={<ManageUsers />} />
         <Route path="manage-bills" element={<ManageBills />} />
+        <Route path="add-bill" element={<BillingPage />} />
+        <Route path="unpaid-bills" element={<UnpaidBills />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
       </Route>

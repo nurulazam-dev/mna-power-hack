@@ -25,17 +25,33 @@ const DashboardCopy = () => {
           </li>
           {/* {admin ? (
             <> */}
-          <li>
-            <Link to="/dashboard-copy/manage-users">
-              <FaUsersCog className="lg:mr-3 md:mr-2 mr-0" />
-              <span className="lg:block hidden">Manage Users</span>
-            </Link>
-          </li>
+
           <li>
             <Link to="/dashboard-copy/manage-bills">
               <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Manage Bills</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard-copy/add-bill">
+              <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
+
+              <span className="lg:block hidden">Add Bill</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard-copy/unpaid-bills">
+              <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
+
+              <span className="lg:block hidden">Unpaid Bills</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/dashboard-copy/manage-users">
+              <FaUsersCog className="lg:mr-3 md:mr-2 mr-0" />
+              <span className="lg:block hidden">Manage Users</span>
             </Link>
           </li>
           <li>
@@ -52,7 +68,7 @@ const DashboardCopy = () => {
               <span className="lg:block hidden">Settings</span>
             </Link>
           </li>
-
+          <hr className="mb-2" />
           {/* </>
           ) : (
             <> */}
