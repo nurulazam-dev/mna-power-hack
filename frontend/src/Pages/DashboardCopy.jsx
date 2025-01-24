@@ -4,8 +4,8 @@ const DashboardCopy = () => {
   return (
     <section className="my-10 pr-5 flex w-full">
       {/* side bar part */}
-      <div className="border-r bg-slate-50 pt-4 lg:w-1/5 md:w-1/6 w-1/12 h-screen">
-        <ul className="menu p-4 text-black text-[18px]">
+      <div className="border-r bg-slate-700 text-white pt-4 lg:w-1/5 md:w-1/6 w-1/12 h-screen">
+        <ul className="menu p-4 text-white text-[18px]">
           <div className="lg:block md:block hidden">
             <div className="flex justify-center mb-3">
               brandLogo
