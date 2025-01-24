@@ -39,11 +39,6 @@ const BillSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  /* createdAt: {
-    type: Date,
-    default: Date.now,
-    immutable: true,
-  }, */
 });
 
 BillSchema.index({ billAttacher: 1 });
