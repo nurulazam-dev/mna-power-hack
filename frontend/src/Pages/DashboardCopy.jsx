@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { TbHomeStats } from "react-icons/tb";
 import { FaUsersCog, FaRegUser, FaUserEdit } from "react-icons/fa";
 import { RiBillLine } from "react-icons/ri";
+import brandLogo from "../assets/images/logo.png";
 
 const DashboardCopy = () => {
   return (
@@ -10,13 +11,9 @@ const DashboardCopy = () => {
       <div className="border-r bg-slate-700 text-white pt-4 lg:w-1/5 md:w-1/6 w-1/12 h-screen">
         <ul className="menu p-4 text-white text-[18px]">
           <div className="lg:block md:block hidden">
-            <div className="flex justify-center mb-3">
-              brandLogo
-              {/* <img
-                src={brandLogo}
-                alt=""
-                className="lg:w-[180px] md:w-[130px] w-[100px]"
-              /> */}
+            <div className="flex justify-center items-center text-xl font-bold text-orange-500 mb-3">
+              <img src={brandLogo} alt="Brand_Logo" className="w-[36px] h-9" />
+              <h2 className="ml-2 hidden lg:block">POWER HACK</h2>
             </div>
             <hr className="mb-2" />
           </div>
