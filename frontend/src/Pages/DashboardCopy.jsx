@@ -8,8 +8,8 @@ const DashboardCopy = () => {
   return (
     <section className="my-10 pr-5 flex w-full">
       {/* side bar part */}
-      <div className="border-r bg-slate-700 text-white pt-4 lg:w-1/5 md:w-1/6 w-1/12 h-screen">
-        <ul className="menu p-4 text-white text-[18px]">
+      <div className="bg-slate-700 text-white pt-4 lg:w-1/6 md:w-1/6 w-1/12 h-screen">
+        <ul className="menu py-4 px-2 text-white text-[18px] space-y-2">
           <div className="lg:block md:block hidden">
             <div className="flex justify-center items-center text-xl font-bold text-orange-500 mb-3">
               <img src={brandLogo} alt="Brand_Logo" className="w-[36px] h-9" />
@@ -79,7 +79,7 @@ const DashboardCopy = () => {
         </ul>
       </div>
       {/* dashboard Outlet part */}
-      <div className="drawer-content pt-8 pr-5 lg:w-4/5 md:w-4/6 w-10/12">
+      <div className="drawer-content pt-8 px-5 lg:w-5/6 md:w-5/6 w-10/12">
         <Outlet />
       </div>
     </section>
