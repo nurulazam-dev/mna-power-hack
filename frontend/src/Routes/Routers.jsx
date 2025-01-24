@@ -8,6 +8,9 @@ import NotFound from "../Pages/NotFound";
 import Dashboard from "../Pages/Dashboard";
 import Contact from "../Pages/Contact";
 import About from "../Pages/About";
+import DashboardCopy from "../Pages/DashboardCopy";
+import Overview from "../components/Dashboard/Overview";
+import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
 
 const Routers = () => {
   return (
@@ -18,6 +21,14 @@ const Routers = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/billing-list" element={<BillingPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      {/* dashboard copy test */}
+      <Route path="/dashboard-copy" element={<DashboardCopy />}>
+        <Route index element={<Overview />} />
+        <Route path="manage-users" element={<ManageUsers />} />
+      </Route>
+
+      {/* dashboard copy test */}
+
       <Route
         path="/billing-list"
         element={

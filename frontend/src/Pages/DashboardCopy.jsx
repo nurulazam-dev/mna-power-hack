@@ -2,16 +2,9 @@ import { Link, Outlet } from "react-router-dom";
 
 const DashboardCopy = () => {
   return (
-    <section className="my-10 pl-5 flex w-full">
-      {/* dashboard Outlet part */}
-      <div className="drawer-content pt-8 pr-5 lg:w-4/5 md:w-4/6 w-10/12">
-        <h2 className="text-3xl font-bold text-center text-green-600 my-2 py-2">
-          Dashboard
-        </h2>
-        <Outlet />
-      </div>
+    <section className="my-10 pr-5 flex w-full">
       {/* side bar part */}
-      <div className="border-l bg-slate-50 pt-4 lg:w-1/5 md:w-1/6 w-1/12 h-screen">
+      <div className="border-r bg-slate-50 pt-4 lg:w-1/5 md:w-1/6 w-1/12 h-screen">
         <ul className="menu p-4 text-black text-[18px]">
           <div className="lg:block md:block hidden">
             <div className="flex justify-center mb-3">
@@ -25,20 +18,20 @@ const DashboardCopy = () => {
             <hr className="mb-2" />
           </div>
           <li>
-            <Link to="/dashboard">
+            <Link to="/dashboard-copy">
               {/* <FontAwesomeIcon icon={faUser} className="lg:mr-3 md:mr-2 mr-0" /> */}
-              <span className="lg:block hidden">My Profile</span>
+              <span className="lg:block hidden">Overview</span>
             </Link>
           </li>
           {/* {admin ? (
             <> */}
           <li>
-            <Link to="/dashboard/analysisDashboard">
+            <Link to="/dashboard-copy/manage-users">
               {/* <FontAwesomeIcon
                     icon={faChartLine}
                     className="lg:mr-3 md:mr-2 mr-0"
                   /> */}
-              <span className="lg:block hidden">Dashboard</span>
+              <span className="lg:block hidden">Manage Users</span>
             </Link>
           </li>
           <li>
@@ -101,6 +94,10 @@ const DashboardCopy = () => {
           {/*  </>
           )} */}
         </ul>
+      </div>
+      {/* dashboard Outlet part */}
+      <div className="drawer-content pt-8 pr-5 lg:w-4/5 md:w-4/6 w-10/12">
+        <Outlet />
       </div>
     </section>
   );
