@@ -35,12 +35,12 @@ const DashboardCopy = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashboard/manageOrders">
+            <Link to="/dashboard-copy/manage-bills">
               {/*  <FontAwesomeIcon
                     icon={faCartShopping}
                     className="lg:mr-3 md:mr-2 mr-0"
                   /> */}
-              <span className="lg:block hidden">Manage Orders</span>
+              <span className="lg:block hidden">Manage Bills</span>
             </Link>
           </li>
           <li>

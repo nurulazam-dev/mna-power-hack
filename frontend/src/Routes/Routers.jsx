@@ -11,6 +11,7 @@ import About from "../Pages/About";
 import DashboardCopy from "../Pages/DashboardCopy";
 import Overview from "../components/Dashboard/Overview";
 import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
+import ManageBills from "../components/Dashboard/ManageBills";
 
 const Routers = () => {
   return (
@@ -25,6 +26,7 @@ const Routers = () => {
       <Route path="/dashboard-copy" element={<DashboardCopy />}>
         <Route index element={<Overview />} />
         <Route path="manage-users" element={<ManageUsers />} />
+        <Route path="manage-bills" element={<ManageBills />} />
       </Route>
 
       {/* dashboard copy test */}
