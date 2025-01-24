@@ -37,7 +37,8 @@ const BillSchema = new mongoose.Schema({
   },
   updatedDate: {
     type: Date,
-    default: Date.now,
+    required: false,
+    // default: Date.now,
   },
 });
 
