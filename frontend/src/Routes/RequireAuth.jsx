@@ -5,7 +5,7 @@ import { authContext } from "../context/AuthContext";
 import Loading from "../shared/Loading";
 
 const RequireAuth = ({ children }) => {
-  const [user, loading] = useContext(authContext);
+  const { user, loading } = useContext(authContext);
   const location = useLocation();
 
   if (loading) {

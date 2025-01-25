@@ -14,6 +14,7 @@ import Settings from "../components/Dashboard/Settings";
 import Profile from "../components/Dashboard/Profile";
 import UnpaidBills from "../components/Dashboard/UnpaidBills";
 import AddBill from "../components/Dashboard/AddBill";
+import RequireAuth from "./RequireAuth";
 
 const Routers = () => {
   return (
@@ -23,7 +24,14 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       {/* dashboard */}
-      <Route path="/dashboard" element={<Dashboard />}>
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      >
         <Route index element={<Overview />} />
         <Route path="manage-users" element={<ManageUsers />} />
         <Route path="manage-bills" element={<ManageBills />} />
