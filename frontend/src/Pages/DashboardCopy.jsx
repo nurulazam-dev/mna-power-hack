@@ -39,21 +39,36 @@ const DashboardCopy = () => {
           {/* {admin ? (
             <> */}
 
-          <li>
+          <li
+            onClick={() => setTab("manageBills")}
+            className={`${
+              tab == "manageBills" ? activeTabClass : inactiveTabClass
+            } `}
+          >
             <Link to="/dashboard-copy/manage-bills">
               <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Manage Bills</span>
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => setTab("addBill")}
+            className={`${
+              tab == "addBill" ? activeTabClass : inactiveTabClass
+            } `}
+          >
             <Link to="/dashboard-copy/add-bill">
               <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Add Bill</span>
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => setTab("unpaidBills")}
+            className={`${
+              tab == "unpaidBills" ? activeTabClass : inactiveTabClass
+            } `}
+          >
             <Link to="/dashboard-copy/unpaid-bills">
               <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
@@ -61,20 +76,35 @@ const DashboardCopy = () => {
             </Link>
           </li>
 
-          <li>
+          <li
+            onClick={() => setTab("manageUsers")}
+            className={`${
+              tab == "manageUsers" ? activeTabClass : inactiveTabClass
+            } `}
+          >
             <Link to="/dashboard-copy/manage-users">
               <FaUsersCog className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
               <span className="lg:block hidden">Manage Users</span>
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => setTab("profile")}
+            className={`${
+              tab == "profile" ? activeTabClass : inactiveTabClass
+            } `}
+          >
             <Link to="/dashboard-copy/profile">
               <FaRegUser className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Profile</span>
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => setTab("settings")}
+            className={`${
+              tab == "settings" ? activeTabClass : inactiveTabClass
+            } `}
+          >
             <Link to="/dashboard-copy/settings">
               <FaUserEdit className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
