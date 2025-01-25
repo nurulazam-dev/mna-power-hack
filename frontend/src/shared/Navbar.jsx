@@ -121,7 +121,7 @@ const Navbar = () => {
       >
         <img src={brandLogo} alt="Brand_Logo" className="w-[36px] h-9" />
         <h2 className="ml-1 hidden lg:block">
-          POWER <span className="text-black">HACK</span>{" "}
+          POWER <span className="text-black">HACK</span>
         </h2>
       </NavLink>
       <ul
