@@ -52,27 +52,10 @@ const AddBill = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="pt-6 px-8 my-10 bg-white w-full mx-auto">
-      <div className="border bg-violet-600 my-4 rounded flex justify-between mx-auto px-7 py-2">
-        <div className="flex items-center">
-          <h2 className="font-semibold text-2xl text-white">
-            Total Billings : {bills?.length}{" "}
-          </h2>
-        </div>
-        <div>
-          <AddBillModal
-            onAddBill={handleAddBill}
-            billAttacherId={billAttacherId}
-            billAttacherEmail={billAttacherEmail}
-          />
-          <label
-            htmlFor="bill-add-modal"
-            className="btn text-[15px] text-white border-none hover:bg-green-700"
-          >
-            Add New Bill
-          </label>
-        </div>
-      </div>
+    <section>
+      <h1 className="text-3xl mb-2 font-bold text-slate-600 text-center">
+        Add Bill
+      </h1>
 
       {loading ? (
         <Loading />
@@ -81,7 +64,29 @@ const AddBill = () => {
       ) : currentBills?.length === 0 ? (
         <div className="text-center my-4">No bills found.</div>
       ) : (
-        <>
+        <div>
+          {/* search bar part */}
+          <div className="border bg-violet-600 my-4 rounded flex justify-between mx-auto px-7 py-2">
+            <div className="flex items-center">
+              <h2 className="font-semibold text-2xl text-white">
+                Total Billings : {currentBills?.length}{" "}
+              </h2>
+            </div>
+            <div>
+              <AddBillModal
+                onAddBill={handleAddBill}
+                billAttacherId={billAttacherId}
+                billAttacherEmail={billAttacherEmail}
+              />
+              <label
+                htmlFor="bill-add-modal"
+                className="btn text-[15px] text-white border-none hover:bg-green-700"
+              >
+                Add New Bill
+              </label>
+            </div>
+          </div>
+          {/* table part */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
               <tr className="text-black font-bold text-[16px]">
@@ -141,7 +146,7 @@ const AddBill = () => {
               </button>
             ))}
           </div>
-        </>
+        </div>
       )}
     </section>
   );
