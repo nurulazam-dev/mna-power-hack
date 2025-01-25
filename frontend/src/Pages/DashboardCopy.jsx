@@ -26,99 +26,85 @@ const DashboardCopy = () => {
             </div>
             <hr className="mb-2" />
           </div>
-          <li>
-            <Link
-              to="/dashboard-copy"
-              onClick={() => setTab("overview")}
-              className={`${
-                tab == "overview" ? activeTabClass : inactiveTabClass
-              }`}
-            >
-              <TbHomeStats className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-              <span className="lg:block hidden">Overview</span>
-            </Link>
-          </li>
+
+          <Link
+            to="/dashboard-copy"
+            onClick={() => setTab("overview")}
+            className={`${
+              tab == "overview" ? activeTabClass : inactiveTabClass
+            }`}
+          >
+            <TbHomeStats className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+            <span className="lg:block hidden">Overview</span>
+          </Link>
           {/* {admin ? (
             <> */}
 
-          <li>
-            <Link
-              to="/dashboard-copy/manage-bills"
-              onClick={() => setTab("manageBills")}
-              className={`${
-                tab == "manageBills" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+          <Link
+            to="/dashboard-copy/manage-bills"
+            onClick={() => setTab("manageBills")}
+            className={`${
+              tab == "manageBills" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
-              <span className="lg:block hidden">Manage Bills</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard-copy/add-bill"
-              onClick={() => setTab("addBill")}
-              className={`${
-                tab == "addBill" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+            <span className="lg:block hidden">Manage Bills</span>
+          </Link>
+          <Link
+            to="/dashboard-copy/add-bill"
+            onClick={() => setTab("addBill")}
+            className={`${
+              tab == "addBill" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
-              <span className="lg:block hidden">Add Bill</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard-copy/unpaid-bills"
-              onClick={() => setTab("unpaidBills")}
-              className={`${
-                tab == "unpaidBills" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+            <span className="lg:block hidden">Add Bill</span>
+          </Link>
+          <Link
+            to="/dashboard-copy/unpaid-bills"
+            onClick={() => setTab("unpaidBills")}
+            className={`${
+              tab == "unpaidBills" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
-              <span className="lg:block hidden">Unpaid Bills</span>
-            </Link>
-          </li>
+            <span className="lg:block hidden">Unpaid Bills</span>
+          </Link>
+          <Link
+            to="/dashboard-copy/manage-users"
+            onClick={() => setTab("manageUsers")}
+            className={`${
+              tab == "manageUsers" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <FaUsersCog className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+            <span className="lg:block hidden">Manage Users</span>
+          </Link>
+          <Link
+            to="/dashboard-copy/profile"
+            onClick={() => setTab("profile")}
+            className={`${
+              tab == "profile" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <FaRegUser className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
-          <li>
-            <Link
-              to="/dashboard-copy/manage-users"
-              onClick={() => setTab("manageUsers")}
-              className={`${
-                tab == "manageUsers" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <FaUsersCog className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-              <span className="lg:block hidden">Manage Users</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard-copy/profile"
-              onClick={() => setTab("profile")}
-              className={`${
-                tab == "profile" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <FaRegUser className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+            <span className="lg:block hidden">Profile</span>
+          </Link>
+          <Link
+            to="/dashboard-copy/settings"
+            onClick={() => setTab("settings")}
+            className={`${
+              tab == "settings" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <FaUserEdit className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
-              <span className="lg:block hidden">Profile</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard-copy/settings"
-              onClick={() => setTab("settings")}
-              className={`${
-                tab == "settings" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <FaUserEdit className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-
-              <span className="lg:block hidden">Settings</span>
-            </Link>
-          </li>
+            <span className="lg:block hidden">Settings</span>
+          </Link>
           <hr className="mb-2" />
           {/* </>
           ) : (
