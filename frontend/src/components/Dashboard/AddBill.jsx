@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
-import AddBillModal from "../components/Billings/AddBillModal";
-import { BASE_URL } from "../../config";
-import { authContext } from "../context/AuthContext";
-import Loading from "../shared/Loading";
+import AddBillModal from "../Billings/AddBillModal";
+import { BASE_URL } from "../../../config";
+import { authContext } from "../../context/AuthContext";
+import Loading from "../../shared/Loading";
 
-const BillingPage = () => {
+const AddBill = () => {
   const [bills, setBills] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(10);
@@ -147,4 +147,4 @@ const BillingPage = () => {
   );
 };
 
-export default BillingPage;
+export default AddBill;

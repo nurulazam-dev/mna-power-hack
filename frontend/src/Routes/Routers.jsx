@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import BillingPage from "../Pages/BillingPage";
+import BillingPage from "../components/Dashboard/AddBill";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";

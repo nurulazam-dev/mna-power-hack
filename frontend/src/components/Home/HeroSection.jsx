@@ -20,7 +20,7 @@ const HeroSection = () => {
         </h1>
 
         <Link
-          to="/billing-list"
+          to="/dashboard-copy/add-bill"
           className=" hover:bg-white py-[7px] rounded font-normal text-[17px] mb-2  hover:text-black flex justify-center items-center px-5 btn btn-md max-w-64 bg-violet-700 mt-5 text-xl text-white mx-auto"
         >
           Bill Add Page <MdArrowOutward className="h-5 w-5 ml-1" />
