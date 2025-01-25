@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-// import ProtectedRoutes from "./ProtectedRoutes";
+import ProtectedRoutes from "./ProtectedRoutes";
 import NotFound from "../Pages/NotFound";
 import Dashboard from "../Pages/Dashboard";
 import Contact from "../Pages/Contact";
@@ -22,7 +22,6 @@ const Routers = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/billing-list" element={<AddBill />} />
       {/* dashboard */}
       <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<Overview />} />
@@ -36,15 +35,15 @@ const Routers = () => {
 
       {/* dashboard */}
 
-      {/*  <Route
-        path="/billing-list"
+      <Route
+        path="/about"
         element={
           <ProtectedRoutes allowedRoles={["billingOfficer"]}>
-            <AddBill />
+            <About />
           </ProtectedRoutes>
         }
-      /> */}
-      <Route path="/about" element={<About />} />
+      />
+      {/* <Route path="/about" element={<About />} /> */}
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
