@@ -3,8 +3,16 @@ import { TbHomeStats } from "react-icons/tb";
 import { FaUsersCog, FaRegUser, FaUserEdit } from "react-icons/fa";
 import { RiBillLine } from "react-icons/ri";
 import brandLogo from "../assets/images/logo.png";
+import { useState } from "react";
 
 const DashboardCopy = () => {
+  const [tab, setTab] = useState("overview");
+
+  const activeTabClass =
+    "bg-slate-100 text-indigo-600 w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
+  const inactiveTabClass =
+    "bg-transparent text-white w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
+
   return (
     <section className="my-10 pr-5 flex w-full">
       {/* side bar part */}
@@ -17,9 +25,14 @@ const DashboardCopy = () => {
             </div>
             <hr className="mb-2" />
           </div>
-          <li>
+          <li
+            onClick={() => setTab("overview")}
+            className={`${
+              tab == "overview" ? activeTabClass : inactiveTabClass
+            }`}
+          >
             <Link to="/dashboard-copy">
-              <TbHomeStats className="lg:mr-3 md:mr-2 mr-0" />
+              <TbHomeStats className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
               <span className="lg:block hidden">Overview</span>
             </Link>
           </li>
@@ -28,21 +41,21 @@ const DashboardCopy = () => {
 
           <li>
             <Link to="/dashboard-copy/manage-bills">
-              <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
+              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Manage Bills</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard-copy/add-bill">
-              <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
+              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Add Bill</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard-copy/unpaid-bills">
-              <RiBillLine className="lg:mr-3 md:mr-2 mr-0" />
+              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Unpaid Bills</span>
             </Link>
@@ -50,20 +63,20 @@ const DashboardCopy = () => {
 
           <li>
             <Link to="/dashboard-copy/manage-users">
-              <FaUsersCog className="lg:mr-3 md:mr-2 mr-0" />
+              <FaUsersCog className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
               <span className="lg:block hidden">Manage Users</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard-copy/profile">
-              <FaRegUser className="lg:mr-3 md:mr-2 mr-0" />
+              <FaRegUser className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Profile</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard-copy/settings">
-              <FaUserEdit className="lg:mr-3 md:mr-2 mr-0" />
+              <FaUserEdit className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
 
               <span className="lg:block hidden">Settings</span>
             </Link>
