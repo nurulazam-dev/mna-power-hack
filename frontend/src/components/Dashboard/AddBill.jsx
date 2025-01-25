@@ -101,14 +101,14 @@ const AddBill = () => {
             <tbody>
               {currentBills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
-                  <td className="border px-1 py-3 text-center">
+                  <td className="border px-1 py-2 text-center">
                     BILL-{index + 1}
                   </td>
-                  <td className="border px-2 py-3">{bill?._id}</td>
-                  <td className="border px-2 py-3">{bill?.billingHolder}</td>
-                  <td className="border px-2 py-3">{bill?.phone}</td>
-                  <td className="border px-2 py-3">$ {bill?.amount}</td>
-                  <td className="border px-2 py-3">
+                  <td className="border p-1 py-2">{bill?._id}</td>
+                  <td className="border p-1 py-2">{bill?.billingHolder}</td>
+                  <td className="border p-1 py-2">{bill?.phone}</td>
+                  <td className="border p-1 py-2">$ {bill?.amount}</td>
+                  <td className="border p-1 py-2">
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
                           day: "2-digit",
