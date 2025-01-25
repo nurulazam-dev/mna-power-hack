@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import BillingPage from "../components/Dashboard/AddBill";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import ProtectedRoutes from "./ProtectedRoutes";
+// import ProtectedRoutes from "./ProtectedRoutes";
 import NotFound from "../Pages/NotFound";
 import Dashboard from "../Pages/Dashboard";
 import Contact from "../Pages/Contact";
@@ -15,6 +14,7 @@ import ManageBills from "../components/Dashboard/ManageBills";
 import Settings from "../components/Dashboard/Settings";
 import Profile from "../components/Dashboard/Profile";
 import UnpaidBills from "../components/Dashboard/UnpaidBills";
+import AddBill from "../components/Dashboard/AddBill";
 
 const Routers = () => {
   return (
@@ -23,14 +23,14 @@ const Routers = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/billing-list" element={<BillingPage />} />
+      <Route path="/billing-list" element={<AddBill />} />
       <Route path="/dashboard" element={<Dashboard />} />
       {/* dashboard copy test */}
       <Route path="/dashboard-copy" element={<DashboardCopy />}>
         <Route index element={<Overview />} />
         <Route path="manage-users" element={<ManageUsers />} />
         <Route path="manage-bills" element={<ManageBills />} />
-        <Route path="add-bill" element={<BillingPage />} />
+        <Route path="add-bill" element={<AddBill />} />
         <Route path="unpaid-bills" element={<UnpaidBills />} />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
@@ -38,14 +38,14 @@ const Routers = () => {
 
       {/* dashboard copy test */}
 
-      <Route
+      {/*  <Route
         path="/billing-list"
         element={
           <ProtectedRoutes allowedRoles={["billingOfficer"]}>
-            <BillingPage />
+            <AddBill />
           </ProtectedRoutes>
         }
-      />
+      /> */}
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
