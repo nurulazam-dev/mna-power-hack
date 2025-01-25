@@ -120,7 +120,9 @@ const Navbar = () => {
         className="flex justify-between items-center text-2xl font-extrabold text-orange-600 pl-3"
       >
         <img src={brandLogo} alt="Brand_Logo" className="w-[36px] h-9" />
-        <h2 className="ml-1 hidden lg:block">POWER HACK</h2>
+        <h2 className="ml-1 hidden lg:block">
+          POWER <span className="text-black">HACK</span>{" "}
+        </h2>
       </NavLink>
       <ul
         className={`md:pl-10 lg:pr-10 pr-20 md:static fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 ${

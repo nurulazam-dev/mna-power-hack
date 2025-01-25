@@ -96,7 +96,6 @@ const AddBill = () => {
                 <th className="border px-2 py-3">Phone</th>
                 <th className="border px-2 py-3">Due $</th>
                 <th className="border px-2 py-3">Dateline</th>
-                <th className="border px-2 py-3">Bill Attach</th>
               </tr>
             </thead>
             <tbody>
@@ -117,9 +116,6 @@ const AddBill = () => {
                           year: "numeric",
                         })
                       : "Date not available"}
-                  </td>
-                  <td className="border px-2 py-3">
-                    {bill?.billAttacher?.email}
                   </td>
                 </tr>
               ))}
