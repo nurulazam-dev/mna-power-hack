@@ -40,7 +40,7 @@ const Dashboard = () => {
                 <> */}
 
           <Link
-            to="/dashboard-copy/add-bill"
+            to="/dashboard/add-bill"
             onClick={() => setTab("addBill")}
             className={`${
               tab == "addBill" ? activeTabClass : inactiveTabClass
@@ -50,7 +50,7 @@ const Dashboard = () => {
             <span className="lg:block hidden">Add Bill</span>
           </Link>
           <Link
-            to="/dashboard-copy/unpaid-bills"
+            to="/dashboard/unpaid-bills"
             onClick={() => setTab("unpaidBills")}
             className={`${
               tab == "unpaidBills" ? activeTabClass : inactiveTabClass
@@ -60,7 +60,7 @@ const Dashboard = () => {
             <span className="lg:block hidden">Unpaid Bills</span>
           </Link>
           <Link
-            to="/dashboard-copy/manage-bills"
+            to="/dashboard/manage-bills"
             onClick={() => setTab("manageBills")}
             className={`${
               tab == "manageBills" ? activeTabClass : inactiveTabClass
@@ -70,7 +70,7 @@ const Dashboard = () => {
             <span className="lg:block hidden">Manage Bills</span>
           </Link>
           <Link
-            to="/dashboard-copy/manage-users"
+            to="/dashboard/manage-users"
             onClick={() => setTab("manageUsers")}
             className={`${
               tab == "manageUsers" ? activeTabClass : inactiveTabClass
@@ -80,7 +80,7 @@ const Dashboard = () => {
             <span className="lg:block hidden">Manage Users</span>
           </Link>
           <Link
-            to="/dashboard-copy/profile"
+            to="/dashboard/profile"
             onClick={() => setTab("profile")}
             className={`${
               tab == "profile" ? activeTabClass : inactiveTabClass
@@ -90,7 +90,7 @@ const Dashboard = () => {
             <span className="lg:block hidden">Profile</span>
           </Link>
           <Link
-            to="/dashboard-copy/settings"
+            to="/dashboard/settings"
             onClick={() => setTab("settings")}
             className={`${
               tab == "settings" ? activeTabClass : inactiveTabClass
