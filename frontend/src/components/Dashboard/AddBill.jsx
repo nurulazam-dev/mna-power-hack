@@ -89,13 +89,13 @@ const AddBill = () => {
           {/* table part */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-black font-bold text-[16px]">
-                <th className="border px-1 py-3">Bill S.</th>
-                <th className="border px-2 py-3">Billing ID</th>
-                <th className="border px-2 py-3">Billing Holder</th>
-                <th className="border px-2 py-3">Phone</th>
-                <th className="border px-2 py-3">Due $</th>
-                <th className="border px-2 py-3">Dateline</th>
+              <tr className="text-black font-bold text-[15px]">
+                <th className="border p-2">Bill S.</th>
+                <th className="border px-1 py-2">Billing ID</th>
+                <th className="border px-1 py-2">Billing Holder</th>
+                <th className="border px-1 py-2">Phone</th>
+                <th className="border px-1 py-2">$ Due</th>
+                <th className="border px-1 py-2">Dateline</th>
               </tr>
             </thead>
             <tbody>
