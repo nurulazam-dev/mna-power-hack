@@ -17,7 +17,7 @@ const DashboardCopy = () => {
     <section className="my-10 pr-5 flex w-full">
       {/* side bar part */}
       <div className="bg-slate-700 text-white pt-4 w-[10%] lg:w-[18%] h-screen">
-        <div className="py-4 px-2 text-white text-[18px] space-y-2">
+        <div className="py-4 px-2 text-white text-[17px] space-y-2">
           <div className="lg:block md:block hidden">
             {/* logo part */}
             <div className="flex justify-center items-center text-xl font-bold text-yellow-600 mb-3">
