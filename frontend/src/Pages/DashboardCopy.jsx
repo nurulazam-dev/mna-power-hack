@@ -16,7 +16,7 @@ const DashboardCopy = () => {
   return (
     <section className="my-10 pr-5 flex w-full">
       {/* side bar part */}
-      <div className="bg-slate-700 text-white pt-4 w-[10%] lg:w-[18%] h-screen">
+      <div className="bg-slate-700 text-white pt-4 w-[10%] lg:w-[16%] h-screen">
         <div className="py-4 px-2 text-white text-[17px] space-y-2">
           <div className="lg:block md:block hidden">
             {/* logo part */}
@@ -128,7 +128,7 @@ const DashboardCopy = () => {
         </div>
       </div>
       {/* dashboard Outlet part */}
-      <div className="drawer-content pt-8 px-5 w-[90%] lg:w-[82%]">
+      <div className="drawer-content pt-8 px-5 w-[90%] lg:w-[84%]">
         <Outlet />
       </div>
     </section>
