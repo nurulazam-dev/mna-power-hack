@@ -33,10 +33,38 @@ const Routers = () => {
         }
       >
         <Route index element={<Overview />} />
-        <Route path="manage-users" element={<ManageUsers />} />
-        <Route path="manage-bills" element={<ManageBills />} />
-        <Route path="add-bill" element={<AddBill />} />
-        <Route path="unpaid-bills" element={<UnpaidBills />} />
+        <Route
+          path="manage-users"
+          element={
+            <ProtectedRoutes allowedRoles={["admin"]}>
+              <ManageUsers />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="manage-bills"
+          element={
+            <ProtectedRoutes allowedRoles={["admin"]}>
+              <ManageBills />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="add-bill"
+          element={
+            <ProtectedRoutes allowedRoles={["billingOfficer"]}>
+              <AddBill />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="unpaid-bills"
+          element={
+            <ProtectedRoutes allowedRoles={["accountant"]}>
+              <UnpaidBills />
+            </ProtectedRoutes>
+          }
+        />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
       </Route>
