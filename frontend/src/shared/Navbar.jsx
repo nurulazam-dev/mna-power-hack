@@ -43,10 +43,6 @@ const Navbar = () => {
       path: "/dashboard",
       display: "Dashboard",
     },
-    {
-      path: "/dashboard-copy",
-      display: "Dash-C",
-    },
   ];
 
   const navLinks = (

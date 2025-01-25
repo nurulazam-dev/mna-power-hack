@@ -125,24 +125,26 @@ const ManageUsers = () => {
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
               <tr className="text-violet-700 font-bold text-[16px]">
-                <th className="border">Index</th>
-                <th className="border">User Name</th>
-                <th className="border">User Email</th>
-                <th className="border">Phone</th>
-                <th className="border">User Rule</th>
-                <th className="border">User Created</th>
-                <th className="border">Action</th>
+                <th className="border p-2">Index</th>
+                <th className="border p-1 py-3">User Name</th>
+                <th className="border p-1 py-3">User Email</th>
+                <th className="border p-1 py-3">Phone</th>
+                <th className="border p-1 py-3">User Rule</th>
+                <th className="border p-1 py-3">User Created</th>
+                <th className="border p-1 py-3">Action</th>
               </tr>
             </thead>
             <tbody>
               {currentUsers?.map((user, index) => (
                 <tr className="border text-left" key={user?._id}>
-                  <td className="border">ULN-{indexOfFirstUser + index + 1}</td>
-                  <td className="border">{user?.name}</td>
-                  <td className="border">{user?.email}</td>
-                  <td className="border">{user?.phone}</td>
-                  <td className="border">{user?.role}</td>
-                  <td className="border">
+                  <td className="border text-center p-0">
+                    ULN-{indexOfFirstUser + index + 1}
+                  </td>
+                  <td className="border p-1 py-2">{user?.name}</td>
+                  <td className="border p-1 py-2">{user?.email}</td>
+                  <td className="border p-1 py-2">{user?.phone}</td>
+                  <td className="border p-1 py-2">{user?.role}</td>
+                  <td className="border p-1 py-2">
                     {user?.createdAt
                       ? new Date(user.createdAt).toLocaleDateString("en-GB", {
                           day: "2-digit",
@@ -151,8 +153,8 @@ const ManageUsers = () => {
                         })
                       : "Date not available"}
                   </td>
-                  <td className="flex justify-center">
-                    <div className="mx-2">
+                  <td className="flex justify-center items-center p-1 py-2">
+                    <div className="mr-1">
                       <UpdateUserModal
                         user={selectedUser}
                         onUpdate={handleUpdateUser}
@@ -165,7 +167,7 @@ const ManageUsers = () => {
                         Update
                       </label>
                     </div>
-                    <div className="mx-2">
+                    <div className="ml-1">
                       <DeleteUserModal
                         user={selectedUser}
                         onDelete={handleDeleteUser}

@@ -7,7 +7,7 @@ import Loading from "../../shared/Loading";
 const AddBill = () => {
   const [bills, setBills] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [billsPerPage] = useState(10);
+  const [billsPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { user } = useContext(authContext);
@@ -89,7 +89,7 @@ const AddBill = () => {
           {/* table part */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-black font-bold text-[15px]">
+              <tr className="text-violet-700 font-bold text-[16px]">
                 <th className="border p-2">Bill S.</th>
                 <th className="border px-1 py-2">Billing ID</th>
                 <th className="border px-1 py-2">Billing Holder</th>

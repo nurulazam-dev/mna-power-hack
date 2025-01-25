@@ -7,7 +7,6 @@ import NotFound from "../Pages/NotFound";
 import Dashboard from "../Pages/Dashboard";
 import Contact from "../Pages/Contact";
 import About from "../Pages/About";
-import DashboardCopy from "../Pages/DashboardCopy";
 import Overview from "../components/Dashboard/Overview";
 import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
 import ManageBills from "../components/Dashboard/ManageBills";
@@ -25,8 +24,8 @@ const Routers = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/billing-list" element={<AddBill />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      {/* dashboard copy test */}
-      <Route path="/dashboard-copy" element={<DashboardCopy />}>
+      {/* dashboard */}
+      <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<Overview />} />
         <Route path="manage-users" element={<ManageUsers />} />
         <Route path="manage-bills" element={<ManageBills />} />
@@ -36,7 +35,7 @@ const Routers = () => {
         <Route path="settings" element={<Settings />} />
       </Route>
 
-      {/* dashboard copy test */}
+      {/* dashboard */}
 
       {/*  <Route
         path="/billing-list"
