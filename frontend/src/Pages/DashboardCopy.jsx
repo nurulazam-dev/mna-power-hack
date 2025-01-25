@@ -109,24 +109,20 @@ const DashboardCopy = () => {
           {/* </>
           ) : (
             <> */}
-          <li>
-            <Link to="/dashboard/myOrders">
-              {/* <FontAwesomeIcon
+          <Link to="/dashboard/myOrders">
+            {/* <FontAwesomeIcon
                     icon={faCartPlus}
                     className="lg:mr-3 md:mr-2 mr-0"
                   /> */}
-              <span className="lg:block hidden">My Orders</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/addReview">
-              {/* <FontAwesomeIcon
+            <span className="lg:block hidden">My Orders</span>
+          </Link>
+          <Link to="/dashboard/addReview">
+            {/* <FontAwesomeIcon
                     icon={faComment}
                     className="lg:mr-3 md:mr-2 mr-0"
                   /> */}
-              <span className="lg:block hidden">Add A Review</span>
-            </Link>
-          </li>
+            <span className="lg:block hidden">Add A Review</span>
+          </Link>
           {/*  </>
           )} */}
         </div>
