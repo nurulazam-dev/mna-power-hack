@@ -13,7 +13,7 @@ const UnpaidBills = () => {
   const [selectedBill, setSelectedBill] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [billsPerPage] = useState(5);
+  const [billsPerPage] = useState(10);
   const { user } = useContext(authContext);
   const billUpdaterEmail = user?.email;
 
@@ -114,28 +114,26 @@ const UnpaidBills = () => {
           {/* Table */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-violet-700 text-[16px]">
-                <th className="border">Billing S.</th>
-                <th className="border">Billing Holder</th>
-                <th className="border">Phone</th>
-                <th className="border">Amount</th>
-
-                <th className="border">Dateline</th>
-
-                <th className="border">Action</th>
+              <tr className="text-violet-700 text-[15px]">
+                <th className="border p-2">Billing S.</th>
+                <th className="border p-1 py-3">Billing Holder</th>
+                <th className="border p-1 py-3">Phone</th>
+                <th className="border p-1 py-3">Amount</th>
+                <th className="border p-1 py-3">Dateline</th>
+                <th className="border p-1 py-3">B. Attach</th>
+                <th className="border p-1 py-3">Action</th>
               </tr>
             </thead>
             <tbody>
               {currentBills?.map((bill, index) => (
                 <tr key={bill?._id} className="border text-left">
-                  <td className="border">
+                  <td className="border text-center p-0">
                     UPaidBill-{indexOfFirstBill + index + 1}
                   </td>
-                  <td className="border">{bill?.billingHolder}</td>
-                  <td className="border">{bill?.phone}</td>
-                  <td className="border">$ {bill?.amount}</td>
-
-                  <td className="border">
+                  <td className="border p-1 py-2">{bill?.billingHolder}</td>
+                  <td className="border p-1 py-2">{bill?.phone}</td>
+                  <td className="border p-1 py-2">$ {bill?.amount}</td>
+                  <td className="border p-1 py-2">
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
                           day: "2-digit",
@@ -144,8 +142,10 @@ const UnpaidBills = () => {
                         })
                       : "Date not available"}
                   </td>
-
-                  <td className="flex justify-center">
+                  <td className="border p-1 py-2">
+                    {bill?.billAttacher?.email}
+                  </td>
+                  <td className="flex justify-center p-1 py-2">
                     <div className="mx-1">
                       <UpdateBillModal
                         bill={selectedBill}
