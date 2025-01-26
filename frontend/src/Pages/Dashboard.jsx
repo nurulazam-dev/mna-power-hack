@@ -40,18 +40,19 @@ const Dashboard = () => {
           </Link>
           {/* {admin ? (
                 <> */}
-          {role === "billingOfficer" && (
-            <Link
-              to="/dashboard/add-bill"
-              onClick={() => setTab("addBill")}
-              className={`${
-                tab == "addBill" ? activeTabClass : inactiveTabClass
-              } `}
-            >
-              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-              <span className="lg:block hidden">Add Bill</span>
-            </Link>
-          )}
+          {role === "billingOfficer" ||
+            (role === "admin" && (
+              <Link
+                to="/dashboard/add-bill"
+                onClick={() => setTab("addBill")}
+                className={`${
+                  tab == "addBill" ? activeTabClass : inactiveTabClass
+                } `}
+              >
+                <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+                <span className="lg:block hidden">Add Bill</span>
+              </Link>
+            ))}
           <Link
             to="/dashboard/unpaid-bills"
             onClick={() => setTab("unpaidBills")}
