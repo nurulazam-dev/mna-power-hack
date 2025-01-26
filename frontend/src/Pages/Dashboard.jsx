@@ -38,8 +38,7 @@ const Dashboard = () => {
             <TbHomeStats className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
             <span className="lg:block hidden">Overview</span>
           </Link>
-          {/* {admin ? (
-                <> */}
+
           {role === "billingOfficer" || role === "admin" ? (
             <Link
               to="/dashboard/add-bill"
@@ -110,25 +109,6 @@ const Dashboard = () => {
             <span className="lg:block hidden">Settings</span>
           </Link>
           <hr className="mb-2" />
-          {/* </>
-              ) : (
-                <> */}
-          <Link to="/dashboard/myOrders">
-            {/* <FontAwesomeIcon
-                        icon={faCartPlus}
-                        className="lg:mr-3 md:mr-2 mr-0"
-                      /> */}
-            <span className="lg:block hidden">My Orders</span>
-          </Link>
-          <Link to="/dashboard/addReview">
-            {/* <FontAwesomeIcon
-                        icon={faComment}
-                        className="lg:mr-3 md:mr-2 mr-0"
-                      /> */}
-            <span className="lg:block hidden">Add A Review</span>
-          </Link>
-          {/*  </>
-              )} */}
         </div>
       </div>
       {/* dashboard Outlet part */}
