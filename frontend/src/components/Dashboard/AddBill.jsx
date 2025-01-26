@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import AddBillModal from "../Billings/AddBillModal";
-import { BASE_URL } from "../../../config";
+import { BASE_URL, token } from "../../../config";
 import { authContext } from "../../context/AuthContext";
 import Loading from "../../shared/Loading";
 
@@ -69,7 +69,7 @@ const AddBill = () => {
           <div className="border bg-violet-600 my-4 rounded flex justify-between mx-auto px-7 py-2">
             <div className="flex items-center">
               <h2 className="font-semibold text-2xl text-white">
-                Total Billings : {currentBills?.length}{" "}
+                Total Billings : {bills?.length}{" "}
               </h2>
             </div>
             <div>

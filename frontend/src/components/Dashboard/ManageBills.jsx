@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { BASE_URL } from "../../../config";
+import { BASE_URL, token } from "../../../config";
 import Error from "../../shared/Error";
 import Loading from "../../shared/Loading";
 import ViewBillModal from "../Billings/ViewBillModal";
@@ -23,7 +23,14 @@ const ManageBills = () => {
     const fetchBills = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${BASE_URL}/bills`);
+        const response = await fetch(`${BASE_URL}/bills`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         const result = await response.json();
         if (!response.ok) {
           throw new Error(result.message);
@@ -44,6 +51,10 @@ const ManageBills = () => {
     try {
       const response = await fetch(`${BASE_URL}/bills/${billId}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.ok) {
@@ -67,6 +78,7 @@ const ManageBills = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(updatedBill),
       });

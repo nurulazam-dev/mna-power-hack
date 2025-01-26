@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../../../config";
+import { BASE_URL, token } from "../../../../config";
 
 const Summary = () => {
   const [bills, setBills] = useState([]);
@@ -10,7 +10,13 @@ const Summary = () => {
   useEffect(() => {
     const fetchBills = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/bills`);
+        const response = await fetch(`${BASE_URL}/bills`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const result = await response.json();
         if (!response.ok) {
           throw new Error(result.message);

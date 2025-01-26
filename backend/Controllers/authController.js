@@ -17,7 +17,11 @@ export const register = async (req, res) => {
   try {
     let user = null;
 
-    if (role == "billingOfficer" || "accountant" || "admin") {
+    if (
+      role === "billingOfficer" ||
+      role === "accountant" ||
+      role === "admin"
+    ) {
       user = await User.findOne({ email });
     }
 
@@ -30,7 +34,11 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
 
-    if (role == "billingOfficer" || "accountant" || "admin") {
+    if (
+      role === "billingOfficer" ||
+      role === "accountant" ||
+      role === "admin"
+    ) {
       user = new User({
         name,
         email,
@@ -54,10 +62,18 @@ export const login = async (req, res) => {
   try {
     let user = null;
 
+    const billingOfficer = await User.findOne({ email });
     const accountant = await User.findOne({ email });
+    const admin = await User.findOne({ email });
 
+    if (billingOfficer) {
+      user = billingOfficer;
+    }
     if (accountant) {
       user = accountant;
+    }
+    if (admin) {
+      user = admin;
     }
 
     //check if user exist or not

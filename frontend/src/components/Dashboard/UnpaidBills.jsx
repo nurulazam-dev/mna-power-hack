@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { BASE_URL } from "../../../config";
+import { BASE_URL, token } from "../../../config";
 import Error from "../../shared/Error";
 import Loading from "../../shared/Loading";
 import UpdateBillModal from "../Billings/UpdateBillModal";
@@ -21,7 +21,13 @@ const UnpaidBills = () => {
     const fetchUnpaidBills = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${BASE_URL}/bills`);
+        const response = await fetch(`${BASE_URL}/bills`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const result = await response.json();
         if (!response.ok) {
           throw new Error(result.message);
