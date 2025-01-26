@@ -1,6 +1,6 @@
 import express from "express";
 
-// import { authenticate, restrict } from "../auth/verifyToken.js";
+import { authenticate, restrict } from "../auth/verifyToken.js";
 
 import {
   deleteUser,
@@ -17,10 +17,10 @@ const router = express.Router();
 // router.put("/:id", authenticate, restrict(["admin"]), updateUser);
 // router.delete("/:id", authenticate, restrict(["admin"]), deleteUser);
 router.get("/:id", getAUser);
-router.get("/", getAllUser);
-router.put("/:id", updateUser);
-router.delete("/:id", deleteUser);
-router.get("/profile", getMyProfile);
-router.post("/update-password", updatePassword);
+router.get("/", authenticate, restrict(["admin"]), getAllUser);
+router.put("/:id", authenticate, restrict(["admin"]), updateUser);
+router.delete("/:id", authenticate, restrict(["admin"]), deleteUser);
+router.get("/profile", authenticate, getMyProfile);
+router.post("/update-password", authenticate, updatePassword);
 
 export default router;

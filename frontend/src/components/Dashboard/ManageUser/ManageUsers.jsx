@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import DeleteUserModal from "./DeleteUserModal";
 import UpdateUserModal from "./UpdateUserModal";
-import { BASE_URL } from "../../../../config";
+import { BASE_URL, token } from "../../../../config";
 import Loading from "../../../shared/Loading";
 import Error from "../../../shared/Error";
 import { toast } from "react-toastify";
@@ -19,7 +19,13 @@ const ManageUsers = () => {
     const fetchUsers = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${BASE_URL}/users`);
+        const response = await fetch(`${BASE_URL}/users`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const result = await response.json();
         if (!response.ok) {
           throw new Error(result.message);
@@ -40,6 +46,10 @@ const ManageUsers = () => {
     try {
       const response = await fetch(`${BASE_URL}/users/${userId}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.ok) {
@@ -61,6 +71,7 @@ const ManageUsers = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(updatedUser),
       });
