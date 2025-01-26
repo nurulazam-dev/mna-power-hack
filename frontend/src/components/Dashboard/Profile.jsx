@@ -4,7 +4,7 @@ import { authContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Profile = () => {
-  const { user } = useContext(authContext);
+  const { user, role } = useContext(authContext);
 
   const showToast = () => {
     toast.error(
@@ -22,8 +22,8 @@ const Profile = () => {
           <h2 className="text-violet-600 text-2xl font-bold">
             {user ? user?.name : "User not found"}
           </h2>
-          <p className="text-gray-500 text-sm">
-            {user ? user?.role : "User role not found"}
+          <p className="text-gray-500 text-md capitalize">
+            {role ? role : "User role not found"}
           </p>
         </div>
 
