@@ -16,8 +16,8 @@ const OverviewUserBanner = () => {
             <span className="text-sm font-semibold">({role})</span>
           </h2>
           <p className="opacity-85 font-thin text-[15px]">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-            quae consequuntur accusantium praesentium architec
+            Dive into your personalized dashboard for seamless management and
+            insights. Thanks for being part of our team!
           </p>
           <button className="bg-black hover:bg-white py-[7px] rounded font-normal text-[17px] mt-4 mb-2 text-white hover:text-black flex justify-center items-center px-5">
             Profile <MdArrowOutward className="h-5 w-5 ml-1" />
