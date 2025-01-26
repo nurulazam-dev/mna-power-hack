@@ -47,7 +47,13 @@ const Summary = () => {
     const fetchUsers = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${BASE_URL}/users`);
+        const response = await fetch(`${BASE_URL}/users`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
         const result = await response.json();
         if (!response.ok) {
           throw new Error(result.message);
