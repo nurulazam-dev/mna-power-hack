@@ -91,7 +91,7 @@ const Navbar = () => {
       >
         {open ? (
           <svg
-            className="swap-on fill-current"
+            className="swap-on fill-current text-red-600"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -101,7 +101,7 @@ const Navbar = () => {
           </svg>
         ) : (
           <svg
-            className="swap-off fill-current"
+            className="swap-off fill-current text-orange-600"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -121,7 +121,7 @@ const Navbar = () => {
         </h2>
       </NavLink>
       <ul
-        className={`md:pl-10 lg:pr-10 pr-20 md:static fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 ${
+        className={`md:pl-10 lg:pr-10 pr-20 md:static fixed duration-500 ease-linear top-0 md:h-auto h-screen z-10 bg-slate-100 ${
           !open ? "right-[-100%] " : "right-0"
         }`}
       >
