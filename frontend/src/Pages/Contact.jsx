@@ -6,7 +6,7 @@ const Contact = () => {
       <h2 className="text-3xl mb-2 font-bold text-slate-600 text-center">
         Contact Us
       </h2>
-      <div className="flex items-center justify-center w-full">
+      <div className="lg:flex items-center justify-center w-full">
         <div className="lg:w-1/2 w-full">
           <img src={contactImg} alt="contact Img" />
         </div>
