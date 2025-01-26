@@ -52,7 +52,7 @@ const Routers = () => {
         <Route
           path="add-bill"
           element={
-            <ProtectedRoutes allowedRoles={["billingOfficer"]}>
+            <ProtectedRoutes allowedRoles={["billingOfficer", "admin"]}>
               <AddBill />
             </ProtectedRoutes>
           }
@@ -60,7 +60,7 @@ const Routers = () => {
         <Route
           path="unpaid-bills"
           element={
-            <ProtectedRoutes allowedRoles={["accountant"]}>
+            <ProtectedRoutes allowedRoles={["accountant", "admin"]}>
               <UnpaidBills />
             </ProtectedRoutes>
           }
@@ -79,7 +79,7 @@ const Routers = () => {
           </ProtectedRoutes>
         }
       />
-      {/* <Route path="/about" element={<About />} /> */}
+      <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
