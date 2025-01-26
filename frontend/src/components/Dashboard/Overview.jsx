@@ -12,7 +12,7 @@ const Overview = () => {
         Welcome to the Dashboard!
       </h1>
       {/* ======================================= */}
-      <div className="flex justify-center w-full">
+      <div className="lg:flex justify-center w-full">
         {/* middle part */}
         <div className="w-full lg:w-[65%] lg:mr-5 mb-6 min-h-screen">
           <OverviewUserBanner />

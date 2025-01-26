@@ -8,7 +8,7 @@ const OverviewUserBanner = () => {
 
   return (
     <section className="bg-gradient-to-r from-violet-800 to-violet-300 text-white rounded-md mb-6">
-      <div className="flex justify-between items-center p-2 pb-0">
+      <div className="lg:flex justify-between items-center p-2 pb-0">
         {/* info part */}
         <div className="px-4">
           <h2 className="font-bold text-2xl mb-2">
@@ -24,7 +24,7 @@ const OverviewUserBanner = () => {
           </button>
         </div>
         {/* img part */}
-        <div className="mt-4">
+        <div className="mt-4 lg:block hidden">
           <img src={dataImg} alt="" className="max-w-64" />
         </div>
       </div>
