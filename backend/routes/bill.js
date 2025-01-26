@@ -16,7 +16,7 @@ router.post(
   restrict(["billingOfficer", "admin"]),
   createBill
 );
-router.get("/", authenticate, getBill);
+router.get("/:id", authenticate, getBill);
 router.put("/:id", authenticate, restrict(["accountant", "admin"]), updateBill);
 router.delete("/:id", authenticate, restrict(["admin"]), deleteBill);
 
