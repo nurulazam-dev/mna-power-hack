@@ -5,6 +5,8 @@ import { BASE_URL } from "../../../config";
 
 const Settings = () => {
   const { user } = useContext(authContext);
+  console.table(user);
+
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
