@@ -1,7 +1,5 @@
 import express from "express";
-
 import { authenticate, restrict } from "../auth/verifyToken.js";
-
 import {
   deleteUser,
   getAllUser,
@@ -10,6 +8,7 @@ import {
   updatePassword,
   updateUser,
 } from "../Controllers/userController.js";
+
 const router = express.Router();
 
 router.get("/:id", authenticate, restrict(["admin"]), getAUser);

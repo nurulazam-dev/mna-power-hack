@@ -7,6 +7,7 @@ import {
   getBill,
   updateBill,
 } from "../Controllers/billController.js";
+
 const router = express.Router();
 
 router.get("/", authenticate, restrict(["admin"]), getAllBills);
