@@ -9,7 +9,6 @@ import { authContext } from "../context/AuthContext";
 const Dashboard = () => {
   const [tab, setTab] = useState("overview");
   const { role } = useContext(authContext);
-  console.log(role);
 
   const activeTabClass =
     "bg-slate-100 text-indigo-600 w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
@@ -41,17 +40,18 @@ const Dashboard = () => {
           </Link>
           {/* {admin ? (
                 <> */}
-
-          <Link
-            to="/dashboard/add-bill"
-            onClick={() => setTab("addBill")}
-            className={`${
-              tab == "addBill" ? activeTabClass : inactiveTabClass
-            } `}
-          >
-            <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-            <span className="lg:block hidden">Add Bill</span>
-          </Link>
+          {role === "billingOfficer" && (
+            <Link
+              to="/dashboard/add-bill"
+              onClick={() => setTab("addBill")}
+              className={`${
+                tab == "addBill" ? activeTabClass : inactiveTabClass
+              } `}
+            >
+              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+              <span className="lg:block hidden">Add Bill</span>
+            </Link>
+          )}
           <Link
             to="/dashboard/unpaid-bills"
             onClick={() => setTab("unpaidBills")}
