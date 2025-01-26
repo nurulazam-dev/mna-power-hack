@@ -52,36 +52,43 @@ const Dashboard = () => {
               <span className="lg:block hidden">Add Bill</span>
             </Link>
           ) : null}
-          <Link
-            to="/dashboard/unpaid-bills"
-            onClick={() => setTab("unpaidBills")}
-            className={`${
-              tab == "unpaidBills" ? activeTabClass : inactiveTabClass
-            } `}
-          >
-            <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-            <span className="lg:block hidden">Unpaid Bills</span>
-          </Link>
-          <Link
-            to="/dashboard/manage-bills"
-            onClick={() => setTab("manageBills")}
-            className={`${
-              tab == "manageBills" ? activeTabClass : inactiveTabClass
-            } `}
-          >
-            <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-            <span className="lg:block hidden">Manage Bills</span>
-          </Link>
-          <Link
-            to="/dashboard/manage-users"
-            onClick={() => setTab("manageUsers")}
-            className={`${
-              tab == "manageUsers" ? activeTabClass : inactiveTabClass
-            } `}
-          >
-            <FaUsersCog className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
-            <span className="lg:block hidden">Manage Users</span>
-          </Link>
+          {role === "accountant" || role === "admin" ? (
+            <Link
+              to="/dashboard/unpaid-bills"
+              onClick={() => setTab("unpaidBills")}
+              className={`${
+                tab == "unpaidBills" ? activeTabClass : inactiveTabClass
+              } `}
+            >
+              <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+              <span className="lg:block hidden">Unpaid Bills</span>
+            </Link>
+          ) : null}
+          {role === "admin" ? (
+            <>
+              <Link
+                to="/dashboard/manage-bills"
+                onClick={() => setTab("manageBills")}
+                className={`${
+                  tab == "manageBills" ? activeTabClass : inactiveTabClass
+                } `}
+              >
+                <RiBillLine className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+                <span className="lg:block hidden">Manage Bills</span>
+              </Link>
+              <Link
+                to="/dashboard/manage-users"
+                onClick={() => setTab("manageUsers")}
+                className={`${
+                  tab == "manageUsers" ? activeTabClass : inactiveTabClass
+                } `}
+              >
+                <FaUsersCog className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+                <span className="lg:block hidden">Manage Users</span>
+              </Link>
+            </>
+          ) : null}
+
           <Link
             to="/dashboard/profile"
             onClick={() => setTab("profile")}
