@@ -71,14 +71,6 @@ const Routers = () => {
 
       {/* dashboard */}
 
-      <Route
-        path="/about"
-        element={
-          <ProtectedRoutes allowedRoles={["billingOfficer"]}>
-            <About />
-          </ProtectedRoutes>
-        }
-      />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
