@@ -3,10 +3,13 @@ import { TbHomeStats } from "react-icons/tb";
 import { FaUsersCog, FaRegUser, FaUserEdit } from "react-icons/fa";
 import { RiBillLine } from "react-icons/ri";
 import brandLogo from "../assets/images/logo.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { authContext } from "../context/AuthContext";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("overview");
+  const { role } = useContext(authContext);
+  console.log(role);
 
   const activeTabClass =
     "bg-slate-100 text-indigo-600 w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
