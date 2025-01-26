@@ -25,7 +25,13 @@ const AddBill = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${BASE_URL}/bills`);
+      const response = await fetch(`${BASE_URL}/bills`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (!response.ok) {
         throw new Error(`Failed to fetch bills: ${response.status}`);
       }
