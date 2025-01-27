@@ -123,7 +123,7 @@ const Dashboard = () => {
         </div>
       </div>
       {/* dashboard Outlet part */}
-      <div className="drawer-content py-8 px-5 w-[90%] lg:w-[84%]">
+      <div className="drawer-content p-6 w-[90%] lg:w-[84%]">
         <Outlet />
       </div>
     </section>
