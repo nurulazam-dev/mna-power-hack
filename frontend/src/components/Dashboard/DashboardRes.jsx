@@ -169,28 +169,30 @@ const DashboardRes = () => {
                   className="md:table-row border-b border-gray-200 hover:bg-gray-100 block mb-4 lg:mb-0 border text-left text-[13px]"
                 >
                   <td className="border text-center p-0 lg:py-0 py-2 lg:bg-slate-50 bg-slate-200 md:table-cell block">
-                    <span className="font-bold md:hidden">Bill No: </span>
+                    <span className="font-bold md:hidden text-violet-700 text-[14px]">
+                      Bill No:{" "}
+                    </span>
                     B-{indexOfFirstBill + index + 1}
                   </td>
 
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">
                       Billing Holder:{" "}
                     </span>
                     {bill?.billingHolder}
                   </td>
 
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">
                       Phone Number:{" "}
                     </span>
                     {bill?.phone}
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">Amount: </span>${" "}
                     {bill?.amount}
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">Status: </span>{" "}
                     <span
                       className={
@@ -202,7 +204,7 @@ const DashboardRes = () => {
                       {bill?.status}
                     </span>
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">Dateline: </span>
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
@@ -212,13 +214,13 @@ const DashboardRes = () => {
                         })
                       : "Date not available"}
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">
                       Bill Attach:{" "}
                     </span>
                     {bill?.billAttacher?.email}
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">
                       Bill Updated:{" "}
                     </span>
@@ -233,13 +235,13 @@ const DashboardRes = () => {
                         )
                       : "Not updated"}
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 md:table-cell flex justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">
                       Bill Updater:{" "}
                     </span>
                     {bill?.billUpdater ? bill?.billUpdater : "Not updated"}
                   </td>
-                  <td className="border lg:px-1 px-4 lg:py-2 flex lg:justify-center justify-between  items-center">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 flex lg:justify-center justify-between  items-center">
                     <span className="font-bold md:hidden mr-1">Action: </span>
                     <div className="mx-1">
                       <ViewBillModal bill={selectedBill} />
