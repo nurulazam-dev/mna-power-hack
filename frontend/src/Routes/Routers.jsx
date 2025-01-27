@@ -15,6 +15,7 @@ import Profile from "../components/Dashboard/Profile";
 import UnpaidBills from "../components/Dashboard/UnpaidBills";
 import AddBill from "../components/Dashboard/AddBill";
 import RequireAuth from "./RequireAuth";
+import DashboardRes from "../components/Dashboard/DashboardRes";
 
 const Routers = () => {
   return (
@@ -67,6 +68,7 @@ const Routers = () => {
         />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="respTest" element={<DashboardRes />} />
       </Route>
 
       {/* dashboard */}
