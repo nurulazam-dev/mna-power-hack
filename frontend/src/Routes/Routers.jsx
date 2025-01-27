@@ -5,7 +5,6 @@ import Register from "../Pages/Register";
 import ProtectedRoutes from "./ProtectedRoutes";
 import NotFound from "../Pages/NotFound";
 import Dashboard from "../Pages/Dashboard";
-import Contact from "../Pages/Contact";
 import About from "../Pages/About";
 import Overview from "../components/Dashboard/Overview";
 import ManageUsers from "../components/Dashboard/ManageUser/ManageUsers";
@@ -16,6 +15,7 @@ import UnpaidBills from "../components/Dashboard/UnpaidBills";
 import AddBill from "../components/Dashboard/AddBill";
 import RequireAuth from "./RequireAuth";
 import DashboardRes from "../components/Dashboard/DashboardRes";
+import ContactPage from "../Pages/ContactPage";
 
 const Routers = () => {
   return (
@@ -74,7 +74,7 @@ const Routers = () => {
       {/* dashboard */}
 
       <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

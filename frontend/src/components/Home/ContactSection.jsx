@@ -1,8 +1,8 @@
-import contactImg from "../assets/images/contact-us.png";
+import contactImg from "../../assets/images/contact-us.png";
 
-const Contact = () => {
+const ContactSection = () => {
   return (
-    <div className="mt-10 py-5 px-8">
+    <section className="py-2 lg:px-10 px-6">
       <h2 className="text-3xl mb-2 font-bold text-slate-600 text-center">
         Contact Us
       </h2>
@@ -65,8 +65,8 @@ const Contact = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Contact;
+export default ContactSection;

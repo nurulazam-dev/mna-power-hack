@@ -2,7 +2,7 @@ import { servicesData } from "../../assets/data/data";
 
 const ServicesSection = () => {
   return (
-    <section className="pt-3 text-gray-800 px-8">
+    <section className="pt-3 text-gray-800 lg:px-10 px-6">
       <div className="text-center">
         <h2 className="text-3xl mb-2 font-bold text-slate-600 text-center">
           Our Services

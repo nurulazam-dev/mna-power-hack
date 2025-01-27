@@ -59,7 +59,7 @@ const AddBill = () => {
 
   return (
     <section>
-      <h1 className="text-3xl mb-2 font-bold text-slate-600 text-center">
+      <h1 className="lg:text-3xl text-2xl mb-2 font-bold text-slate-600 text-center">
         Add Bill
       </h1>
 
@@ -72,13 +72,13 @@ const AddBill = () => {
       ) : (
         <div>
           {/* search bar part */}
-          <div className="border bg-violet-600 my-4 rounded flex justify-between mx-auto px-7 py-2">
-            <div className="flex items-center">
-              <h2 className="font-semibold text-2xl text-white">
+          <div className="border bg-violet-600 my-4 rounded lg:flex justify-between items-center w-full mx-auto lg:px-7 px-3 py-2">
+            <div>
+              <h2 className="font-bold text-xl text-white lg:text-left text-center lg:mb-0 mb-2">
                 Total Billings : {bills?.length}{" "}
               </h2>
             </div>
-            <div>
+            <div className="flex justify-center items-center">
               <AddBillModal
                 onAddBill={handleAddBill}
                 billAttacherId={billAttacherId}
@@ -95,7 +95,7 @@ const AddBill = () => {
           {/* table part */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-violet-700 font-bold text-[16px]">
+              <tr className="text-violet-700 text-[14px] hidden md:table-row bg-gray-100">
                 <th className="border p-2">Bill S.</th>
                 <th className="border px-1 py-2">Billing ID</th>
                 <th className="border px-1 py-2">Billing Holder</th>
@@ -106,15 +106,44 @@ const AddBill = () => {
             </thead>
             <tbody>
               {currentBills?.map((bill, index) => (
-                <tr key={bill?._id} className="border text-left">
-                  <td className="border px-1 py-2 text-center">
+                <tr
+                  key={bill?._id}
+                  className="md:table-row border-b border-gray-200 hover:bg-gray-100 block mb-4 lg:mb-0 border text-left text-[13px]"
+                >
+                  <td className="border text-center p-0 lg:py-0 py-2 lg:bg-slate-50 bg-slate-200 md:table-cell block">
+                    <span className="font-bold md:hidden text-violet-700 text-[14px]">
+                      Bill No:{" "}
+                    </span>
                     BILL-{index + 1}
                   </td>
-                  <td className="border p-1 py-2">{bill?._id}</td>
-                  <td className="border p-1 py-2">{bill?.billingHolder}</td>
-                  <td className="border p-1 py-2">{bill?.phone}</td>
-                  <td className="border p-1 py-2">$ {bill?.amount}</td>
-                  <td className="border p-1 py-2">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Billing ID:{" "}
+                    </span>
+                    {bill?._id}
+                  </td>
+
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Billing Holder:{" "}
+                    </span>
+                    {bill?.billingHolder}
+                  </td>
+
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Phone Number:{" "}
+                    </span>
+                    {bill?.phone}
+                  </td>
+
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">Amount: </span>${" "}
+                    {bill?.amount}
+                  </td>
+
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">Dateline: </span>
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
                           day: "2-digit",

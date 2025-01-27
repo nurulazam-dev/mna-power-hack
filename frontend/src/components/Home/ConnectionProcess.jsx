@@ -1,6 +1,6 @@
 const ConnectionProcess = () => {
   return (
-    <section className="py-3 text-gray-800 px-8">
+    <section className="py-3 text-gray-800 lg:px-10 px-6">
       <div className="">
         <h2 className="text-3xl mb-2 font-bold text-slate-600 text-center">
           Electricity Connection Process
