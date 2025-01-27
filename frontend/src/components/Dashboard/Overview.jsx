@@ -8,7 +8,7 @@ import TopBillHolder from "./Overview/TopBillHolder";
 const Overview = () => {
   return (
     <section className="text-black">
-      <h1 className="text-4xl mb-2 font-bold text-slate-800">
+      <h1 className="lg:text-4xl text-[23px] mb-2 font-bold text-slate-800">
         Welcome to the Dashboard!
       </h1>
       {/* ======================================= */}
