@@ -109,6 +109,17 @@ const Dashboard = () => {
             <span className="lg:block hidden">Settings</span>
           </Link>
           <hr className="mb-2" />
+          <Link
+            to="/dashboard/respTest"
+            onClick={() => setTab("respTest")}
+            className={`${
+              tab == "respTest" ? activeTabClass : inactiveTabClass
+            } `}
+          >
+            <FaUserEdit className="w-7 h-7 lg:mr-3 md:mr-2 mr-0" />
+            <span className="lg:block hidden">resp Test</span>
+          </Link>
+          <hr className="mb-2" />
         </div>
       </div>
       {/* dashboard Outlet part */}
