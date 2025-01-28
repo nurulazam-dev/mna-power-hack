@@ -16,6 +16,7 @@ const ManageBills = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [billsPerPage] = useState(5);
+
   const { user } = useContext(authContext);
   const billUpdaterEmail = user?.email;
 
