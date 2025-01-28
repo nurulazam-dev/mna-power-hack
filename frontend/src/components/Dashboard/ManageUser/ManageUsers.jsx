@@ -113,7 +113,7 @@ const ManageUsers = () => {
           Manage Users
         </h1>
         <h5 className="lg:text-[15px] text-[13px] font-semibold text-slate-400">
-          (Total Bills : {users?.length})
+          (Total Users : {users?.length})
         </h5>
       </div>
 
@@ -158,7 +158,7 @@ const ManageUsers = () => {
                 >
                   <td className="border text-center p-0 lg:py-0 py-2 lg:bg-slate-50 bg-slate-200 md:table-cell block">
                     <span className="font-bold md:hidden text-violet-700 text-[14px]">
-                      Index :
+                      Index :{" "}
                     </span>
                     ULN-{indexOfFirstUser + index + 1}
                   </td>
@@ -200,7 +200,7 @@ const ManageUsers = () => {
                       : "Date not available"}
                   </td>
                   <td className="border lg:px-1 px-4 py-[6px] lg:py-2 flex lg:justify-center justify-between  items-center">
-                    <span className="font-bold md:hidden mr-1">Action: </span>
+                    <span className="font-bold md:hidden mr-1">Action : </span>
                     <div className="mr-1">
                       <UpdateUserModal
                         user={selectedUser}

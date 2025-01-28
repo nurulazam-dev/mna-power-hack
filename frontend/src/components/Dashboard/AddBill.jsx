@@ -75,7 +75,7 @@ const AddBill = () => {
           <div className="border bg-violet-600 my-4 rounded lg:flex justify-between items-center w-full mx-auto lg:px-7 px-3 py-2">
             <div>
               <h2 className="font-bold text-xl text-white lg:text-left text-center lg:mb-0 mb-2">
-                Total Billings : {bills?.length}{" "}
+                Total Bills : {bills?.length}{" "}
               </h2>
             </div>
             <div className="flex justify-center items-center">
@@ -86,7 +86,7 @@ const AddBill = () => {
               />
               <label
                 htmlFor="bill-add-modal"
-                className="btn text-[15px] text-white border-none hover:bg-green-700"
+                className="btn rounded text-[15px] text-white border-none hover:bg-green-600"
               >
                 Add New Bill
               </label>

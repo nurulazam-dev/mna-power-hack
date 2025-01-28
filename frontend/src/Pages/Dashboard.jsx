@@ -15,7 +15,7 @@ const Dashboard = () => {
   const inactiveTabClass =
     "bg-transparent text-white w-full mb-3 rounded-md flex items-center lg:justify-start justify-center lg:px-4 lg:py-2 px-1";
   return (
-    <section className="py-10 pr-5 flex w-full">
+    <section className="lg:py-10 py-5 flex w-full">
       {/* side bar part */}
       <div className="bg-slate-700 text-white w-[10%] lg:w-[16%] max-h-screen">
         <div className="py-4 px-2 text-white text-[17px] space-y-2">
