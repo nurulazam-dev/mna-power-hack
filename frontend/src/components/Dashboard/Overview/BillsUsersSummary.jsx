@@ -3,7 +3,7 @@ import { BASE_URL, token } from "../../../../config";
 import Error from "../../../shared/Error";
 import Loading from "../../../shared/Loading";
 
-const Summary = () => {
+const BillsUsersSummary = () => {
   const [bills, setBills] = useState([]);
   const [users, setUsers] = useState([]);
   const [totalPaidAmount, setTotalPaidAmount] = useState(0);
@@ -70,7 +70,7 @@ const Summary = () => {
   }, []);
 
   return (
-    <div className="">
+    <section className="">
       {loading && <Loading />}
       {error && <Error />}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -157,8 +157,8 @@ const Summary = () => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Summary;
+export default BillsUsersSummary;
