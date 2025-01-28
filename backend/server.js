@@ -3,6 +3,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import express, { json } from "express";
 import { set, connect } from "mongoose";
+import path from "path";
 
 import authRoutes from "./routes/auth.js";
 import billRoutes from "./routes/bill.js";
@@ -43,6 +44,9 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
+// Serve static files from the React app build folder
+app.use(express.static(path.resolve("frontend/dist")));
+
 // routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
@@ -50,6 +54,11 @@ app.use("/api/v1/bills", billRoutes);
 
 app.get("/", (req, res) => {
   res.send("Power Hack's Api is working");
+});
+
+// Catch-all route to serve React app for unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("frontend/dist", "index.html"));
 });
 
 app.listen(port, () => {
