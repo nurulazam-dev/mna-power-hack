@@ -108,26 +108,31 @@ const ManageUsers = () => {
 
   return (
     <section>
-      <h1 className="text-3xl mb-2 font-bold text-slate-600 text-center">
-        Manage Users
-      </h1>
+      <div className="lg:flex justify-center items-end  text-center mb-2">
+        <h1 className="lg:text-3xl text-2xl font-bold text-slate-600 lg:mr-[3px]">
+          Manage Users
+        </h1>
+        <h5 className="lg:text-[15px] text-[13px] font-semibold text-slate-400">
+          (Total Bills : {users?.length})
+        </h5>
+      </div>
 
       {loading && <Loading />}
       {error && <Error />}
       {!loading && !error && (
         <div>
           {/* search bar part */}
-          <div className="border bg-violet-600 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
+          <div className="border bg-violet-600 my-4 rounded lg:flex justify-between items-center w-full mx-auto lg:px-7 px-3 py-2">
             <div>
-              <h2 className="font-bold text-xl text-white">
-                Total Users: {filteredUsers?.length}
+              <h2 className="font-bold text-xl text-white lg:text-left text-center lg:mb-0 mb-2">
+                Search Result: {filteredUsers?.length}
               </h2>
             </div>
-            <div className="">
+            <div className="lg:flex items-center">
               <input
                 type="text"
                 placeholder="Search by Email, Phone, or Role"
-                className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
+                className="input focus:outline-none bg-white text-black w-full"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
