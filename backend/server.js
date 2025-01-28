@@ -4,9 +4,9 @@ import { config } from "dotenv";
 import express, { json } from "express";
 import { set, connect } from "mongoose";
 
-import authRoutes from "./Routes/auth.js";
-import billRoutes from "./Routes/bill.js";
-import userRoutes from "./Routes/user.js";
+import authRoutes from "./routes/auth.js";
+import billRoutes from "./routes/bill.js";
+import userRoutes from "./routes/user.js";
 
 config();
 
