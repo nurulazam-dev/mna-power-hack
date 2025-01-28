@@ -193,7 +193,7 @@ const UnpaidBills = () => {
                       <label
                         onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-update-modal"
-                        className="btn btn-outline btn-success btn-xs"
+                        className="btn btn-outline btn-success btn-xs rounded"
                       >
                         Update
                       </label>

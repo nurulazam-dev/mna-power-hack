@@ -14,7 +14,6 @@ import Profile from "../components/Dashboard/Profile";
 import UnpaidBills from "../components/Dashboard/UnpaidBills";
 import AddBill from "../components/Dashboard/AddBill";
 import RequireAuth from "./RequireAuth";
-import DashboardRes from "../components/Dashboard/DashboardRes";
 import ContactPage from "../Pages/ContactPage";
 
 const Routers = () => {
@@ -24,7 +23,9 @@ const Routers = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      {/* dashboard */}
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<ContactPage />} />
+      {/* dashboard routes */}
       <Route
         path="/dashboard"
         element={
@@ -68,13 +69,8 @@ const Routers = () => {
         />
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
-        <Route path="respTest" element={<DashboardRes />} />
       </Route>
 
-      {/* dashboard */}
-
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

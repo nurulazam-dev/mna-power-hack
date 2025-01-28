@@ -86,7 +86,7 @@ const AddBill = () => {
               />
               <label
                 htmlFor="bill-add-modal"
-                className="btn rounded text-[15px] text-white border-none hover:bg-green-600"
+                className="rounded text-[15px] text-white border-none py-[10px] px-4 bg-black font-bold hover:bg-green-600"
               >
                 Add New Bill
               </label>

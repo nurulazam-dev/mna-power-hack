@@ -35,11 +35,17 @@ const DeleteBillModal = ({ bill, onDelete }) => {
           )}
 
           <div className="modal-action">
-            <button onClick={handleConfirm} className="btn btn-error btn-xs">
+            <button
+              onClick={handleConfirm}
+              className="rounded px-3 py-2 border-none text-[15px] text-white bg-red-600 hover:bg-violet-600"
+            >
               {" "}
               Delete
             </button>
-            <label htmlFor="bill-delete-modal" className="btn btn-xs">
+            <label
+              htmlFor="bill-delete-modal"
+              className="rounded px-3 py-2 border-none text-[15px] text-white bg-green-600 hover:bg-black"
+            >
               Cancel
             </label>
           </div>

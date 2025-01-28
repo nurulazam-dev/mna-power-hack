@@ -22,19 +22,19 @@ const ViewBillModal = ({ bill }) => {
 
           <div className="space-y-3">
             <p className="text-sm">
-              <strong>Billing ID:</strong> {bill?._id}
+              <strong>Billing ID :</strong> {bill?._id}
             </p>
             <p className="text-sm">
-              <strong>Billing Holder:</strong> {bill?.billingHolder}
+              <strong>Billing Holder :</strong> {bill?.billingHolder}
             </p>
             <p className="text-sm">
-              <strong>Phone:</strong> {bill?.phone}
+              <strong>Phone :</strong> {bill?.phone}
             </p>
             <p className="text-sm">
-              <strong>Paid Amount:</strong> $ {bill?.amount}
+              <strong>Paid Amount :</strong> $ {bill?.amount}
             </p>
             <p className="text-sm">
-              <strong>Status:</strong>{" "}
+              <strong>Status :</strong>{" "}
               <span
                 className={`rounded px-3 py-[3px] text-white uppercase ${
                   bill?.status === "Unpaid" ? "bg-red-500" : "bg-green-500"
@@ -44,7 +44,7 @@ const ViewBillModal = ({ bill }) => {
               </span>
             </p>
             <p className="text-sm">
-              <strong>Dateline:</strong>{" "}
+              <strong>Dateline :</strong>{" "}
               {new Date(bill?.dateline).toLocaleDateString("en-GB", {
                 day: "2-digit",
                 month: "2-digit",
@@ -52,10 +52,11 @@ const ViewBillModal = ({ bill }) => {
               })}
             </p>
             <p className="text-sm">
-              <strong>Bill Attacher:</strong> {bill?.billAttacher?.email}
+              <strong>Bill Attach :</strong> {bill?.billAttacher?.email}
             </p>
             <p className="text-sm">
-              <strong>Bill A. ID:</strong> {bill?.billAttacher?._id}
+              <strong>Bill Update :</strong>{" "}
+              {bill?.billUpdater ? bill?.billUpdater : "Not updated"}
             </p>
           </div>
         </div>

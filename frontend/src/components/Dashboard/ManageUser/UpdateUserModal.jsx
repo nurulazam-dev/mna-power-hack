@@ -70,7 +70,7 @@ const UpdateUserModal = ({ user, onUpdate }) => {
           >
             ✕
           </label>
-          <h2 className="text-2xl text-center font-bold text-indigo-600 mb-4">
+          <h2 className="text-2xl text-center font-bold text-violet-600 mb-4">
             Update User
           </h2>
           <form onSubmit={handleSubmit} className="space-y-3">

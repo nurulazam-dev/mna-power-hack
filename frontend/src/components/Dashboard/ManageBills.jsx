@@ -254,7 +254,7 @@ const ManageBills = () => {
                       <label
                         onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-view-modal"
-                        className="btn btn-outline btn-primary btn-xs"
+                        className="btn btn-outline btn-primary btn-xs rounded"
                       >
                         View
                       </label>
@@ -268,7 +268,7 @@ const ManageBills = () => {
                       <label
                         onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-update-modal"
-                        className="btn btn-outline btn-success btn-xs"
+                        className="btn btn-outline btn-success btn-xs rounded"
                       >
                         Update
                       </label>
@@ -281,7 +281,7 @@ const ManageBills = () => {
                       <label
                         onClick={() => setSelectedBill(bill)}
                         htmlFor="bill-delete-modal"
-                        className="btn btn-outline btn-error btn-xs"
+                        className="btn btn-outline btn-error btn-xs rounded"
                       >
                         Delete
                       </label>

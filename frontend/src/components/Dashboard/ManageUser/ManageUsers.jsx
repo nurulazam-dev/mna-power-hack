@@ -208,7 +208,7 @@ const ManageUsers = () => {
                       />
                       <label
                         htmlFor="update-user-modal"
-                        className="btn btn-outline btn-success btn-xs"
+                        className="btn btn-outline btn-success btn-xs rounded"
                         onClick={() => setSelectedUser(user)}
                       >
                         Update
@@ -221,7 +221,7 @@ const ManageUsers = () => {
                       />
                       <label
                         htmlFor="delete-user-modal"
-                        className="btn btn-outline btn-error btn-xs"
+                        className="btn btn-outline btn-error btn-xs rounded"
                         onClick={() => setSelectedUser(user)}
                       >
                         Delete
