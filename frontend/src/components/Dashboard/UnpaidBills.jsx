@@ -126,8 +126,8 @@ const UnpaidBills = () => {
           {/* Table */}
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-violet-700 text-[15px]">
-                <th className="border p-2">Billing S.</th>
+              <tr className="text-violet-700 text-[14px] hidden md:table-row bg-gray-100">
+                <th className="border p-2">Bill S.</th>
                 <th className="border p-1 py-3">Billing Holder</th>
                 <th className="border p-1 py-3">Phone</th>
                 <th className="border p-1 py-3">Amount</th>
@@ -138,14 +138,36 @@ const UnpaidBills = () => {
             </thead>
             <tbody>
               {currentBills?.map((bill, index) => (
-                <tr key={bill?._id} className="border text-left">
-                  <td className="border text-center p-0">
+                <tr
+                  key={bill?._id}
+                  className="md:table-row border-b border-gray-200 hover:bg-gray-100 block mb-4 lg:mb-0 border text-left text-[13px]"
+                >
+                  <td className="border text-center p-0 lg:py-0 py-2 lg:bg-slate-50 bg-slate-200 md:table-cell block">
+                    <span className="font-bold md:hidden text-violet-700 text-[14px]">
+                      Bill S :{" "}
+                    </span>
                     UPaidBill-{indexOfFirstBill + index + 1}
                   </td>
-                  <td className="border p-1 py-2">{bill?.billingHolder}</td>
-                  <td className="border p-1 py-2">{bill?.phone}</td>
-                  <td className="border p-1 py-2">$ {bill?.amount}</td>
-                  <td className="border p-1 py-2">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Billing Holder :
+                    </span>
+                    {bill?.billingHolder}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Phone Number :
+                    </span>
+                    {bill?.phone}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">Amount : </span>${" "}
+                    {bill?.amount}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Dateline :{" "}
+                    </span>
                     {bill?.dateline
                       ? new Date(bill?.dateline).toLocaleDateString("en-GB", {
                           day: "2-digit",
@@ -154,10 +176,14 @@ const UnpaidBills = () => {
                         })
                       : "Date not available"}
                   </td>
-                  <td className="border p-1 py-2">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Bill Attach :
+                    </span>
                     {bill?.billAttacher?.email}
                   </td>
-                  <td className="flex justify-center p-1 py-2">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 flex lg:justify-center justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">Action : </span>
                     <div className="mx-1">
                       <UpdateBillModal
                         bill={selectedBill}
