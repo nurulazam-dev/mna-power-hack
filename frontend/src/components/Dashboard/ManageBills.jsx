@@ -117,9 +117,14 @@ const ManageBills = () => {
 
   return (
     <section>
-      <h1 className="lg:text-3xl text-2xl mb-2 font-bold text-slate-600 text-center">
-        Manage Bills
-      </h1>
+      <div className="lg:flex justify-center items-end  text-center mb-2">
+        <h1 className="lg:text-3xl text-2xl font-bold text-slate-600 lg:mr-[3px]">
+          Manage Bills
+        </h1>
+        <h5 className="lg:text-[15px] text-[13px] font-semibold text-slate-400">
+          (Total Bills : {bills?.length})
+        </h5>
+      </div>
 
       {loading && <Loading />}
       {error && <Error />}
@@ -129,7 +134,7 @@ const ManageBills = () => {
           <div className="border bg-violet-600 my-4 rounded lg:flex justify-between items-center w-full mx-auto lg:px-7 px-3 py-2">
             <div>
               <h2 className="font-bold text-xl text-white lg:text-left text-center lg:mb-0 mb-2">
-                Total Bills: {filteredBills?.length}
+                Search Result: {filteredBills?.length}
               </h2>
             </div>
             <div className="lg:flex items-center">
