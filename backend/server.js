@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 const corsOption = {
-  origin: false,
+  origin: true,
 };
 
 // database connection
@@ -22,7 +22,10 @@ set("strictQuery", false);
 const connectDB = async () => {
   try {
     // connect(process.env.LOCAL_DATABASE);
-    connect(process.env.MONGODB_URL);
+    connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("MongoDB is connected");
   } catch (err) {
     console.log("MongoDB connection fail");
