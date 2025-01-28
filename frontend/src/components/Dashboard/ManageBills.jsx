@@ -117,7 +117,7 @@ const ManageBills = () => {
 
   return (
     <section>
-      <h1 className="text-3xl mb-2 font-bold text-slate-600 text-center">
+      <h1 className="lg:text-3xl text-2xl mb-2 font-bold text-slate-600 text-center">
         Manage Bills
       </h1>
 
@@ -126,21 +126,21 @@ const ManageBills = () => {
       {!loading && !error && (
         <div>
           {/* search bar part */}
-          <div className="border bg-violet-600 my-4 rounded flex justify-between items-center w-full mx-auto  px-7 py-2">
-            <div className="flex items-center">
-              <h2 className="font-semibold text-2xl text-white">Billings</h2>
+          <div className="border bg-violet-600 my-4 rounded lg:flex justify-between items-center w-full mx-auto lg:px-7 px-3 py-2">
+            <div>
+              <h2 className="font-bold text-xl text-white lg:text-left text-center lg:mb-0 mb-2">
+                Total Bills: {filteredBills?.length}
+              </h2>
+            </div>
+            <div className="lg:flex items-center">
+              {/* <h2 className="font-semibold text-2xl text-white">Billings</h2> */}
               <input
                 type="text"
                 placeholder="Search by Holder, Phone, or Status"
-                className="input focus:outline-none bg-white text-black mx-3 w-full max-w-xs"
+                className="input focus:outline-none bg-white text-black w-full"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-            </div>
-            <div>
-              <h2 className="font-bold text-xl text-white">
-                Total Bills: {filteredBills?.length}
-              </h2>
             </div>
           </div>
 
