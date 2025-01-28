@@ -140,27 +140,57 @@ const ManageUsers = () => {
           </div>
           <table className="table table-compact text-center text-black w-full mx-auto">
             <thead>
-              <tr className="text-violet-700 font-bold text-[16px]">
+              <tr className="text-violet-700 text-[14px] hidden md:table-row bg-gray-100">
                 <th className="border p-2">Index</th>
-                <th className="border p-1 py-3">User Name</th>
-                <th className="border p-1 py-3">User Email</th>
-                <th className="border p-1 py-3">Phone</th>
-                <th className="border p-1 py-3">User Rule</th>
-                <th className="border p-1 py-3">User Created</th>
-                <th className="border p-1 py-3">Action</th>
+                <th className="border p-1 py-2">User Name</th>
+                <th className="border p-1 py-2">User Email</th>
+                <th className="border p-1 py-2">Phone</th>
+                <th className="border p-1 py-2">User Role</th>
+                <th className="border p-1 py-2">User Created</th>
+                <th className="border p-1 py-2">Action</th>
               </tr>
             </thead>
             <tbody>
               {currentUsers?.map((user, index) => (
-                <tr className="border text-left" key={user?._id}>
-                  <td className="border text-center p-0">
+                <tr
+                  className="md:table-row border-b border-gray-200 hover:bg-gray-100 block mb-4 lg:mb-0 border text-left text-[13px]"
+                  key={user?._id}
+                >
+                  <td className="border text-center p-0 lg:py-0 py-2 lg:bg-slate-50 bg-slate-200 md:table-cell block">
+                    <span className="font-bold md:hidden text-violet-700 text-[14px]">
+                      Index :
+                    </span>
                     ULN-{indexOfFirstUser + index + 1}
                   </td>
-                  <td className="border p-1 py-2">{user?.name}</td>
-                  <td className="border p-1 py-2">{user?.email}</td>
-                  <td className="border p-1 py-2">{user?.phone}</td>
-                  <td className="border p-1 py-2">{user?.role}</td>
-                  <td className="border p-1 py-2">
+
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      User Name :
+                    </span>
+                    {user?.name}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      User Email :
+                    </span>
+                    {user?.email}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      Phone Number :
+                    </span>
+                    {user?.phone}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      User Role :
+                    </span>
+                    {user?.role}
+                  </td>
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 md:table-cell flex justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">
+                      User Created :
+                    </span>
                     {user?.createdAt
                       ? new Date(user.createdAt).toLocaleDateString("en-GB", {
                           day: "2-digit",
@@ -169,7 +199,8 @@ const ManageUsers = () => {
                         })
                       : "Date not available"}
                   </td>
-                  <td className="flex justify-center items-center p-1 py-2">
+                  <td className="border lg:px-1 px-4 py-[6px] lg:py-2 flex lg:justify-center justify-between  items-center">
+                    <span className="font-bold md:hidden mr-1">Action: </span>
                     <div className="mr-1">
                       <UpdateUserModal
                         user={selectedUser}
