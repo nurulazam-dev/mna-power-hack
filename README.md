@@ -4,7 +4,7 @@
 
 #### (Latest version)
 
-[Live Link](https://www.power-hack.com)
+[Live Link](https://mna-power-hack.netlify.app/)
 
 - The website provides a complete system to manage billing records, including adding, viewing, updating, and deleting bills.
 - Implemented user roles—Billing Officer, Accountant, and Admin—with specific access rights for task delegation.
